@@ -9,7 +9,22 @@ protected String codigo, nombre, direccion, telefono;
         this.direccion = direccion;
         this.telefono = telefono;
     }
+public String getCod() {
+        return codigo;
+    }
 
+    public String getNom() {
+        return nombre;
+    }
+
+    public String getTel() {
+        return telefono;
+    }
+
+
+    public String getDir() {
+        return direccion;
+    }
     @Override
     public String toString() {
         return codigo + " - " + nombre + " - " + direccion + " - " + telefono ;

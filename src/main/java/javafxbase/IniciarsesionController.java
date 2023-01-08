@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package javafxbase;
 
 import java.net.URL;
@@ -37,7 +33,7 @@ public class IniciarsesionController implements Initializable {
     public boolean verificar(){
         String user = usuario.getText();
         String pass = clave.getText();
-        ArrayList<Cliente> clientes = Cliente. 
-    }
+       // ArrayList<Cliente> clientes = Cliente. 
+   return false; }
     
 }

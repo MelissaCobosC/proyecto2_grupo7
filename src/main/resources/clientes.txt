@@ -1,0 +1,4 @@
+Emilio,Av Americas,098123456,personal
+Maria,Cd Ceibos,098123456,personal
+Pedro,Av Americas,098123456,empresarial
+Camila,Av Americas,098123456,empresarial
