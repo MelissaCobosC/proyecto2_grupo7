@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -98,75 +99,79 @@
             </Button>
          </children>
       </VBox>
-      <TableView layoutX="184.0" layoutY="201.0" prefHeight="113.0" prefWidth="583.0">
+      <TableView layoutX="184.0" layoutY="232.0" prefHeight="100.0" prefWidth="583.0">
          <columns>
-            <TableColumn prefWidth="107.0" style="-fx-background-color: #;" text="Código" />
-            <TableColumn prefWidth="145.0" text="Fecha" />
-            <TableColumn minWidth="0.0" prefWidth="168.0" text="Nombre de cliente" />
-            <TableColumn minWidth="2.0" prefWidth="141.0" text="Total a pagar" />
+            <TableColumn minWidth="0.0" prefWidth="285.0" text="Nombre de cliente" />
+            <TableColumn minWidth="2.0" prefWidth="297.0" text="Total a pagar" />
          </columns>
       </TableView>
-      <Button layoutX="650.0" layoutY="329.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="118.0" text="      Ver detalle" textAlignment="RIGHT">
+      <Button layoutX="663.0" layoutY="339.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="98.0" text="Agregar" textAlignment="RIGHT">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <ImageView fitHeight="32.0" fitWidth="26.0" layoutX="657.0" layoutY="336.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../imagenes/lupa.png" />
-         </image>
-      </ImageView>
       <Pane layoutX="169.0" prefHeight="100.0" prefWidth="613.0" style="-fx-background-color: #808684;">
          <children>
-            <Label layoutX="25.0" layoutY="27.0" text="Consultar orden de Servicio" textFill="#fffbfb">
+            <Label layoutX="39.0" layoutY="27.0" text="Generar orden de Servicio" textFill="#fffbfb">
                <font>
                   <Font name="Ebrima Bold" size="36.0" />
                </font>
             </Label>
-            <ImageView fitHeight="84.0" fitWidth="82.0" layoutX="499.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="91.0" fitWidth="88.0" layoutX="487.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../imagenes/hoja.png" />
+                  <Image url="@../imagenes/generaorden.png" />
                </image>
             </ImageView>
          </children>
       </Pane>
-      <GridPane layoutX="185.0" layoutY="141.0" prefHeight="38.0" prefWidth="583.0">
-         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="91.0" minWidth="10.0" prefWidth="68.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="132.0" minWidth="10.0" prefWidth="132.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="56.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="138.0" minWidth="10.0" prefWidth="135.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.0" minWidth="10.0" prefWidth="69.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="123.0" minWidth="10.0" prefWidth="123.0" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-         </rowConstraints>
-         <children>
-            <TextField fx:id="campoFecha" prefHeight="26.0" prefWidth="66.0" GridPane.columnIndex="1" />
-            <TextField fx:id="campoFecha1" prefHeight="26.0" prefWidth="118.0" GridPane.columnIndex="3" />
-            <TextField fx:id="campoFecha2" prefHeight="26.0" prefWidth="118.0" GridPane.columnIndex="5" />
-            <Label prefHeight="27.0" prefWidth="72.0" text="Código:">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Label text="Fecha:" GridPane.columnIndex="2">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Label text="Cliente:" GridPane.columnIndex="4">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-         </children>
-      </GridPane>
-      <Label layoutX="185.0" layoutY="114.0" prefHeight="27.0" prefWidth="98.0" text="Filtrar por">
+      <Label layoutX="181.0" layoutY="108.0" prefHeight="27.0" prefWidth="583.0" text="Ingrese los siguientes datos:">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </Label>
+      <GridPane layoutX="184.0" layoutY="135.0" prefHeight="62.0" prefWidth="577.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="122.0" minWidth="10.0" prefWidth="54.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="188.0" minWidth="10.0" prefWidth="170.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="133.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="151.0" minWidth="10.0" prefWidth="151.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="39.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="36.0" minHeight="8.0" prefHeight="27.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label prefHeight="27.0" prefWidth="72.0" text="Código:">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label prefHeight="27.0" prefWidth="72.0" text="Fecha:" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label prefHeight="27.0" prefWidth="159.0" text="  Tipo de vehiculo:" GridPane.columnIndex="2">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label prefHeight="27.0" prefWidth="120.0" text="  # placa:" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="campoFecha" prefHeight="10.0" prefWidth="188.0" GridPane.columnIndex="1" />
+            <TextField fx:id="campoFecha1" prefHeight="6.0" prefWidth="188.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="campoFecha3" prefHeight="12.0" prefWidth="151.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <ChoiceBox prefWidth="150.0" GridPane.columnIndex="3" />
+         </children>
+      </GridPane>
+      <Label layoutX="184.0" layoutY="197.0" prefHeight="27.0" prefWidth="183.0" text="Ingrese los servicios:">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="campoFecha4" layoutX="343.0" layoutY="198.0" prefHeight="25.0" prefWidth="261.0" />
    </children>
 </AnchorPane>

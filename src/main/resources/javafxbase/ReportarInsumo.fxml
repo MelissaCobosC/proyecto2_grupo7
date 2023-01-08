@@ -4,16 +4,11 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -98,75 +93,30 @@
             </Button>
          </children>
       </VBox>
-      <TableView layoutX="184.0" layoutY="201.0" prefHeight="113.0" prefWidth="583.0">
-         <columns>
-            <TableColumn prefWidth="107.0" style="-fx-background-color: #;" text="Código" />
-            <TableColumn prefWidth="145.0" text="Fecha" />
-            <TableColumn minWidth="0.0" prefWidth="168.0" text="Nombre de cliente" />
-            <TableColumn minWidth="2.0" prefWidth="141.0" text="Total a pagar" />
-         </columns>
-      </TableView>
-      <Button layoutX="650.0" layoutY="329.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="118.0" text="      Ver detalle" textAlignment="RIGHT">
+      <Button layoutX="391.0" layoutY="314.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="118.0" text="Enviar" textAlignment="RIGHT">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <ImageView fitHeight="32.0" fitWidth="26.0" layoutX="657.0" layoutY="336.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../imagenes/lupa.png" />
-         </image>
-      </ImageView>
       <Pane layoutX="169.0" prefHeight="100.0" prefWidth="613.0" style="-fx-background-color: #808684;">
          <children>
-            <Label layoutX="25.0" layoutY="27.0" text="Consultar orden de Servicio" textFill="#fffbfb">
+            <Label layoutX="37.0" layoutY="28.0" text="Reportar falta de insumo" textFill="#fffbfb">
                <font>
                   <Font name="Ebrima Bold" size="36.0" />
                </font>
             </Label>
-            <ImageView fitHeight="84.0" fitWidth="82.0" layoutX="499.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="100.0" fitWidth="105.0" layoutX="472.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../imagenes/hoja.png" />
+                  <Image url="@../imagenes/mensaje.png" />
                </image>
             </ImageView>
          </children>
       </Pane>
-      <GridPane layoutX="185.0" layoutY="141.0" prefHeight="38.0" prefWidth="583.0">
-         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="91.0" minWidth="10.0" prefWidth="68.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="132.0" minWidth="10.0" prefWidth="132.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="56.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="138.0" minWidth="10.0" prefWidth="135.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.0" minWidth="10.0" prefWidth="69.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="123.0" minWidth="10.0" prefWidth="123.0" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-         </rowConstraints>
-         <children>
-            <TextField fx:id="campoFecha" prefHeight="26.0" prefWidth="66.0" GridPane.columnIndex="1" />
-            <TextField fx:id="campoFecha1" prefHeight="26.0" prefWidth="118.0" GridPane.columnIndex="3" />
-            <TextField fx:id="campoFecha2" prefHeight="26.0" prefWidth="118.0" GridPane.columnIndex="5" />
-            <Label prefHeight="27.0" prefWidth="72.0" text="Código:">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Label text="Fecha:" GridPane.columnIndex="2">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Label text="Cliente:" GridPane.columnIndex="4">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-         </children>
-      </GridPane>
-      <Label layoutX="185.0" layoutY="114.0" prefHeight="27.0" prefWidth="98.0" text="Filtrar por">
+      <Label layoutX="188.0" layoutY="112.0" prefHeight="27.0" prefWidth="576.0" text="Escriba aqui su reporte:">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
+      <TextArea layoutX="188.0" layoutY="150.0" prefHeight="132.0" prefWidth="576.0" />
    </children>
 </AnchorPane>
