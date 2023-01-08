@@ -27,7 +27,8 @@ public String getCod() {
     }
     @Override
     public String toString() {
-        return codigo + " - " + nombre + " - " + direccion + " - " + telefono ;
+        return codigo + " - " + nombre + " - " + direccion + " - " + telefono ; 
+        
     }
     
     
