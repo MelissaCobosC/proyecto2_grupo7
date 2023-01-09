@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -25,11 +27,10 @@
       <TextField fx:id="usuario" layoutX="30.0" layoutY="111.0" prefHeight="26.0" prefWidth="323.0" />
       <Label layoutX="30.0" layoutY="147.0" text="Clave" textFill="WHITE">
          <font>
-            <Font name="System Bold Italic" size="18.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="clave" layoutX="30.0" layoutY="174.0" prefHeight="26.0" prefWidth="323.0" />
-      <Button fx:id="iniciarSesion" layoutX="31.0" layoutY="233.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="323.0" style="-fx-background-color: #77f2A1;" text="Iniciar sesión" textAlignment="RIGHT" textOverrun="CLIP">
+      <Button fx:id="iniciarSesion" layoutX="31.0" layoutY="233.0" mnemonicParsing="false" onMouseClicked="#verificar" prefHeight="30.0" prefWidth="323.0" style="-fx-background-color: #77f2A1;" text="Iniciar sesión" textAlignment="RIGHT" textOverrun="CLIP">
          <effect>
             <DropShadow>
                <color>
@@ -40,11 +41,15 @@
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
       <ImageView fitHeight="55.0" fitWidth="77.0" layoutX="51.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../imagenes/usuario.png" />
          </image>
       </ImageView>
+      <PasswordField fx:id="clave" layoutX="30.0" layoutY="174.0" prefHeight="26.0" prefWidth="323.0" />
    </children>
 </Pane>
