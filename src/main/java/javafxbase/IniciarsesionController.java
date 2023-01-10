@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -62,6 +63,15 @@ public class IniciarsesionController implements Initializable {
                     }
                 }
             }
+            /*if(!user.equals(u.getUsuario()) || !pass.equals(u.getClave())){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Alerta");
+                alert.setContentText("Su usuario o contraseña son erroneas, intentelo de nuevo");
+
+                alert.showAndWait();
+                App.setRoot("iniciaSesion");
+                alert.close();
+            }*/
         } 
     }
 }
