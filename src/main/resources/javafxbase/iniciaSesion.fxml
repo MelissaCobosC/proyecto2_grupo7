@@ -12,25 +12,30 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="294.0" prefWidth="378.0" style="-fx-background-color: #1F2B37;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxbase.IniciarsesionController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="383.0" prefWidth="758.0" style="-fx-background-color: #1F2B37;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxbase.IniciarsesionController">
    <children>
-      <Label layoutX="106.0" layoutY="22.0" text="Inicio de sesión" textFill="WHITE">
+      <ImageView fitHeight="383.0" fitWidth="758.0" pickOnBounds="true">
+         <image>
+            <Image url="@../imagenes/fon2.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="293.0" layoutY="72.0" text="Inicio de sesión" textFill="WHITE">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="32.0" layoutY="78.0" text="Usuario" textFill="WHITE">
+      <Label layoutX="219.0" layoutY="128.0" text="Usuario" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="usuario" layoutX="30.0" layoutY="111.0" prefHeight="26.0" prefWidth="323.0" />
-      <Label layoutX="30.0" layoutY="147.0" text="Clave" textFill="WHITE">
+      <TextField fx:id="usuario" layoutX="217.0" layoutY="161.0" prefHeight="26.0" prefWidth="323.0" />
+      <Label layoutX="217.0" layoutY="197.0" text="Clave" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="iniciarSesion" layoutX="31.0" layoutY="233.0" mnemonicParsing="false" onMouseClicked="#verificar" prefHeight="30.0" prefWidth="323.0" style="-fx-background-color: #77f2A1;" text="Iniciar sesión" textAlignment="RIGHT" textOverrun="CLIP">
+      <Button fx:id="iniciarSesion" layoutX="218.0" layoutY="283.0" mnemonicParsing="false" onAction="#verificar" onMouseClicked="#verificar" prefHeight="30.0" prefWidth="323.0" style="-fx-background-color: #77f2A1;" text="Iniciar sesión" textAlignment="RIGHT" textOverrun="CLIP">
          <effect>
             <DropShadow>
                <color>
@@ -45,11 +50,11 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <ImageView fitHeight="55.0" fitWidth="77.0" layoutX="51.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="55.0" fitWidth="77.0" layoutX="238.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../imagenes/usuario.png" />
          </image>
       </ImageView>
-      <PasswordField fx:id="clave" layoutX="30.0" layoutY="174.0" prefHeight="26.0" prefWidth="323.0" />
+      <PasswordField fx:id="clave" layoutX="217.0" layoutY="224.0" prefHeight="26.0" prefWidth="323.0" />
    </children>
 </Pane>

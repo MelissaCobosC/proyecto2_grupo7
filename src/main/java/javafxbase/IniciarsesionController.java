@@ -54,7 +54,7 @@ public class IniciarsesionController implements Initializable {
                     }
                 }else if("cobranzas".equals(u.getNivel())){
                     try {
-                        FXMLLoader loader = new FXMLLoader(App.class.getResource("generarFactura.fxml"));
+                        FXMLLoader loader = new FXMLLoader(App.class.getResource("generaFactura.fxml"));
                         Parent vistaCobranzas = loader.load();
                         App.setRoot(vistaCobranzas);
                     } catch (IOException ex) {
