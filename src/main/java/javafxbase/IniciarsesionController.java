@@ -36,28 +36,29 @@ public class IniciarsesionController implements Initializable {
         // TODO
         
     }
-
+    
+    @FXML
     public void verificar() throws IOException{
         String user = usuario.getText();
         String pass = clave.getText();
         for(Usuario u: usuarioLista){
             if(user.equals(u.getUsuario()) && pass.equals(u.getClave())){
-                if("tecnico".equals(user)){
+                if("tecnico".equals(u.getNivel())){
                     try {
                         FXMLLoader loader = new FXMLLoader(App.class.getResource("consultarOrden.fxml"));
-                        AnchorPane vistaTecnico = loader.load();
+                        Parent vistaTecnico = loader.load();
                         App.setRoot(vistaTecnico);
                     
                     } catch (IOException ex) {
-                        ex.printStackTrace();
+                        iniciarSesion.setDisable(true);
                     }
-                }else if("cobranzas".equals(user)){
+                }else if("cobranzas".equals(u.getNivel())){
                     try {
                         FXMLLoader loader = new FXMLLoader(App.class.getResource("generarFactura.fxml"));
-                        AnchorPane vistaCobranzas = loader.load();
+                        Parent vistaCobranzas = loader.load();
                         App.setRoot(vistaCobranzas);
                     } catch (IOException ex) {
-                        ex.printStackTrace();
+                        iniciarSesion.setDisable(true);
                     }
                 }
             }
