@@ -42,6 +42,7 @@ public class IniciarsesionController implements Initializable {
     public void verificar() throws IOException{
         String user = usuario.getText();
         String pass = clave.getText();
+        int cont=0;
         for(Usuario u: usuarioLista){
             if(user.equals(u.getUsuario()) && pass.equals(u.getClave())){
                 if("tecnico".equals(u.getNivel())){
@@ -49,29 +50,32 @@ public class IniciarsesionController implements Initializable {
                         FXMLLoader loader = new FXMLLoader(App.class.getResource("consultarOrden.fxml"));
                         Parent vistaTecnico = loader.load();
                         App.setRoot(vistaTecnico);
-                    
-                    } catch (IOException ex) {
+                    } 
+                    catch (IOException ex) {
                         iniciarSesion.setDisable(true);
                     }
-                }else if("cobranzas".equals(u.getNivel())){
+                    }
+                else if("cobranzas".equals(u.getNivel())){
                     try {
                         FXMLLoader loader = new FXMLLoader(App.class.getResource("generaFactura.fxml"));
                         Parent vistaCobranzas = loader.load();
                         App.setRoot(vistaCobranzas);
-                    } catch (IOException ex) {
+                    }
+                    catch (IOException ex) {
                         iniciarSesion.setDisable(true);
                     }
                 }
+               cont++; 
             }
-            /*if(!user.equals(u.getUsuario()) || !pass.equals(u.getClave())){
-                Alert alert = new Alert(Alert.AlertType.ERROR);
+        }
+        if(cont==0){
+    Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Alerta");
                 alert.setContentText("Su usuario o contraseña son erroneas, intentelo de nuevo");
 
                 alert.showAndWait();
                 App.setRoot("iniciaSesion");
                 alert.close();
-            }*/
-        } 
+        }
     }
 }

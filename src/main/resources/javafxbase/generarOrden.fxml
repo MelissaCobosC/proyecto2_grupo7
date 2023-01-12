@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="383.0" prefWidth="758.0" style="-fx-background-color: #DCCBBD;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxbase.ConsultarOrdenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="383.0" prefWidth="758.0" style="-fx-background-color: #DCCBBD;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxbase.GenerarOrdenController">
    <children>
       <VBox prefHeight="383.0" prefWidth="149.0" style="-fx-background-color: #1F2B37;">
          <children>
@@ -29,7 +29,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" prefHeight="39.0" prefWidth="169.0" text="Consultar orden ">
+            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#consultarOrden" prefHeight="39.0" prefWidth="169.0" text="Consultar orden ">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -41,7 +41,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" prefHeight="39.0" prefWidth="169.0" text="Generar orden   ">
+            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#generarOrden" prefHeight="39.0" prefWidth="169.0" text="Generar orden   ">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -53,7 +53,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" prefHeight="39.0" prefWidth="169.0" text="Reportar insumo ">
+            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#reportarInsumo" prefHeight="39.0" prefWidth="169.0" text="Reportar insumo ">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -118,9 +118,9 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <TextField prefHeight="10.0" prefWidth="188.0" GridPane.columnIndex="1" />
-            <TextField prefHeight="6.0" prefWidth="188.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField prefHeight="12.0" prefWidth="151.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <TextField fx:id="cod" prefHeight="10.0" prefWidth="188.0" GridPane.columnIndex="1" />
+            <TextField fx:id="fec" prefHeight="6.0" prefWidth="188.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="placa" prefHeight="12.0" prefWidth="151.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <ChoiceBox prefWidth="150.0" GridPane.columnIndex="3" />
          </children>
       </GridPane>
@@ -130,13 +130,13 @@
          </font>
       </Label>
       <TextField layoutX="321.0" layoutY="199.0" prefHeight="25.0" prefWidth="261.0" />
-      <TableView layoutX="159.0" layoutY="233.0" prefHeight="100.0" prefWidth="583.0">
+      <TableView fx:id="tablaGenerar" layoutX="159.0" layoutY="233.0" prefHeight="100.0" prefWidth="583.0">
          <columns>
-            <TableColumn minWidth="0.0" prefWidth="285.0" text="Nombre de cliente" />
-            <TableColumn minWidth="2.0" prefWidth="297.0" text="Total a pagar" />
+            <TableColumn fx:id="colCliente" minWidth="0.0" prefWidth="285.0" text="Nombre de cliente" />
+            <TableColumn fx:id="colTotal" minWidth="2.0" prefWidth="297.0" text="Total a pagar" />
          </columns>
       </TableView>
-      <Button layoutX="667.0" layoutY="339.0" mnemonicParsing="false" text="Agregar">
+      <Button layoutX="667.0" layoutY="339.0" mnemonicParsing="false" onAction="#agregarOrden" text="Agregar">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

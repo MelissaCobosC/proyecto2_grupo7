@@ -25,7 +25,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" prefHeight="39.0" prefWidth="169.0" text="Generar facturas ">
+            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#generarFactura" prefHeight="39.0" prefWidth="169.0" text="Generar facturas ">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -37,7 +37,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" prefHeight="39.0" prefWidth="169.0" text="Reporte ingresos">
+            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#reportarIngreso" prefHeight="39.0" prefWidth="169.0" text="Reportar ingresos">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -49,7 +49,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" prefHeight="39.0" prefWidth="169.0" text="Reportar atención">
+            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#reportarAtencion" prefHeight="39.0" prefWidth="169.0" text="Reportar atención">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -77,10 +77,10 @@
             </ImageView>
          </children>
       </Pane>
-      <TableView layoutX="161.0" layoutY="192.0" prefHeight="125.0" prefWidth="583.0">
+      <TableView fx:id="tablaIngresos" layoutX="161.0" layoutY="192.0" prefHeight="125.0" prefWidth="583.0">
          <columns>
-            <TableColumn minWidth="0.0" prefWidth="285.0" text="Servicio" />
-            <TableColumn minWidth="2.0" prefWidth="297.0" text="Total " />
+            <TableColumn fx:id="colServicio" minWidth="0.0" prefWidth="285.0" text="Servicio" />
+            <TableColumn fx:id="colTotal" minWidth="2.0" prefWidth="297.0" text="Total " />
          </columns>
       </TableView>
       <Label layoutX="161.0" layoutY="115.0" prefHeight="27.0" prefWidth="583.0" text="Ingrese los siguientes datos:">
@@ -93,14 +93,14 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TextField layoutX="204.0" layoutY="154.0" prefHeight="25.0" prefWidth="139.0" />
+      <TextField fx:id="año" layoutX="204.0" layoutY="154.0" prefHeight="25.0" prefWidth="139.0" />
       <Label layoutX="453.0" layoutY="153.0" prefHeight="27.0" prefWidth="67.0" text="Mes:">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TextField layoutX="504.0" layoutY="154.0" prefHeight="25.0" prefWidth="139.0" />
-      <Button layoutX="656.0" layoutY="332.0" mnemonicParsing="false" text="Consultar">
+      <TextField fx:id="mes" layoutX="504.0" layoutY="154.0" prefHeight="25.0" prefWidth="139.0" />
+      <Button layoutX="656.0" layoutY="332.0" mnemonicParsing="false" onAction="#consultarIngreso" text="Consultar">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

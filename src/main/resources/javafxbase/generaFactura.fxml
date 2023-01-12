@@ -25,7 +25,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" prefHeight="39.0" prefWidth="169.0" text="Generar facturas ">
+            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#generarFactura" prefHeight="39.0" prefWidth="169.0" text="Generar facturas ">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -37,7 +37,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" prefHeight="39.0" prefWidth="169.0" text="Reporte ingresos">
+            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#reportarIngreso" prefHeight="39.0" prefWidth="169.0" text="Reportar ingresos">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -49,7 +49,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" prefHeight="39.0" prefWidth="169.0" text="Reportar atención">
+            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#reportarAtencion" prefHeight="39.0" prefWidth="169.0" text="Reportar atención">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -82,32 +82,32 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TextField layoutX="533.0" layoutY="114.0" prefHeight="25.0" prefWidth="82.0" />
+      <TextField fx:id="año" layoutX="533.0" layoutY="114.0" prefHeight="25.0" prefWidth="82.0" />
       <Label layoutX="375.0" layoutY="112.0" prefHeight="27.0" prefWidth="67.0" text="mes:">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="campoFecha41" layoutX="414.0" layoutY="113.0" prefHeight="25.0" prefWidth="74.0" />
+      <TextField fx:id="mes" layoutX="414.0" layoutY="113.0" prefHeight="25.0" prefWidth="74.0" />
       <Label layoutX="222.0" layoutY="112.0" prefHeight="27.0" prefWidth="67.0" text="código:">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TextField layoutX="283.0" layoutY="113.0" prefHeight="25.0" prefWidth="82.0" />
+      <TextField fx:id="codigo" layoutX="283.0" layoutY="113.0" prefHeight="25.0" prefWidth="82.0" />
       <Label layoutX="160.0" layoutY="112.0" prefHeight="27.0" prefWidth="57.0" text="Ingrese">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TableView layoutX="163.0" layoutY="219.0" prefHeight="114.0" prefWidth="583.0">
+      <TableView fx:id="tablaFactura" layoutX="163.0" layoutY="219.0" prefHeight="114.0" prefWidth="583.0">
          <columns>
-            <TableColumn prefWidth="81.0" text="# Placa" />
-            <TableColumn prefWidth="81.0" text="Fecha" />
-            <TableColumn prefWidth="100.0" text="Tipo" />
-            <TableColumn prefWidth="165.0" text="Servicio" />
-            <TableColumn minWidth="6.0" prefWidth="58.0" text="Cantidad" />
-            <TableColumn prefWidth="97.0" text="Total" />
+            <TableColumn fx:id="colPlaca" prefWidth="81.0" text="# Placa" />
+            <TableColumn fx:id="colFecha" prefWidth="81.0" text="Fecha" />
+            <TableColumn fx:id="colTipo" prefWidth="100.0" text="Tipo" />
+            <TableColumn fx:id="colServicio" prefWidth="165.0" text="Servicio" />
+            <TableColumn fx:id="colCant" minWidth="6.0" prefWidth="58.0" text="Cantidad" />
+            <TableColumn fx:id="colTotal" prefWidth="97.0" text="Total" />
          </columns>
       </TableView>
       <Label layoutX="162.0" layoutY="342.0" prefHeight="27.0" prefWidth="111.0" text="Total a pagar:">
@@ -131,9 +131,9 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <TextField layoutX="234.0" layoutY="166.0" prefHeight="25.0" prefWidth="207.0" />
-      <TextField layoutX="614.0" layoutY="166.0" prefHeight="25.0" prefWidth="132.0" />
-      <Button layoutX="640.0" layoutY="112.0" mnemonicParsing="false" text="Consultar">
+      <TextField fx:id="empresa" layoutX="234.0" layoutY="166.0" prefHeight="25.0" prefWidth="207.0" />
+      <TextField fx:id="periodo" layoutX="614.0" layoutY="166.0" prefHeight="25.0" prefWidth="132.0" />
+      <Button layoutX="640.0" layoutY="112.0" mnemonicParsing="false" onAction="#consultaGenerar" text="Consultar">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

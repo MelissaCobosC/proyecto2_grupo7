@@ -28,7 +28,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" prefHeight="39.0" prefWidth="169.0" text="Consultar orden ">
+            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#consultarOrden" onMouseClicked="#consultarOrden" prefHeight="39.0" prefWidth="169.0" text="Consultar orden ">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -40,7 +40,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" prefHeight="39.0" prefWidth="169.0" text="Generar orden   ">
+            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#generarOrden" prefHeight="39.0" prefWidth="169.0" text="Generar orden   ">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -52,7 +52,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" prefHeight="39.0" prefWidth="169.0" text="Reportar insumo ">
+            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#reportarInsumo" prefHeight="39.0" prefWidth="169.0" text="Reportar insumo ">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -80,7 +80,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Button alignment="CENTER_RIGHT" layoutX="626.0" layoutY="329.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="118.0" text="Ver detalle">
+      <Button alignment="CENTER_RIGHT" layoutX="626.0" layoutY="329.0" mnemonicParsing="false" onAction="#verDetalle" prefHeight="40.0" prefWidth="118.0" text="Ver detalle">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -103,9 +103,9 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <TextField fx:id="campoFecha" prefHeight="26.0" prefWidth="66.0" GridPane.columnIndex="1" />
-            <TextField fx:id="campoFecha1" prefHeight="26.0" prefWidth="118.0" GridPane.columnIndex="3" />
-            <TextField fx:id="campoFecha2" prefHeight="26.0" prefWidth="118.0" GridPane.columnIndex="5" />
+            <TextField fx:id="codigo" prefHeight="26.0" prefWidth="66.0" GridPane.columnIndex="1" />
+            <TextField fx:id="fecha" prefHeight="26.0" prefWidth="118.0" GridPane.columnIndex="3" />
+            <TextField fx:id="cliente" prefHeight="26.0" prefWidth="118.0" GridPane.columnIndex="5" />
             <Label prefHeight="27.0" prefWidth="72.0" text="Código:">
                <font>
                   <Font name="System Bold" size="18.0" />
@@ -123,12 +123,12 @@
             </Label>
          </children>
       </GridPane>
-      <TableView layoutX="161.0" layoutY="192.0" prefHeight="113.0" prefWidth="583.0">
+      <TableView fx:id="tablaConsulta" layoutX="161.0" layoutY="192.0" prefHeight="113.0" prefWidth="583.0">
          <columns>
-            <TableColumn prefWidth="107.0" style="-fx-background-color: #;" text="Código" />
-            <TableColumn prefWidth="145.0" text="Fecha" />
-            <TableColumn minWidth="0.0" prefWidth="168.0" text="Nombre de cliente" />
-            <TableColumn minWidth="2.0" prefWidth="162.0" text="Total a pagar" />
+            <TableColumn fx:id="colCod" prefWidth="107.0" style="-fx-background-color: #;" text="Código" />
+            <TableColumn fx:id="colFecha" prefWidth="145.0" text="Fecha" />
+            <TableColumn fx:id="colCliente" minWidth="0.0" prefWidth="168.0" text="Nombre de cliente" />
+            <TableColumn fx:id="colTotal" minWidth="2.0" prefWidth="162.0" text="Total a pagar" />
          </columns>
       </TableView>
       <ImageView fitHeight="32.0" fitWidth="26.0" layoutX="635.0" layoutY="336.0" pickOnBounds="true" preserveRatio="true">

@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="383.0" prefWidth="758.0" style="-fx-background-color: #DCCBBD;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxbase.ReportarAtencionController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="383.0" prefWidth="758.0" style="-fx-background-color: #DCCBBD;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxbase.ReportarInsumoController">
    <children>
       <VBox prefHeight="383.0" prefWidth="149.0" style="-fx-background-color: #1F2B37;">
          <children>
@@ -23,7 +23,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" prefHeight="39.0" prefWidth="169.0" text="Consultar orden ">
+            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#consultarOrden" prefHeight="39.0" prefWidth="169.0" text="Consultar orden ">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -35,7 +35,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" prefHeight="39.0" prefWidth="169.0" text="Generar orden   ">
+            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#generarOrden" prefHeight="39.0" prefWidth="169.0" text="Generar orden   ">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -47,7 +47,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" prefHeight="39.0" prefWidth="169.0" text="Reportar insumo ">
+            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#reportarInsumo" prefHeight="39.0" prefWidth="169.0" text="Reportar insumo ">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -80,8 +80,8 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextArea layoutX="166.0" layoutY="143.0" prefHeight="132.0" prefWidth="576.0" />
-      <Button layoutX="395.0" layoutY="308.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="118.0" text="Enviar">
+      <TextArea fx:id="reporte" layoutX="166.0" layoutY="143.0" prefHeight="132.0" prefWidth="576.0" />
+      <Button layoutX="395.0" layoutY="308.0" mnemonicParsing="false" onAction="#enviarReporte" prefHeight="40.0" prefWidth="118.0" text="Enviar">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

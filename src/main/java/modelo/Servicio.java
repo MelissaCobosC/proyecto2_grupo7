@@ -43,7 +43,7 @@ public class Servicio {
             String linea;
             while ((linea = br.readLine())!=null){
                 String[] datos = linea.split(","); 
-                servicios.add(new Servicio(datos[0],datos[1],Integer.parseInt(datos[2].strip())));
+                servicios.add(new Servicio(datos[0],datos[1],Double.parseDouble(datos[2].strip())));
             }
         }catch (IOException e){
             
