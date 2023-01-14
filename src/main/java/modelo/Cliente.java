@@ -10,9 +10,9 @@ import java.util.ArrayList;
 
 public class Cliente extends Persona{
     
-    private TipoCliente tipoCliente;
+    final private TipoCliente tipoCliente;
     
-public Cliente(String codigo, String nombre, String direccion, String telefono){    
+public Cliente(String codigo, String nombre, String direccion, String telefono,TipoCliente tipoCliente){    
     super(codigo,nombre,direccion,telefono);
     this.tipoCliente = tipoCliente;
 }
@@ -33,7 +33,7 @@ public Cliente(String codigo, String nombre, String direccion, String telefono){
             String linea;
             while ((linea = br.readLine())!=null){
                 String[] datos = linea.split(","); 
-                clientes.add(new Cliente(datos[0],datos[1],datos[2],datos[3]));
+                clientes.add(new Cliente(datos[0],datos[1],datos[2],datos[3],TipoCliente.valueOf(datos[5])));
             }
         }catch (IOException e){
             
@@ -43,10 +43,10 @@ public Cliente(String codigo, String nombre, String direccion, String telefono){
  
     public static void sobreescribirFichero(ArrayList<Cliente> clientes){
         try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/main/resources/clientes.txt"));){
-            bw.write("codigo,nombre,telefono,tipoCliente");
+            bw.write("codigo,nombre,direccion,telefono,tipoCliente");
             for(Cliente c:clientes){
                 bw.newLine();
-                bw.write(c.getCod()+","+c.getNom()+","+c.getTel()+","+c.tipoCliente);
+                bw.write(c.getCod()+","+c.getNom()+","+c.getDir()+","+c.getTel()+","+c.tipoCliente);
             }
         }catch (IOException e){
             System.out.println("error");

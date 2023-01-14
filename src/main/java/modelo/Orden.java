@@ -8,9 +8,9 @@ import java.util.ArrayList;
 public class Orden {
     private String codigoCliente, fechaServicio, placa;
     private TipoVehiculo tipoVehiculo;
-    private TipoTecnico tipoTecnico;
     
-    public Orden(String codigoCliente, String fechaServicio, String placa){
+    
+    public Orden(String codigoCliente, String fechaServicio,TipoVehiculo tipoVehiculo, String placa){
         this.codigoCliente = codigoCliente;
         this.fechaServicio = fechaServicio;
         this.placa = placa;
@@ -40,7 +40,7 @@ public class Orden {
             String linea;
             while ((linea = br.readLine())!=null){
                 String[] datos = linea.split(","); 
-                ordenes.add(new Orden(datos[0],datos[1],datos[2]));
+                ordenes.add(new Orden(datos[0],datos[1],TipoVehiculo.valueOf(datos[2]),datos[3]));
             }
         }catch (IOException e){
             

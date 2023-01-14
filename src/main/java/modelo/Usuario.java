@@ -5,16 +5,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Usuario {
-    protected String usuario, clave, nombre, nivel;
+    protected String usuario, clave, nombre;
+    protected TipoUsuario nivel;
     protected ArrayList<Usuario> userLista;   
     
 
-    public Usuario(String usuario, String clave, String nombre, String nivel) {
+    public Usuario(String usuario, String clave, String nombre, TipoUsuario nivel) {
         this.usuario = usuario;
         this.clave = clave;
         this.nombre = nombre;
         this.nivel = nivel;
-        this.userLista = new ArrayList<Usuario>();
     }
 
     public String getUsuario() {
@@ -41,11 +41,11 @@ public class Usuario {
         this.nombre = nombre;
     }
 
-    public String getNivel() {
+    public TipoUsuario getNivel() {
         return nivel;
     }
 
-    public void setNivel(String nivel) {
+    public void setNivel(TipoUsuario nivel) {
         this.nivel = nivel;
     }
 
@@ -61,7 +61,7 @@ public class Usuario {
             String linea;
             while ((linea = br.readLine())!=null){
                 String[] datos = linea.split(","); 
-                usuarios.add(new Usuario(datos[0],datos[1],datos[2],datos[3]));
+                usuarios.add(new Usuario(datos[0],datos[1],datos[2],TipoUsuario.valueOf(datos[3])));
             }
         }catch (IOException e){
             
