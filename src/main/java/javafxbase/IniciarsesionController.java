@@ -13,7 +13,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import modelo.Usuario;
+import modelo.*;
 /**
  * FXML Controller class
  *
@@ -34,7 +34,7 @@ public class IniciarsesionController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+       ArrayList<Cliente> clienteLista = Cliente.cargarLista();
         
     }
     
@@ -54,7 +54,7 @@ public class IniciarsesionController implements Initializable {
                     catch (IOException ex) {
                         iniciarSesion.setDisable(true);
                     }
-                    }
+                }
                 else if("cobranzas".equals(u.getNivel())){
                     try {
                         FXMLLoader loader = new FXMLLoader(App.class.getResource("generaFactura.fxml"));

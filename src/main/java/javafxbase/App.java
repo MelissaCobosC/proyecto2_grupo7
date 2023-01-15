@@ -15,10 +15,16 @@ public class App extends Application {
 
     private static Scene scene;
 
+    /**
+     *
+     * @param stage
+     * @throws IOException
+     */
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("iniciaSesion"), 758, 383);
         stage.setScene(scene);
+        stage.setTitle("Proyecto-Segundo-Parcial");
         stage.show();
     }
 
