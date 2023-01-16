@@ -10,14 +10,14 @@ import java.util.ArrayList;
 
 public class Cliente extends Persona{
     
-    final private TipoCliente tipoCliente;
+        private String tipoCliente;
     
-public Cliente(String codigo, String nombre, String direccion, String telefono,TipoCliente tipoCliente){    
+public Cliente(String codigo, String nombre, String direccion, String telefono,String tipoCliente){    
     super(codigo,nombre,direccion,telefono);
     this.tipoCliente = tipoCliente;
 }
 
-    public TipoCliente getTipoCliente() {
+    public String getTipoCliente() {
         return tipoCliente;
     }
 
@@ -26,14 +26,14 @@ public Cliente(String codigo, String nombre, String direccion, String telefono,T
         return super.toString() + " - " + tipoCliente ;
     }
     
-    public static ArrayList<Cliente> cargarLista(){
+    public static ArrayList<Cliente> cargarLista3(){
         ArrayList<Cliente> clientes = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader("src/main/resources/clientes.txt"));){
             br.readLine();
             String linea;
             while ((linea = br.readLine())!=null){
                 String[] datos = linea.split(","); 
-                clientes.add(new Cliente(datos[0],datos[1],datos[2],datos[3],TipoCliente.valueOf(datos[5])));
+                clientes.add(new Cliente(datos[0],datos[1],datos[2],datos[3],datos[4]));
             }
         }catch (IOException e){
             

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -13,7 +14,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import modelo.*;
+import modelo.Usuario;
 /**
  * FXML Controller class
  *
@@ -34,24 +35,36 @@ public class IniciarsesionController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       ArrayList<Cliente> clienteLista = Cliente.cargarLista();
+       //TODO
         
     }
     
     @FXML
-    public void verificar() throws IOException{
+    public void verificar(ActionEvent event) throws IOException{
         String user = usuario.getText();
         String pass = clave.getText();
         int cont=0;
         for(Usuario u: usuarioLista){
-            if(user.equals(u.getUsuario()) && pass.equals(u.getClave())){
-                if("tecnico".equals(u.getNivel())){
+            System.out.println(u.getUsuario()+"  "+u.getClave());
+            if (user.equals(u.getUsuario()) && pass.equals(u.getClave())){
+                if("admin".equals(u.getNivel())){
                     try {
-                        FXMLLoader loader = new FXMLLoader(App.class.getResource("consultarOrden.fxml"));
+                        FXMLLoader loader = new FXMLLoader(App.class.getResource("administrador.fxml"));
+                        Parent vistaAdmin = loader.load();
+                        App.setRoot(vistaAdmin);
+                    } 
+                    catch (IOException ex) {
+                        iniciarSesion.setDisable(true);
+                    }
+                }
+                else if("tecnico".equals(u.getNivel())){
+                    try {
+                        FXMLLoader loader = new FXMLLoader(App.class.getResource("generarOrden.fxml"));
                         Parent vistaTecnico = loader.load();
                         App.setRoot(vistaTecnico);
                     } 
                     catch (IOException ex) {
+                        ex.printStackTrace();
                         iniciarSesion.setDisable(true);
                     }
                 }
@@ -62,6 +75,7 @@ public class IniciarsesionController implements Initializable {
                         App.setRoot(vistaCobranzas);
                     }
                     catch (IOException ex) {
+                        ex.printStackTrace();
                         iniciarSesion.setDisable(true);
                     }
                 }

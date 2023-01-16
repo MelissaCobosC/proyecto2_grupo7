@@ -10,11 +10,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 
-/**
- * FXML Controller class
- *
- * @author carmi
- */
+
 public class AdministradorController implements Initializable {
 
     /**
@@ -37,7 +33,7 @@ public class AdministradorController implements Initializable {
     
     @FXML
     private void administrarClientes(ActionEvent event) throws IOException {
-    App.setRoot("consultarOrden");
+    App.setRoot("administrarClientes");
     }
 
     @FXML

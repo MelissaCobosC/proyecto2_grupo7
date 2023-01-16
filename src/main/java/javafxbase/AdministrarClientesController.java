@@ -5,14 +5,15 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.image.ImageView;
 import javafx.scene.control.Button;
 
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+
 import modelo.Cliente;
 
 
@@ -25,23 +26,40 @@ public class AdministrarClientesController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //colCed.setItems
+       /* DefaultTableModel model = new DefaultTableModel(varclientes,0);
+        
+        for(int i=0;i<listaclientes.size();i++){
+            String Cedula = listaclientes.get(i).getCod();
+            String Nombre = listaclientes.get(i).getNom();
+            String Direccion = listaclientes.get(i).getDir();
+            String Telefono = listaclientes.get(i).getTel();
+            String Tipo = listaclientes.get(i).getTipoCliente();
+            
+            Object[] data = {Cedula,Nombre,Direccion,Telefono,Tipo};
+            model.add(data);
+        }
+        tablaClientes = newJtable(model);*/
+        
     }    
     
-    ArrayList<Cliente> clientes = Cliente.cargarLista();
     
+    
+   /* Jtable tablaClientes;
+    String[] varclientes = {"Codigo","Nombre","Direccion","Telefono","Tipo"};
+    ArrayList<Cliente> listaclientes = Cliente.cargarLista();*/
+   
     @FXML
-    private TableView<?> tablaClientes;
+    private TableView<Cliente> tablaClientes;
     @FXML
-    private TableColumn<?, ?> colCed;
+    private TableColumn<Cliente, String> colCod;
     @FXML
-    private TableColumn<?, ?> colNombre;
+    private TableColumn<Cliente, String> colNombre;
     @FXML
-    private TableColumn<?, ?> colDir;
+    private TableColumn<Cliente, String> colDir;
     @FXML
-    private TableColumn<?, ?> colTelf;
+    private TableColumn<Cliente, String> colTelf;
     @FXML
-    private TableColumn<?, ?> colTipo;
+    private TableColumn<Cliente, String> colTipo;
     
     @FXML
     private Button agregar;
@@ -56,7 +74,7 @@ public class AdministrarClientesController implements Initializable {
     
      @FXML
     private void agregarClientes(ActionEvent event) throws IOException {
-    App.setRoot("administrarClientes");
+    App.setRoot("agregarCliente");
     }
     
          @FXML

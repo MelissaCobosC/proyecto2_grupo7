@@ -1,3 +1,4 @@
+usuario,contraseña,nombre,nivel
 admin1,12345678,Administrador,admin
 alopez,al123456,Alvaro Lopez,tecnico
 mcastro,mc123456,Maria Castro,cobranzas
