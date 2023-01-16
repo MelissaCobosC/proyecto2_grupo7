@@ -1,6 +1,6 @@
-1234,alineación,100
-2345,balanceo,100
-3456,cambio de aceite,100
-4567,cambio de filtro,300
-5678,limpieza de bujias,150
-6789,cambio de llantas,800
+1234,alineación,100.00
+2345,balanceo,100.00
+3456,cambio de aceite,100.00
+4567,cambio de filtro,300.00
+5678,limpieza de bujias,150.00
+6789,cambio de llantas,800.00

@@ -104,7 +104,7 @@
          </rowConstraints>
          <children>
             <TextField fx:id="codigo" prefHeight="26.0" prefWidth="66.0" GridPane.columnIndex="1" />
-            <TextField fx:id="fecha" prefHeight="26.0" prefWidth="118.0" GridPane.columnIndex="3" />
+            <TextField fx:id="fecha" prefHeight="26.0" prefWidth="118.0" promptText="dd/mm/yyyy" GridPane.columnIndex="3" />
             <TextField fx:id="cliente" prefHeight="26.0" prefWidth="118.0" GridPane.columnIndex="5" />
             <Label prefHeight="27.0" prefWidth="72.0" text="Código:">
                <font>
@@ -123,7 +123,7 @@
             </Label>
          </children>
       </GridPane>
-      <TableView fx:id="tablaConsulta" layoutX="161.0" layoutY="192.0" prefHeight="113.0" prefWidth="583.0">
+      <TableView fx:id="tablaConsulta" layoutX="162.0" layoutY="215.0" prefHeight="107.0" prefWidth="583.0">
          <columns>
             <TableColumn fx:id="colCod" prefWidth="107.0" style="-fx-background-color: #;" text="Código" />
             <TableColumn fx:id="colFecha" prefWidth="145.0" text="Fecha" />
@@ -136,5 +136,10 @@
             <Image url="@../imagenes/lupa.png" />
          </image>
       </ImageView>
+      <Button layoutX="685.0" layoutY="177.0" mnemonicParsing="false" onAction="#filtrar" text="Filtrar">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

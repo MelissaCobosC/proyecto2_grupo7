@@ -47,11 +47,12 @@ public class IniciarsesionController implements Initializable {
             if(user.equals(u.getUsuario()) && pass.equals(u.getClave())){
                 if("tecnico".equals(u.getNivel())){
                     try {
-                        FXMLLoader loader = new FXMLLoader(App.class.getResource("consultarOrden.fxml"));
+                        FXMLLoader loader = new FXMLLoader(App.class.getResource("generarOrden.fxml"));
                         Parent vistaTecnico = loader.load();
                         App.setRoot(vistaTecnico);
                     } 
                     catch (IOException ex) {
+                        ex.printStackTrace();
                         iniciarSesion.setDisable(true);
                     }
                     }
@@ -62,6 +63,7 @@ public class IniciarsesionController implements Initializable {
                         App.setRoot(vistaCobranzas);
                     }
                     catch (IOException ex) {
+                        ex.printStackTrace();
                         iniciarSesion.setDisable(true);
                     }
                 }

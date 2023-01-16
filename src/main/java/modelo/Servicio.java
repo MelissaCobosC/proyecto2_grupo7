@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import static modelo.Orden.cargarLista;
 
 
 public class Servicio {
@@ -36,7 +37,7 @@ public class Servicio {
         return  codigo +" - "+ nombre+" - "+precio ;
     }
     
-    public static ArrayList<Servicio> cargarLista(){
+    public static ArrayList<Servicio> cargarLista1(){
         ArrayList<Servicio> servicios = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader("src/main/resources/servicios.txt"));){
             br.readLine();
@@ -51,5 +52,15 @@ public class Servicio {
         return servicios;
     }
     
-    
+    public static ArrayList<String> listaServicios() {
+       ArrayList<String> listServicios = new ArrayList<>();
+       ArrayList<Servicio> servicios = cargarLista1();
+        for(Servicio s: servicios){
+            if(!listServicios.contains(s.getNombre())){
+                listServicios.add(s.nombre);
+            }
+            
+        }
+        return listServicios;
+    }
 }
