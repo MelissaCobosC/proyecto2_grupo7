@@ -42,10 +42,10 @@ public Cliente(String codigo, String nombre, String direccion, String telefono, 
  
     public static void sobreescribirFichero(ArrayList<Cliente> clientes){
         try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/main/resources/clientes.txt"));){
-            bw.write("cedula,nombre,telefono,tipoCliente");
+            bw.write("cedula,nombre,direccion,telefono,tipoCliente");
             for(Cliente c:clientes){
                 bw.newLine();
-                bw.write(c.getCod()+","+c.getNom()+","+c.getTel()+","+c.getTipoCliente());
+                bw.write(c.getCod()+","+c.getNom()+","+c.getDir()+","+c.getTel()+","+c.getTipoCliente());
             }
         }catch (IOException e){
             System.out.println("error");

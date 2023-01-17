@@ -59,12 +59,9 @@ public class GenerarOrdenController implements Initializable {
     @FXML
     private TableView<Orden> tablaGenerar;
     
-    //private ObservableList<Orden> list ;
-    
     ArrayList<Orden> ordenes = cargarLista();
     ArrayList<Servicio> servicios = cargarLista1();
     ArrayList<String> listVehiculo = Orden.listaTipoVehiculo();
-    
 
     /**
      * Initializes the controller class.
