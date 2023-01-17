@@ -131,8 +131,13 @@
       </Label>
       <TableView fx:id="tablaGenerar" layoutX="159.0" layoutY="233.0" prefHeight="100.0" prefWidth="583.0">
          <columns>
-            <TableColumn fx:id="colCliente" minWidth="0.0" prefWidth="285.0" text="Nombre de cliente" />
-            <TableColumn fx:id="colTotal" minWidth="2.0" prefWidth="297.0" text="Total a pagar" />
+            <TableColumn fx:id="colCliente" minWidth="0.0" prefWidth="91.0" text="Codigo cliente" />
+            <TableColumn fx:id="colTotal" minWidth="2.0" prefWidth="85.0" text="Fecha" />
+            <TableColumn fx:id="colCliente1" minWidth="0.0" prefWidth="69.0" text="Placa" />
+            <TableColumn fx:id="colCliente2" minWidth="0.0" prefWidth="117.0" text="Vehiculo" />
+            <TableColumn fx:id="colCliente3" minWidth="0.0" prefWidth="91.0" text="Codigo servicio" />
+            <TableColumn fx:id="colCliente4" minWidth="0.0" prefWidth="55.0" text="Cantidad" />
+            <TableColumn fx:id="colCliente5" minWidth="0.0" prefWidth="74.0" text="Total" />
          </columns>
       </TableView>
       <Button layoutX="667.0" layoutY="339.0" mnemonicParsing="false" onAction="#agregarOrden" text="Agregar">

@@ -5,14 +5,14 @@ modelo\TipoTecnico.class
 javafxbase\ReportarAtencionController.class
 javafxbase\ReportarIngresosController.class
 modelo\Usuario.class
+modelo\Board.class
 modelo\TipoVehiculo.class
 modelo\Proveedor.class
 modelo\Orden.class
-modelo\TipoUsuario.class
 javafxbase\ReportarInsumoController.class
 module-info.class
 javafxbase\ConsultarOrdenController.class
-modelo\TipoCliente.class
+modelo\Celda.class
 javafxbase\GenerarOrdenController.class
 javafxbase\JuegoMemoriaController.class
 modelo\Tecnico.class
