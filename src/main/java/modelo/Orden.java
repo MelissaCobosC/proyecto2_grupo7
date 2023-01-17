@@ -69,7 +69,7 @@ public class Orden {
     
     public static void sobreescribirFichero(ArrayList<Orden> ordenes){
         try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/main/resources/ordenes.txt"));){
-            bw.write("Codigo,fecha,placa,tipoVehiculo,cod-serv-valor,cantidad,total");
+            bw.write("Codigo,fecha,placa,tipoVehiculo,codServicio,cantidad,total");
             for(Orden o:ordenes){
                 bw.newLine();
                 bw.write(o.getCodigoCliente()+","+o.getFechaServicio()+","+o.getPlaca()+","+o.getTipoVehiculo()+","+o.getCodServicio()+","+o.getCantidad()+","+o.getTotal());

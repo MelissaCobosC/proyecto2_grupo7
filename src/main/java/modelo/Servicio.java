@@ -52,15 +52,15 @@ public class Servicio {
         return servicios;
     }
     
-    public static ArrayList<String> listaServicios() {
-       ArrayList<String> listServicios = new ArrayList<>();
-       ArrayList<Servicio> servicios = cargarLista1();
-        for(Servicio s: servicios){
-            if(!listServicios.contains(s.getNombre())){
-                listServicios.add(s.nombre);
-            }
+   // public static ArrayList<String> listaServicios() {
+     //  ArrayList<String> listServicios = new ArrayList<>();
+     //  ArrayList<Servicio> servicios = cargarLista1();
+      //  for(Servicio s: servicios){
+        //    if(!listServicios.contains(s.getNombre())){
+             //   listServicios.add(s.nombre);
+          //  }
             
-        }
-        return listServicios;
-    }
+     //   }
+       // return listServicios;
+//    }
 }
