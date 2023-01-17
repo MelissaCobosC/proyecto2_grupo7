@@ -71,15 +71,15 @@ public class GenerarOrdenController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //this.colCliente.setCellValueFactory(new PropertyValueFactory<>("cliente"));
-        //this.colFecha.setCellValueFactory(new PropertyValueFactory<>("fecha"));
-        //this.colPlaca.setCellValueFactory(new PropertyValueFactory<>("placa"));
-        //this.colVehiculo.setCellValueFactory(new PropertyValueFactory<>("vehiculo"));
-        //this.codServ.setCellValueFactory(new PropertyValueFactory<>("servicio"));
-        //this.colCant.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
-        //this.codTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
+        this.colCliente.setCellValueFactory(new PropertyValueFactory<>("codigoCliente"));
+        this.colFecha.setCellValueFactory(new PropertyValueFactory<>("fechaServicio"));
+        this.colPlaca.setCellValueFactory(new PropertyValueFactory<>("placa"));
+        this.colVehiculo.setCellValueFactory(new PropertyValueFactory<>("tipoVehiculo"));
+        this.codServ.setCellValueFactory(new PropertyValueFactory<>("codServicio"));
+        this.colCant.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
+        this.codTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
         comboBoxVehiculo.getItems().setAll(listVehiculo);
-        //tablaGenerar.getItems().setAll(ordenes);
+        tablaGenerar.getItems().setAll(ordenes);
     }
 
     @FXML
@@ -113,7 +113,7 @@ public class GenerarOrdenController implements Initializable {
             }
         }
         ordenes.add(new Orden(codigo, fecha, numPlaca, tipo, servicio, Double.parseDouble(cantidad), total));
-        //tablaGenerar.getItems().setAll(ordenes);
+        tablaGenerar.getItems().setAll(ordenes);
         Orden.sobreescribirFichero(ordenes);//se agrega una orden nueva
         cod.setText(null);
         fec.setText(null);
@@ -126,6 +126,11 @@ public class GenerarOrdenController implements Initializable {
         alerta.setHeaderText("Su orden ha sido registrada");
         alerta.showAndWait();
         
+    }
+
+@FXML
+    private void btnJugar(ActionEvent event) throws IOException {
+        App.setRoot("sesionClientes");
     }
 
 }

@@ -59,4 +59,9 @@ public class ReportarInsumoController implements Initializable {
         
         } 
     }
+
+    @FXML
+    private void btnJugar(ActionEvent event) throws IOException {
+        App.setRoot("sesionClientes");
+    }
 }

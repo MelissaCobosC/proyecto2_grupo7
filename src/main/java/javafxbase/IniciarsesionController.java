@@ -62,7 +62,6 @@ public class IniciarsesionController implements Initializable {
                         App.setRoot(vistaTecnico);
                     } 
                     catch (IOException ex) {
-                        ex.printStackTrace();
                         iniciarSesion.setDisable(true);
                     }
                     }
@@ -73,7 +72,6 @@ public class IniciarsesionController implements Initializable {
                         App.setRoot(vistaCobranzas);
                     }
                     catch (IOException ex) {
-                        ex.printStackTrace();
                         iniciarSesion.setDisable(true);
                     }
                 }

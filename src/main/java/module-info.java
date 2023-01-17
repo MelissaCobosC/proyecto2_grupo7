@@ -4,5 +4,6 @@ module javafxbase {
     requires java.base;
 
     opens javafxbase to javafx.fxml;
+    exports modelo;
     exports javafxbase;
 }

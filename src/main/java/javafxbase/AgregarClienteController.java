@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import modelo.Cliente;
 
@@ -17,6 +18,19 @@ import modelo.Cliente;
  * @author carmi
  */
 public class AgregarClienteController implements Initializable {
+
+    @FXML
+    private Button volverAdmin;
+    @FXML
+    private Label codigolb;
+    @FXML
+    private Label nombrelb;
+    @FXML
+    private Label direccionlb;
+    @FXML
+    private Label telefonolb;
+    @FXML
+    private Label tipoclientelb;
 
     /**
      * Initializes the controller class.
@@ -48,6 +62,8 @@ public class AgregarClienteController implements Initializable {
         String direccion = direcciontf.getText();
         String telefono = telefonotf.getText();
         String tipo = tipotf.getText();
+        for(Cliente c:listaClientes){
+        }
         Cliente c = new Cliente(codigo,nombre,direccion,telefono,tipo);
         listaClientes.add(c);
         Cliente.sobreescribirFichero(listaClientes);

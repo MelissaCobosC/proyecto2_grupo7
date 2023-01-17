@@ -41,7 +41,7 @@ public class ConsultarOrdenController implements Initializable {
     private TableColumn<Orden, Double> colTotal;
     
     ArrayList<Orden> ordenes = cargarLista();
-    ArrayList<Cliente> clientes = cargarLista3();
+    //ArrayList<Cliente> clientes = cargarLista3();
     /**
      * Initializes the controller class.
      */
@@ -51,7 +51,7 @@ public class ConsultarOrdenController implements Initializable {
         //this.colCliente.setCellValueFactory(new PropertyValueFactory<Orden, String>("cliente"));
         //this.colFecha.setCellValueFactory(new PropertyValueFactory<Orden, String>("fecha"));
         //this.colTotal.setCellValueFactory(new PropertyValueFactory<Orden, Double>("total"));
-        tablaConsulta.getItems().setAll(ordenes);
+        //tablaConsulta.getItems().setAll(ordenes);
     }    
 
     @FXML
@@ -78,26 +78,28 @@ public class ConsultarOrdenController implements Initializable {
         String cod = codigo.getText();
         String fec = fecha.getText();
         String cli = cliente.getText();
-        ArrayList<Orden> discriminante = new ArrayList<>();
-        for (Orden o : ordenes){
-            if (o.getCodigoCliente().equals(codigo.getText())){
+        //ArrayList<Orden> discriminante = new ArrayList<>();
+       // for (Orden o : ordenes){
+         //   if (o.getCodigoCliente().equals(codigo.getText())){
                 //discriminante.add(o);
-                for(Cliente c:clientes){
-                    if(c.getCod().equals(o.getCodigoCliente())){
+           //     for(Cliente c:clientes){
+             //       if(c.getCod().equals(o.getCodigoCliente())){
                     
-                    }
-                    }
-                }
-            }
-        }
+               //     }
+                  //  }
+            //    }
+           // }
+       }
         //tablaConsulta.getItems().setAll(discriminante);
         
         //codigo.setText(null);
         //fecha.setText(null);
         //cliente.setText(null);
 
+
     @FXML
-    private void consultarOrden(MouseEvent event) {
+    private void btnJugar(ActionEvent event) throws IOException {
+        App.setRoot("sesionClientes");
     }
 
 

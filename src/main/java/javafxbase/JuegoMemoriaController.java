@@ -5,13 +5,18 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import modelo.*;
 
 
@@ -24,6 +29,14 @@ public class JuegoMemoriaController implements Initializable {
     
     @FXML
     public GridPane gameMatrix;
+    @FXML
+    private AnchorPane root;
+    @FXML
+    private BorderPane body;
+    @FXML
+    private HBox menuPanel;
+    @FXML
+    private Button start;
     
     @Override
     public void initialize(URL url, ResourceBundle rb){
@@ -96,4 +109,8 @@ public class JuegoMemoriaController implements Initializable {
         }
          
     }  
+
+    @FXML
+    private void volver(ActionEvent event) {
+    }
 }

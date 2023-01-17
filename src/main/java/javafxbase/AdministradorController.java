@@ -7,6 +7,7 @@ import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 
@@ -43,6 +44,18 @@ public class AdministradorController implements Initializable {
     @FXML
     private void administrarProovedores(ActionEvent event) throws IOException {
     App.setRoot("reportarInsumo");
+    }
+
+    @FXML
+    private void administrarProovedores(MouseEvent event) {
+    }
+
+    @FXML
+    private void administrarClientes(MouseEvent event) {
+    }
+
+    @FXML
+    private void administrarServicios(MouseEvent event) {
     }
    
     

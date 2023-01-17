@@ -59,6 +59,11 @@
                   </ImageView>
                </graphic>
             </Button>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#btnJugar" prefHeight="39.0" prefWidth="169.0" style="-fx-background-color: #bfd834;" text="JUGAR">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
          </children>
       </VBox>
       <Pane layoutX="149.0" prefHeight="100.0" prefWidth="609.0" style="-fx-background-color: #808684;">

@@ -73,6 +73,7 @@ public class GenerarFacturaController implements Initializable {
 
     @FXML
     private void consultaGenerar(ActionEvent event) {
+        
     }
     
 }
