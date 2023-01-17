@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,6 +18,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import modelo.*;
 import static modelo.Orden.cargarLista;
 import static modelo.Servicio.cargarLista1;
@@ -38,24 +41,44 @@ public class GenerarOrdenController implements Initializable {
     @FXML
     private TextField codServicio;
     @FXML
-    private TableView<Orden> tablaGenerar;
+    private ComboBox<String> comboBoxVehiculo;
+    @FXML
+    private TableColumn<Orden, String> colFecha;
+    @FXML
+    private TableColumn<Orden, String> colPlaca;
+    @FXML
+    private TableColumn<Orden, String>  colVehiculo;
+    @FXML
+    private TableColumn<Orden, String> codServ;
+    @FXML
+    private TableColumn<Orden, Double>  colCant;
+    @FXML
+    private TableColumn<Orden, Double> codTotal;
     @FXML
     private TableColumn<Orden, String> colCliente;
     @FXML
-    private TableColumn<Servicio, Double> colTotal;
-    @FXML
-    private ComboBox<String> comboBoxVehiculo;
+    private TableView<Orden> tablaGenerar;
+    
+    //private ObservableList<Orden> list ;
+    
     ArrayList<Orden> ordenes = cargarLista();
     ArrayList<Servicio> servicios = cargarLista1();
-
     ArrayList<String> listVehiculo = Orden.listaTipoVehiculo();
+    
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        comboBoxVehiculo.getItems().addAll(listVehiculo);
+        //this.colCliente.setCellValueFactory(new PropertyValueFactory<>("cliente"));
+        //this.colFecha.setCellValueFactory(new PropertyValueFactory<>("fecha"));
+        //this.colPlaca.setCellValueFactory(new PropertyValueFactory<>("placa"));
+        //this.colVehiculo.setCellValueFactory(new PropertyValueFactory<>("vehiculo"));
+        //this.codServ.setCellValueFactory(new PropertyValueFactory<>("servicio"));
+        //this.colCant.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
+        //this.codTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
+        comboBoxVehiculo.getItems().setAll(listVehiculo);
         tablaGenerar.getItems().setAll(ordenes);
     }
 
@@ -82,16 +105,15 @@ public class GenerarOrdenController implements Initializable {
         String servicio = codServicio.getText();
         String tipo = comboBoxVehiculo.getValue();
         String cantidad = textCant.getText();
-
         
         double total = 0;
-        
         for (Servicio ts : servicios) {
             if (servicio.equals(ts.getCodigo())) {
                 total = ts.getPrecio() * Double.parseDouble(cantidad);
             }
         }
         ordenes.add(new Orden(codigo, fecha, numPlaca, tipo, servicio, Double.parseDouble(cantidad), total));
+        tablaGenerar.getItems().setAll(ordenes);
         Orden.sobreescribirFichero(ordenes);//se agrega una orden nueva
         cod.setText(null);
         fec.setText(null);
