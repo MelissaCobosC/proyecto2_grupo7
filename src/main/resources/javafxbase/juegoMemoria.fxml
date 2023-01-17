@@ -22,7 +22,7 @@
                         <font>
                            <Font size="14.0" />
                         </font></Button>
-                     <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="104.0" text="Regresar">
+                     <Button mnemonicParsing="false" onAction="#volver" prefHeight="37.0" prefWidth="104.0" text="Regresar">
                         <font>
                            <Font size="14.0" />
                         </font>
