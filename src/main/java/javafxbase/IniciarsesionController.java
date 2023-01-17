@@ -45,6 +45,16 @@ public class IniciarsesionController implements Initializable {
         int cont=0;
         for(Usuario u: usuarioLista){
             if(user.equals(u.getUsuario()) && pass.equals(u.getClave())){
+                 if("admin".equals(u.getNivel())){
+                    try {
+                        FXMLLoader loader = new FXMLLoader(App.class.getResource("administrador.fxml"));
+                        Parent vistaAdmin = loader.load();
+                        App.setRoot(vistaAdmin);
+                    } 
+                    catch (IOException ex) {
+                        iniciarSesion.setDisable(true);
+                    }
+                }
                 if("tecnico".equals(u.getNivel())){
                     try {
                         FXMLLoader loader = new FXMLLoader(App.class.getResource("generarOrden.fxml"));
