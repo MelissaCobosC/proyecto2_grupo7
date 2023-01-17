@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import modelo.Cliente;
 import static modelo.Cliente.cargarLista3;
 import modelo.Orden;
@@ -94,6 +95,10 @@ public class ConsultarOrdenController implements Initializable {
         //codigo.setText(null);
         //fecha.setText(null);
         //cliente.setText(null);
+
+    @FXML
+    private void consultarOrden(MouseEvent event) {
+    }
 
 
     
