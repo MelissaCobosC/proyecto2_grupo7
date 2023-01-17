@@ -56,6 +56,7 @@ public class ReportarInsumoController implements Initializable {
         alerta.setTitle("Reporte");
         alerta.setHeaderText("Su reporte ha sido enviado correctamente");
         alerta.showAndWait(); 
+        
         } 
     }
 }
