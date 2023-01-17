@@ -26,6 +26,7 @@ public class JuegoMemoriaController implements Initializable {
     Board board;
     Celda primeraCarta = null;
     Celda segundaCarta = null;
+    int cont = 0;
     
     @FXML
     public GridPane gameMatrix;
@@ -86,26 +87,39 @@ public class JuegoMemoriaController implements Initializable {
     
     public void parejaEncontrada(int rowSeleccionada, int colSeleccionada) throws FileNotFoundException{
         if(primeraCarta == null){
-            primeraCarta = board.board[rowSeleccionada][colSeleccionada];
-        }else if(segundaCarta == null){
-            segundaCarta = board.board[rowSeleccionada][colSeleccionada];
+            primeraCarta = board.board[rowSeleccionada][colSeleccionada];     
         }else{
+            segundaCarta = board.board[rowSeleccionada][colSeleccionada];
+            if(primeraCarta == segundaCarta){
+                segundaCarta = null;
+                return;
+            }
+            
             if(primeraCarta.value.equals(segundaCarta.value)){
-            board.board[primeraCarta.row][primeraCarta.col].adivina = true;
-            board.board[segundaCarta.row][segundaCarta.col].adivina = true;
-            }else{
+                board.board[primeraCarta.row][primeraCarta.col].adivina = true;
+                board.board[segundaCarta.row][segundaCarta.col].adivina = true;
+                cont++;
                 
+                int indicePrimeraCarta = (primeraCarta.row * 4) + primeraCarta.col;
+                ((ImageView)gameMatrix.getChildren().get(indicePrimeraCarta)).setOnMouseClicked(null);
+                
+                int indiceSegundaCarta = (segundaCarta.row * 4) + segundaCarta.col;
+                ((ImageView)gameMatrix.getChildren().get(indiceSegundaCarta)).setOnMouseClicked(null);
+                
+            }else{
                 FileInputStream input = new FileInputStream("src/main/resources/archivos/pregunta.png");
+                FileInputStream input2 = new FileInputStream("src/main/resources/archivos/pregunta.png");
                 
                 int indicePrimeraCarta = (primeraCarta.row * 4) + primeraCarta.col;
                 ((ImageView)gameMatrix.getChildren().get(indicePrimeraCarta)).setImage(new Image(input));
                 
                 int indiceSegundaCarta = (segundaCarta.row * 4) + segundaCarta.col;
-                ((ImageView)gameMatrix.getChildren().get(indiceSegundaCarta)).setImage(new Image(input));
-            
+                ((ImageView)gameMatrix.getChildren().get(indiceSegundaCarta)).setImage(new Image(input2));
+                
             }
-        primeraCarta = board.board[rowSeleccionada][colSeleccionada];
-        segundaCarta = null;
+            primeraCarta = null;
+            segundaCarta = null;
+            System.out.println(cont);
         }
          
     }  
