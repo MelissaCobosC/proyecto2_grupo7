@@ -1,4 +1,4 @@
-
+codigo,nombre,precio
 1234,alineación,100.00
 2345,balanceo,100.00
 3456,cambio de aceite,100.00

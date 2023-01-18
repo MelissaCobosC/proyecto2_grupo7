@@ -1,2 +1,3 @@
+cedula,nombre,direccion,telefono
 2342,Prov1,ABC,32432
 2676,Prov2,SDF,4242

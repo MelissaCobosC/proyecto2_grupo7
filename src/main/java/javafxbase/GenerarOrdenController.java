@@ -8,8 +8,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -112,6 +110,7 @@ public class GenerarOrdenController implements Initializable {
         ordenes.add(new Orden(codigo, fecha, numPlaca, tipo, servicio, Double.parseDouble(cantidad), total));
         tablaGenerar.getItems().setAll(ordenes);
         Orden.sobreescribirFichero(ordenes);//se agrega una orden nueva
+        Servicio.sobreescribirFicheroServicio(servicios);
         cod.setText(null);
         fec.setText(null);
         placa.setText(null);
