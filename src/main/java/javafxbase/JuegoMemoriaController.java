@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -30,7 +31,9 @@ public class JuegoMemoriaController implements Initializable {
     Board board;
     Celda primeraCarta = null;
     Celda segundaCarta = null;
-    int cont = 0;
+    int contA = 0;
+    int contB = 0;
+    int tiempo = 2;
     
     @FXML
     public GridPane gameMatrix;
@@ -43,9 +46,9 @@ public class JuegoMemoriaController implements Initializable {
     @FXML
     private Button start;
     @FXML
-    private Label tiempo;
+    public Label tiempoCronometro;
     @FXML
-    private Label cantidadAciertos;
+    public Label cantidadAciertos;
     
     @Override
     public void initialize(URL url, ResourceBundle rb){
@@ -90,6 +93,7 @@ public class JuegoMemoriaController implements Initializable {
         Image imagenSelecionada = new Image(input);
         ((ImageView)node).setImage(imagenSelecionada);
         parejaEncontrada(rowSeleccionada, colSeleccionada);
+        //contador();
      
     }
     
@@ -106,7 +110,8 @@ public class JuegoMemoriaController implements Initializable {
             if(primeraCarta.value.equals(segundaCarta.value)){
                 board.board[primeraCarta.row][primeraCarta.col].adivina = true;
                 board.board[segundaCarta.row][segundaCarta.col].adivina = true;
-                cont++;
+                contA++;
+                cantidadAciertos.setText(Integer. toString(contA));
                 
                 int indicePrimeraCarta = (primeraCarta.row * 4) + primeraCarta.col;
                 ((ImageView)gameMatrix.getChildren().get(indicePrimeraCarta)).setOnMouseClicked(null);
@@ -115,6 +120,7 @@ public class JuegoMemoriaController implements Initializable {
                 ((ImageView)gameMatrix.getChildren().get(indiceSegundaCarta)).setOnMouseClicked(null);
                 
             }else{
+                contB++;
                 FileInputStream input = new FileInputStream("src/main/resources/imagenes/pregunta.png");
                 FileInputStream input2 = new FileInputStream("src/main/resources/imagenes/pregunta.png");
                 
@@ -127,8 +133,23 @@ public class JuegoMemoriaController implements Initializable {
             }
             primeraCarta = null;
             segundaCarta = null;
-            System.out.println(cont);
+            if(contA == 8){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setHeaderText("¡HAZ GANADO WUP WUP!");
+                alert.setTitle("Informacion del juego");
+                alert.setContentText("Ha logrado acertar los 8 pares de cartas en el tiempo estimado, ENHORABUENA");
+
+                alert.showAndWait();
+                try {
+                    App.setRoot("sesionClientes");
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+                alert.close();
+            }
         }
+        System.out.println("contador de aciertos: "+contA);
+        System.out.println("contador de fallos: "+contB);
          
     }  
 
@@ -136,4 +157,27 @@ public class JuegoMemoriaController implements Initializable {
     private void volver(ActionEvent event) throws IOException {
         App.setRoot("generarOrden");
     }
+    
+    /*public void contador(){
+        Thread thread = new Thread( new Runnable() {
+            @Override
+            public void run() {
+                try{
+                    while(tiempo > 0){
+                        Thread.sleep(1000);
+                        tiempo -= 1;
+                        Platform.runLater(() ->{
+                            tiempoCronometro.setText(""+tiempo);
+                        });
+                    }
+                    System.out.println(tiempo);
+                }catch(Exception ex){
+                    System.out.println("Error con el metodo sleep");
+                }
+            }
+        
+            
+        });
+        thread.start();
+    }*/
 }

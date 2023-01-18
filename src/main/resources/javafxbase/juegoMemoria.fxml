@@ -60,7 +60,7 @@
                         </HBox>
                         <HBox prefHeight="35.0" prefWidth="702.0" spacing="200.0">
                            <children>
-                              <Label fx:id="tiempo" text="00:00:00" wrapText="true">
+                              <Label fx:id="tiempoCronometro" text="00:00:00" wrapText="true">
                                  <font>
                                     <Font size="18.0" />
                                  </font></Label>
