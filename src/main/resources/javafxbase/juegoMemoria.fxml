@@ -20,7 +20,7 @@
                 <BorderPane fx:id="body" styleClass="body" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
                     <bottom>
                         <HBox fx:id="menuPanel" alignment="CENTER" prefHeight="59.0" prefWidth="702.0" spacing="100.0">
-                     <Button fx:id="start" mnemonicParsing="false" prefHeight="37.0" prefWidth="104.0" text="Jugar">
+                     <Button fx:id="start" mnemonicParsing="false" onAction="#contador" prefHeight="37.0" prefWidth="104.0" text="Jugar">
                         <font>
                            <Font size="14.0" />
                         </font>
@@ -58,23 +58,34 @@
                                  </font></Label>
                            </children>
                         </HBox>
-                        <HBox prefHeight="35.0" prefWidth="702.0" spacing="200.0">
+                        <HBox prefHeight="35.0" prefWidth="702.0">
                            <children>
-                              <Label fx:id="tiempoCronometro" text="00:00:00" wrapText="true">
+                              <Label fx:id="minutoCronometro" text="0" wrapText="true">
                                  <font>
                                     <Font size="18.0" />
                                  </font></Label>
-                              <Label fx:id="cantidadAciertos" text="0">
+                              <Label text="  :  ">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
-                                 <graphic>
-                                    <ImageView fitHeight="19.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../../../../monitos/visto.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic></Label>
+                              </Label>
+                              <Label fx:id="segundosCronometro" text="00">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="30.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets left="200.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../../../../../../monitos/visto.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="cantidadAciertos" text="0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font></Label>
                            </children>
                            <padding>
                               <Insets left="10.0" />
