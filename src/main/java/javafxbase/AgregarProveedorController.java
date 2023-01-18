@@ -10,14 +10,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import modelo.Cliente;
+import modelo.Proveedor;
 
 /**
  * FXML Controller class
  *
  * @author carmi
  */
-public class AgregarClienteController implements Initializable {
+public class AgregarProveedorController implements Initializable {
 
     @FXML
     private Button volverAdmin;
@@ -29,8 +29,7 @@ public class AgregarClienteController implements Initializable {
     private Label direccionlb;
     @FXML
     private Label telefonolb;
-    @FXML
-    private Label tipoclientelb;
+   
 
     /**
      * Initializes the controller class.
@@ -39,7 +38,7 @@ public class AgregarClienteController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-    ArrayList<Cliente> listaClientes = Cliente.cargarLista3();
+    ArrayList<Proveedor> listaProveedores = Proveedor.cargarListaProveedor();
    
     @FXML
     private Button btnaceptar;
@@ -51,27 +50,26 @@ public class AgregarClienteController implements Initializable {
     private TextField direcciontf;
     @FXML
     private TextField telefonotf;
-    @FXML
-    private TextField tipotf;
     
     
+    
     @FXML
-    private void aceptarCliente(ActionEvent event) throws IOException {
+    private void aceptarProveedor(ActionEvent event) throws IOException {
         String codigo = codigotf.getText();
         String nombre = nombretf.getText();
         String direccion = direcciontf.getText();
         String telefono = telefonotf.getText();
-        String tipo = tipotf.getText();
         
-        Cliente c = new Cliente(codigo,nombre,direccion,telefono,tipo);
-        listaClientes.add(c);
-        Cliente.sobreescribirFichero(listaClientes);
-        App.setRoot("administrarClientes");
+        
+        Proveedor c = new Proveedor(codigo,nombre,direccion,telefono);
+        listaProveedores.add(c);
+        Proveedor.sobreescribirFicheroProveedor(listaProveedores);
+        App.setRoot("administrarProveedores");
     }
     
     
     @FXML
-    private void volveradministrarClientes(ActionEvent event) throws IOException {
-    App.setRoot("administrarClientes");
+    private void volveradministrarProveedores(ActionEvent event) throws IOException {
+    App.setRoot("administrarProveedores");
     }
 }

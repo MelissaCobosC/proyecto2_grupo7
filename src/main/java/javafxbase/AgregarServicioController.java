@@ -10,14 +10,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import modelo.Cliente;
+import modelo.Servicio;
 
 /**
  * FXML Controller class
  *
  * @author carmi
  */
-public class AgregarClienteController implements Initializable {
+public class AgregarServicioController implements Initializable {
 
     @FXML
     private Button volverAdmin;
@@ -26,11 +26,8 @@ public class AgregarClienteController implements Initializable {
     @FXML
     private Label nombrelb;
     @FXML
-    private Label direccionlb;
-    @FXML
-    private Label telefonolb;
-    @FXML
-    private Label tipoclientelb;
+    private Label preciolb;
+    
 
     /**
      * Initializes the controller class.
@@ -39,7 +36,7 @@ public class AgregarClienteController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-    ArrayList<Cliente> listaClientes = Cliente.cargarLista3();
+    ArrayList<Servicio> listaServicio = Servicio.cargarLista1();
    
     @FXML
     private Button btnaceptar;
@@ -48,30 +45,24 @@ public class AgregarClienteController implements Initializable {
     @FXML
     private TextField nombretf;
     @FXML
-    private TextField direcciontf;
-    @FXML
-    private TextField telefonotf;
-    @FXML
-    private TextField tipotf;
+    private TextField preciotf;
+   
     
     
     @FXML
-    private void aceptarCliente(ActionEvent event) throws IOException {
+    private void aceptarServicio(ActionEvent event) throws IOException {
         String codigo = codigotf.getText();
         String nombre = nombretf.getText();
-        String direccion = direcciontf.getText();
-        String telefono = telefonotf.getText();
-        String tipo = tipotf.getText();
-        
-        Cliente c = new Cliente(codigo,nombre,direccion,telefono,tipo);
-        listaClientes.add(c);
-        Cliente.sobreescribirFichero(listaClientes);
-        App.setRoot("administrarClientes");
+        Double precio  = Double.parseDouble(preciotf.getText());
+        Servicio s = new Servicio(codigo,nombre,precio);
+        listaServicio.add(s);
+        Servicio.sobreescribirFicheroServicio(listaServicio);
+        App.setRoot("administrarServicios");
     }
     
     
     @FXML
     private void volveradministrarClientes(ActionEvent event) throws IOException {
-    App.setRoot("administrarClientes");
+    App.setRoot("administrarServicios");
     }
 }

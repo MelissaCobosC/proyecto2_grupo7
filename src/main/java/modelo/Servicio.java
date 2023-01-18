@@ -54,7 +54,8 @@ public class Servicio {
         return servicios;
     }
     
-        public static void sobreescribirFicheroServicio(ArrayList<Servicio> servicios){
+
+    public static void sobreescribirFicheroServicio(ArrayList<Servicio> servicios){
         try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/main/resources/servicios.txt"));){
             bw.write("codigo,nombre,precio");
             for(Servicio s:servicios){
@@ -65,6 +66,11 @@ public class Servicio {
             System.out.println("error");
         }
     }
+    
+
+        
+  
+
    // public static ArrayList<String> listaServicios() {
      //  ArrayList<String> listServicios = new ArrayList<>();
      //  ArrayList<Servicio> servicios = cargarLista1();
