@@ -42,7 +42,7 @@ public class AdministrarProveedoresController implements Initializable {
     
     
    
-    ArrayList<Proveedor> listacliente = Proveedor.cargarListaProveedor();
+    ArrayList<Proveedor> listaproveedor = Proveedor.cargarListaProveedor();
    
     @FXML
     private TableView<Proveedor> tablaClientes;
@@ -56,7 +56,7 @@ public class AdministrarProveedoresController implements Initializable {
     private TableColumn colTelf;
    
     
-    ObservableList<Proveedor> listaclientes;
+    ObservableList<Proveedor> listaproveedores;
     
     
     @FXML
