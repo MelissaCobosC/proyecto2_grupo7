@@ -2,7 +2,9 @@
 package modelo;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -17,7 +19,7 @@ public class Proveedor extends Persona{
         return super.toString();
     }
     
-    public static ArrayList<Proveedor> cargarLista(){
+    public static ArrayList<Proveedor> cargarListaProveedor(){
         ArrayList<Proveedor> proveedores = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader("src/main/resources/proveedores.txt"));){
             br.readLine();
@@ -32,5 +34,16 @@ public class Proveedor extends Persona{
         return proveedores;
     }
     
+    public static void sobreescribirFicheroServicio(ArrayList<Proveedor> proveedores){
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/main/resources/proveedores.txt"));){
+            bw.write("cedula,nombre,direccion,telefono");
+            for(Proveedor p:proveedores){
+                bw.newLine();
+                bw.write(p.getCod()+","+p.getNom()+","+p.getDir()+","+p.getTel());
+            }
+        }catch (IOException e){
+            System.out.println("error");
+        }
+    }
 }
 

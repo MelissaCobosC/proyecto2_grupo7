@@ -1,7 +1,9 @@
 package modelo;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import static modelo.Orden.cargarLista;
@@ -52,6 +54,17 @@ public class Servicio {
         return servicios;
     }
     
+        public static void sobreescribirFicheroServicio(ArrayList<Servicio> servicios){
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/main/resources/servicios.txt"));){
+            bw.write("codigo,nombre,precio");
+            for(Servicio s:servicios){
+                bw.newLine();
+                bw.write(s.getCodigo()+","+s.getNombre()+","+s.getPrecio());
+            }
+        }catch (IOException e){
+            System.out.println("error");
+        }
+    }
    // public static ArrayList<String> listaServicios() {
      //  ArrayList<String> listServicios = new ArrayList<>();
      //  ArrayList<Servicio> servicios = cargarLista1();
