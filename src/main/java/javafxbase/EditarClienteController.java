@@ -7,11 +7,13 @@ package javafxbase;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import modelo.Cliente;
 
 /**
  * FXML Controller class
@@ -26,7 +28,9 @@ public class EditarClienteController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }   
+    
+    
     
      @FXML
     private Button btnaceptar;
@@ -83,6 +87,19 @@ public class EditarClienteController implements Initializable {
 
     @FXML
     private Button volverAdmin;
+    
+//    public void mostrarClienteSeleccionado(){
+//            tablaClientes.setOnMouseClicked((Event ev) -> {
+//            Cliente cliente = getTablaClienteSeleccionado();
+//            codigotf.setText(cliente.getCodigo());
+//            nombretf.setText(cliente.getNombre());
+//            direcciontf.setText(cliente.getDireccion());
+//            telefonotf.setText(cliente.getTelefono());
+//            tipotf.setText(cliente.getTipoCliente());
+//            codigotf.setDisable(true);
+//        });
+//    
+//    }
 
     @FXML
     private void aceptarCliente(ActionEvent event) {

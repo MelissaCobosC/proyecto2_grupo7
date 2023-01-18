@@ -77,7 +77,7 @@ public class AdministrarClientesController implements Initializable {
        tablaClientes.getItems().setAll(listacliente);
     }
    
-    public Cliente getTablaClienteSeleccionado() {
+    public  Cliente getTablaClienteSeleccionado() {
         if (tablaClientes != null) {
             List<Cliente> tabla = tablaClientes.getSelectionModel().getSelectedItems();
             if (tabla.size() == 1) {
@@ -89,21 +89,8 @@ public class AdministrarClientesController implements Initializable {
         return null; 
     }
     
-    public void SelecionarCliente(){
-        tablaClientes.setOnMouseClicked(
-            new EventHandler<Event>() {
-                public void handle(Event ev){
-                    Cliente cliente = getTablaClienteSeleccionado();
-//                    EditarClienteController.getCodigotf().setText(cliente.getCodigo());
-//                    EditarClienteController.getNombretf().setText(cliente.getNombre());
-//                    EditarClienteController.getDirecciontf().setText(cliente.getDireccion());
-//                    EditarClienteController.getTelefonotf().setText(cliente.getTelefono());
-//                    EditarClienteController.getTipotf().setText(cliente.getTipoCliente());
-//                    EditarClienteController.getCodigotf().setDisable(true);
-                }
-            });
     
-    }
+    
     
      @FXML
     private void agregarClientes(ActionEvent event) throws IOException {
@@ -112,9 +99,7 @@ public class AdministrarClientesController implements Initializable {
     
     @FXML
     private void editarClientes(ActionEvent event) throws IOException {
-//        FXMLLoader loader = new FXMLLoader(App.class.getResource("editarCliente.fxml"));
-//        Parent vistaedicioncliente = loader.load();
-//        App.setRoot(vistaedicioncliente);
+    App.setRoot("editarCliente");    
     }
     
     @FXML
