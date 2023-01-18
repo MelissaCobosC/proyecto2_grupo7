@@ -79,7 +79,7 @@ public class IniciarsesionController implements Initializable {
             }
         }
         if(cont==0){
-    Alert alert = new Alert(Alert.AlertType.ERROR);
+                Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Alerta");
                 alert.setContentText("Su usuario o contraseña son erroneas, intentelo de nuevo");
 

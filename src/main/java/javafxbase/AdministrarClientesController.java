@@ -3,11 +3,19 @@ package javafxbase;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -69,20 +77,59 @@ public class AdministrarClientesController implements Initializable {
        tablaClientes.getItems().setAll(listacliente);
     }
    
+    public Cliente getTablaClienteSeleccionado() {
+        if (tablaClientes != null) {
+            List<Cliente> tabla = tablaClientes.getSelectionModel().getSelectedItems();
+            if (tabla.size() == 1) {
+                Cliente clSeleccionado = tabla.get(0);
+                return clSeleccionado;
+            }
+            
+        }
+        return null; 
+    }
+    
+    public void SelecionarCliente(){
+        tablaClientes.setOnMouseClicked(
+            new EventHandler<Event>() {
+                public void handle(Event ev){
+                    Cliente cliente = getTablaClienteSeleccionado();
+//                    EditarClienteController.getCodigotf().setText(cliente.getCodigo());
+//                    EditarClienteController.getNombretf().setText(cliente.getNombre());
+//                    EditarClienteController.getDirecciontf().setText(cliente.getDireccion());
+//                    EditarClienteController.getTelefonotf().setText(cliente.getTelefono());
+//                    EditarClienteController.getTipotf().setText(cliente.getTipoCliente());
+//                    EditarClienteController.getCodigotf().setDisable(true);
+                }
+            });
+    
+    }
     
      @FXML
     private void agregarClientes(ActionEvent event) throws IOException {
     App.setRoot("agregarCliente");
     }
     
-         @FXML
+    @FXML
     private void editarClientes(ActionEvent event) throws IOException {
-    App.setRoot("administrarClientes");
+//        FXMLLoader loader = new FXMLLoader(App.class.getResource("editarCliente.fxml"));
+//        Parent vistaedicioncliente = loader.load();
+//        App.setRoot(vistaedicioncliente);
     }
     
     @FXML
     private void eliminarClientes(ActionEvent event) throws IOException {
-    App.setRoot("administrarClientes");
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Eliminar Cliente");
+        alert.setContentText("Esta seguro de que quiere eliminar?");     
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
+            listacliente.remove(getTablaClienteSeleccionado());
+            cargarClientes();
+              
+        } else {
+            alert.close();
+        }
     }
     
     
