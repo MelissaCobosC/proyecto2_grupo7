@@ -25,6 +25,23 @@ public String getCod() {
     public String getDir() {
         return direccion;
     }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+    
     @Override
     public String toString() {
         return codigo + " - " + nombre + " - " + direccion + " - " + telefono ; 

@@ -26,33 +26,25 @@ public class AdministrarServiciosController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-//       listaclientes = new FXCollections.observableArrayList();
-//       colCod.setCellValueFactory(new PropertyValueFactory<Cliente,String>("codigo"));
-//       colNombre.setCellValueFactory(new PropertyValueFactory<Cliente,String>("nombre"));
-//       colDir.setCellValueFactory(new PropertyValueFactory<Cliente,String>("direccion"));
-//       colTelf.setCellValueFactory(new PropertyValueFactory<Cliente,String>("telefono"));
-//       colTipo.setCellValueFactory(new PropertyValueFactory<Cliente,String>("tipo"));
-//       
-//       tablaClientes.setItems(listaclientes);
-//        
+        cargarServicios();
     }    
     
     
     
    
-    ArrayList<Servicio> listacliente = Servicio.cargarLista1();
+    ArrayList<Servicio> listaservicios = Servicio.cargarLista1();
    
     @FXML
     private TableView<Servicio> tablaServicios;
     @FXML
-    private TableColumn colCod;
+    private TableColumn<Servicio,String> colCod;
     @FXML
-    private TableColumn colNombre;
+    private TableColumn<Servicio,String> colNombre;
     @FXML
-    private TableColumn colPrecio;
+    private TableColumn <Servicio,Integer> colPrecio;
    
     
-    ObservableList<Servicio> listaservicios;
+   
     
     
     @FXML
@@ -65,6 +57,14 @@ public class AdministrarServiciosController implements Initializable {
     @FXML
     private Button volverAdmin;
    
+    
+    private void cargarServicios(){
+       this.colCod.setCellValueFactory(new PropertyValueFactory<>("codigo"));
+       this.colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+       this.colPrecio.setCellValueFactory(new PropertyValueFactory<>("precio"));
+       
+       tablaServicios.getItems().setAll(listaservicios);
+    }
     
      @FXML
     private void agregarServicio(ActionEvent event) throws IOException {

@@ -28,21 +28,13 @@ public class AdministrarProveedoresController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-//       listaclientes = new FXCollections.observableArrayList();
-//       colCod.setCellValueFactory(new PropertyValueFactory<Cliente,String>("codigo"));
-//       colNombre.setCellValueFactory(new PropertyValueFactory<Cliente,String>("nombre"));
-//       colDir.setCellValueFactory(new PropertyValueFactory<Cliente,String>("direccion"));
-//       colTelf.setCellValueFactory(new PropertyValueFactory<Cliente,String>("telefono"));
-//       colTipo.setCellValueFactory(new PropertyValueFactory<Cliente,String>("tipo"));
-//       
-//       tablaClientes.setItems(listaclientes);
-//        
+        cargarProveedores();
     }    
     
     
     
    
-    ArrayList<Proveedor> listaproveedor = Proveedor.cargarListaProveedor();
+    ArrayList<Proveedor> listaproveedores = Proveedor.cargarListaProveedor();
    
     @FXML
     private TableView<Proveedor> tablaClientes;
@@ -55,8 +47,14 @@ public class AdministrarProveedoresController implements Initializable {
     @FXML
     private TableColumn colTelf;
    
-    
-    ObservableList<Proveedor> listaproveedores;
+    private void cargarProveedores(){
+       this.colCed.setCellValueFactory(new PropertyValueFactory<>("codigo"));
+       this.colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+       this.colDir.setCellValueFactory(new PropertyValueFactory<>("direccion"));
+       this.colTelf.setCellValueFactory(new PropertyValueFactory<>("telefono"));
+       tablaClientes.getItems().setAll(listaproveedores);
+    }
+   
     
     
     @FXML
