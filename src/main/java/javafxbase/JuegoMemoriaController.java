@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -33,7 +34,8 @@ public class JuegoMemoriaController implements Initializable {
     Celda segundaCarta = null;
     int contA = 0;
     int contB = 0;
-    int tiempo = 2;
+    int minuto = 1;
+    int segundos = 60;
     
     @FXML
     public GridPane gameMatrix;
@@ -46,7 +48,9 @@ public class JuegoMemoriaController implements Initializable {
     @FXML
     private Button start;
     @FXML
-    public Label tiempoCronometro;
+    public Label minutoCronometro;
+    @FXML
+    public Label segundosCronometro;
     @FXML
     public Label cantidadAciertos;
     
@@ -93,7 +97,7 @@ public class JuegoMemoriaController implements Initializable {
         Image imagenSelecionada = new Image(input);
         ((ImageView)node).setImage(imagenSelecionada);
         parejaEncontrada(rowSeleccionada, colSeleccionada);
-        //contador();
+        contador();
      
     }
     
@@ -158,26 +162,46 @@ public class JuegoMemoriaController implements Initializable {
         App.setRoot("generarOrden");
     }
     
-    /*public void contador(){
+    public void contador(){
         Thread thread = new Thread( new Runnable() {
             @Override
             public void run() {
                 try{
-                    while(tiempo > 0){
-                        Thread.sleep(1000);
-                        tiempo -= 1;
-                        Platform.runLater(() ->{
-                            tiempoCronometro.setText(""+tiempo);
-                        });
+                    while(minuto > 0){
+                        if(segundos > 0){
+                            Thread.sleep(1000);
+                            segundos -= 1;
+                            Platform.runLater(() ->{
+                            minutoCronometro.setText(""+minuto);
+                            segundosCronometro.setText(""+segundos);
+                            });
+                        }else if(segundos == 0){
+                            Thread.sleep(1000);
+                            minuto -= 1;
+                            segundos = 60;
+                            Platform.runLater(() ->{
+                            minutoCronometro.setText(""+minuto);
+                            segundosCronometro.setText(""+segundos);
+                            });
+                            
+                        }
                     }
-                    System.out.println(tiempo);
+                    while(segundos > 0){
+                        Thread.sleep(1000);
+                            segundos -= 1;
+                            Platform.runLater(() ->{
+                            minutoCronometro.setText(""+minuto);
+                            segundosCronometro.setText(""+segundos);
+                            });
+                    }
+ 
+                    System.out.println(minuto + ":" + segundos);
                 }catch(Exception ex){
                     System.out.println("Error con el metodo sleep");
                 }
+                
             }
-        
-            
         });
         thread.start();
-    }*/
+    }
 }
