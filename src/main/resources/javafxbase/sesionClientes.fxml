@@ -60,5 +60,13 @@
          </image>
       </ImageView>
       <TextField fx:id="cedula" layoutX="24.0" layoutY="255.0" prefHeight="26.0" prefWidth="323.0" />
+      <Button layoutX="364.0" layoutY="313.0" mnemonicParsing="false" onAction="#regresar" style="-fx-background-color: #3cb2aa;" text="Regresar" textOverrun="CLIP">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
    </children>
 </AnchorPane>

@@ -10,7 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.control.cell.PropertyValueFactory;
 import modelo.Cliente;
 import static modelo.Cliente.cargarLista3;
 import modelo.Orden;
@@ -34,39 +34,40 @@ public class ConsultarOrdenController implements Initializable {
     @FXML
     private TableColumn<Orden, String> colCod;
     @FXML
-    private TableColumn<Orden,String> colFecha;
+    private TableColumn<Orden, String> colFecha;
     @FXML
     private TableColumn<Orden, String> colCliente;
     @FXML
     private TableColumn<Orden, Double> colTotal;
-    
+
     ArrayList<Orden> ordenes = cargarLista();
-    //ArrayList<Cliente> clientes = cargarLista3();
+    ArrayList<Cliente> clientes = cargarLista3();
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //this.colCod.setCellValueFactory(new PropertyValueFactory<Orden, String>("codigo"));
-        //this.colCliente.setCellValueFactory(new PropertyValueFactory<Orden, String>("cliente"));
-        //this.colFecha.setCellValueFactory(new PropertyValueFactory<Orden, String>("fecha"));
-        //this.colTotal.setCellValueFactory(new PropertyValueFactory<Orden, Double>("total"));
-        //tablaConsulta.getItems().setAll(ordenes);
-    }    
+        this.colCod.setCellValueFactory(new PropertyValueFactory<>("codigoCliente"));
+        this.colFecha.setCellValueFactory(new PropertyValueFactory<>("fechaServicio"));
+       // this.colCliente.setCellValueFactory(new PropertyValueFactory<>("placa"));
+        this.colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
+
+    }
 
     @FXML
     private void consultarOrden(ActionEvent event) throws IOException {
-    App.setRoot("consultarOrden");
+        App.setRoot("consultarOrden");
     }
 
     @FXML
     private void generarOrden(ActionEvent event) throws IOException {
-    App.setRoot("generarOrden");
+        App.setRoot("generarOrden");
     }
 
     @FXML
     private void reportarInsumo(ActionEvent event) throws IOException {
-    App.setRoot("reportarInsumo");
+        App.setRoot("reportarInsumo");
     }
 
     @FXML
@@ -78,30 +79,22 @@ public class ConsultarOrdenController implements Initializable {
         String cod = codigo.getText();
         String fec = fecha.getText();
         String cli = cliente.getText();
-        //ArrayList<Orden> discriminante = new ArrayList<>();
-       // for (Orden o : ordenes){
-         //   if (o.getCodigoCliente().equals(codigo.getText())){
-                //discriminante.add(o);
-           //     for(Cliente c:clientes){
-             //       if(c.getCod().equals(o.getCodigoCliente())){
-                    
-               //     }
-                  //  }
-            //    }
-           // }
-       }
-        //tablaConsulta.getItems().setAll(discriminante);
-        
-        //codigo.setText(null);
-        //fecha.setText(null);
-        //cliente.setText(null);
 
+        ArrayList<Orden> filtroOrden = new ArrayList<>();
+        for (Orden o : ordenes) {
+            if (cod.equals(o.getCodigoCliente())) {
+                filtroOrden.add(o);
+            }
+        }
+        tablaConsulta.getItems().setAll(filtroOrden);
+        codigo.setText(null);
+        fecha.setText(null);
+        cliente.setText(null);
+    }
 
     @FXML
     private void btnJugar(ActionEvent event) throws IOException {
         App.setRoot("sesionClientes");
     }
 
-
-    
-    }
+}

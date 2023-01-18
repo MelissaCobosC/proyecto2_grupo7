@@ -74,7 +74,6 @@ public class GenerarOrdenController implements Initializable {
         this.colCant.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
         this.codTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
         comboBoxVehiculo.getItems().setAll(listVehiculo);
-        tablaGenerar.getItems().setAll(ordenes);
     }
 
     @FXML

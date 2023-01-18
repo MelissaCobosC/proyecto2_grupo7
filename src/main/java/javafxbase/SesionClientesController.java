@@ -45,4 +45,9 @@ public class SesionClientesController implements Initializable {
       Cliente.sobreescribirFichero(listClientes);
     }
 
+    @FXML
+    private void regresar(ActionEvent event) throws IOException {
+        App.setRoot("generarOrden");
+    }
+
 }
