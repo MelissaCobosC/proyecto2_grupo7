@@ -43,5 +43,17 @@
             </Button>
          </children>
       </Pane>
+      <Button fx:id="btnvolveriniciosesion" alignment="CENTER_RIGHT" layoutX="57.0" layoutY="303.0" mnemonicParsing="false" onAction="#volverInicioSesion" prefHeight="40.0" prefWidth="99.0" text="Volver">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0">
+               <image>
+                  <Image url="@../imagenes/volver.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

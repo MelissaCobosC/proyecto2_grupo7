@@ -6,19 +6,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import modelo.Cliente;
 
 import modelo.Proveedor;
 
@@ -51,6 +52,30 @@ public class AdministrarProveedoresController implements Initializable {
     private TableColumn colDir;
     @FXML
     private TableColumn colTelf;
+    
+     @FXML
+    private Label cedulalb;
+
+    @FXML
+    private TextField cedulatf;
+    
+    @FXML
+    private Label direccionlb;
+
+    @FXML
+    private TextField direcciontf;
+    
+    @FXML
+    private Label nombrelb;
+
+    @FXML
+    private TextField nombretf;
+    
+    @FXML
+    private Label telefonolb;
+
+    @FXML
+    private TextField telefonotf;
    
     private void cargarProveedores(){
        this.colCed.setCellValueFactory(new PropertyValueFactory<>("codigo"));
@@ -84,6 +109,18 @@ public class AdministrarProveedoresController implements Initializable {
         return null; 
     }
     
+    public  void mostrarProveedorSeleccionado(){
+        tablaProveedor.setOnMouseClicked((Event ev) -> {
+            Proveedor proveedor = getTablaProveedorSeleccionado();
+            cedulatf.setText(proveedor.getCodigo());
+            nombretf.setText(proveedor.getNombre());
+            direcciontf.setText(proveedor.getDireccion());
+            telefonotf.setText(proveedor.getTelefono());
+            cedulatf.setDisable(true);
+        });
+    
+    }
+    
      @FXML
     private void agregarProveedor(ActionEvent event) throws IOException {
     App.setRoot("agregarProveedor");
@@ -91,7 +128,24 @@ public class AdministrarProveedoresController implements Initializable {
     
          @FXML
     private void editarProveedores(ActionEvent event) throws IOException {
-    App.setRoot("administrarProveedores");
+    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Editar Proveedor");
+        alert.setContentText("Esta seguro de que quiere editar?");     
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
+            String cedula = this.cedulatf.getText();
+            String nombre = this.nombretf.getText();
+            String direccion = this.direcciontf.getText();
+            String telefono = this.telefonotf.getText();
+            
+            Proveedor proveedor = new Proveedor(cedula,nombre,direccion,telefono);
+        
+            int indice =  listaproveedores.indexOf(getTablaProveedorSeleccionado());
+            listaproveedores.set(indice, proveedor);
+              
+        } else {
+            alert.close();
+        } 
     }
     
     @FXML

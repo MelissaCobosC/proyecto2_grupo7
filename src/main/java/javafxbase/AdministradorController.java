@@ -45,6 +45,11 @@ public class AdministradorController implements Initializable {
     private void administrarProovedores(ActionEvent event) throws IOException {
     App.setRoot("administrarProveedores");
     }
+    
+    @FXML
+    private void volverInicioSesion(ActionEvent event) throws IOException {
+    App.setRoot("iniciaSesion");
+    }
 
     
    

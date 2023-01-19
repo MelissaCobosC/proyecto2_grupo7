@@ -4,13 +4,14 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="383.0" prefWidth="758.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxbase.AdministrarClientesController">
+<AnchorPane id="AnchorPane" prefHeight="348.0" prefWidth="1110.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxbase.AdministrarClientesController">
    <children>
       <Pane prefHeight="100.0" prefWidth="764.0" style="-fx-background-color: #808684;">
          <children>
@@ -26,7 +27,7 @@
             </ImageView>
          </children>
       </Pane>
-      <TableView fx:id="tablaClientes" layoutY="136.0" prefHeight="100.0" prefWidth="764.0">
+      <TableView fx:id="tablaClientes" layoutY="136.0" onMouseClicked="#mostrarClienteSeleccionado" prefHeight="125.0" prefWidth="764.0">
          <columns>
             <TableColumn fx:id="colCod" prefWidth="150.66665649414062" style="-fx-background-color: #;" text="Codigo" />
             <TableColumn fx:id="colNombre" prefWidth="142.66668701171875" text="Nombre" />
@@ -44,12 +45,14 @@
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0">
+               <image>
+                  <Image url="@../imagenes/volver.png" />
+               </image>
+            </ImageView>
+         </graphic>
       </Button>
-      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="56.0" layoutY="301.0">
-         <image>
-            <Image url="@../imagenes/volver.png" />
-         </image>
-      </ImageView>
       <Button fx:id="editar" alignment="CENTER_RIGHT" layoutX="501.0" layoutY="293.0" mnemonicParsing="false" onAction="#editarClientes" prefHeight="40.0" prefWidth="79.0" text="Editar">
          <font>
             <Font name="System Bold" size="14.0" />
@@ -60,5 +63,35 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
+      <TextField fx:id="codigotf" layoutX="859.0" layoutY="57.0" prefHeight="26.0" prefWidth="162.0" />
+      <Label fx:id="codigolb" layoutX="787.0" layoutY="55.0" prefHeight="27.0" prefWidth="72.0" text="Código:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="nombrelb" layoutX="787.0" layoutY="100.0" prefHeight="27.0" prefWidth="79.0" text="Nombre:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nombretf" layoutX="866.0" layoutY="101.0" prefHeight="26.0" prefWidth="162.0" />
+      <Label fx:id="direccionlb" layoutX="780.0" layoutY="136.0" prefHeight="27.0" prefWidth="93.0" text="Direccion:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="direcciontf" layoutX="873.0" layoutY="137.0" prefHeight="26.0" prefWidth="162.0" />
+      <Label fx:id="telefonolb" layoutX="780.0" layoutY="171.0" prefHeight="27.0" prefWidth="93.0" text="Telefono:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="telefonotf" layoutX="866.0" layoutY="172.0" prefHeight="26.0" prefWidth="162.0" />
+      <Label fx:id="tipoclientelb" layoutX="799.0" layoutY="212.0" prefHeight="27.0" prefWidth="55.0" text="Tipo:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tipotf" layoutX="859.0" layoutY="213.0" prefHeight="26.0" prefWidth="162.0" />
    </children>
 </AnchorPane>

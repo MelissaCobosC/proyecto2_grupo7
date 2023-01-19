@@ -6,18 +6,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import modelo.Cliente;
+
 
 import modelo.Servicio;
 
@@ -48,7 +50,23 @@ public class AdministrarServiciosController implements Initializable {
     @FXML
     private TableColumn <Servicio,Integer> colPrecio;
    
+    @FXML
+    private Label codigolb;
+
+    @FXML
+    private TextField codigotf;
     
+    @FXML
+    private Label nombrelb;
+
+    @FXML
+    private TextField nombretf;
+
+    @FXML
+    private Label preciolb;
+
+    @FXML
+    private TextField preciotf;
    
     
     
@@ -83,6 +101,18 @@ public class AdministrarServiciosController implements Initializable {
         return null; 
     }
     
+     public  void mostrarServicioSeleccionado(){
+        tablaServicios.setOnMouseClicked((Event ev) -> {
+            Servicio servicio = getTablaServicioSeleccionado();
+            codigotf.setText(servicio.getCodigo());
+            nombretf.setText(servicio.getNombre());
+            preciotf.setText(String.valueOf(servicio.getPrecio()) );
+            
+            codigotf.setDisable(true);
+        });
+    
+    }
+     
      @FXML
     private void agregarServicio(ActionEvent event) throws IOException {
     App.setRoot("agregarServicio");
@@ -90,7 +120,23 @@ public class AdministrarServiciosController implements Initializable {
     
     @FXML
     private void editarServicio(ActionEvent event) throws IOException {
-    App.setRoot("administrarServicio");
+    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Editar Servicio");
+        alert.setContentText("Esta seguro de que quiere editar?");     
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
+            String cedula = this.codigotf.getText();
+            String nombre = this.nombretf.getText();
+            int precio = Integer.parseInt(this.preciotf.getText());
+            
+            Servicio servicio = new Servicio(cedula,nombre,precio);
+        
+            int indice =  listaservicios.indexOf(getTablaServicioSeleccionado());
+            listaservicios.set(indice, servicio);
+              
+        } else {
+            alert.close();
+        } 
     }
     
     @FXML

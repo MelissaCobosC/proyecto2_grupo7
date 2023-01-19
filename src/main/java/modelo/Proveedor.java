@@ -80,19 +80,7 @@ public class Proveedor extends Persona{
             System.out.println("error");
         }
     }
-    
-
-    public static void sobreescribirFicheroServicio(ArrayList<Proveedor> proveedores){
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/main/resources/proveedores.txt"));){
-            bw.write("cedula,nombre,direccion,telefono");
-            for(Proveedor p:proveedores){
-                bw.newLine();
-                bw.write(p.getCod()+","+p.getNom()+","+p.getDir()+","+p.getTel());
-            }
-        }catch (IOException e){
-            System.out.println("error");
-        }
-    }
+   
 
 }
 
