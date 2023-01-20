@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -28,14 +29,15 @@ import modelo.*;
 
 public class JuegoMemoriaController implements Initializable {
 
-    
+    static String nombreJugador;
     Board board;
     Celda primeraCarta = null;
     Celda segundaCarta = null;
-    int contA = 0;
-    int contB = 0;
+    int aciertos = 0;
+    int fallos = 0;
     int minuto = 1;
     int segundos = 60;
+    Thread temporizador;
     
     @FXML
     public GridPane gameMatrix;
@@ -57,6 +59,7 @@ public class JuegoMemoriaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb){
         
+        instanciarHilo();
         this.board = new Board();
         
         try {
@@ -97,51 +100,52 @@ public class JuegoMemoriaController implements Initializable {
         Image imagenSelecionada = new Image(input);
         ((ImageView)node).setImage(imagenSelecionada);
         parejaEncontrada(rowSeleccionada, colSeleccionada);
-        contador();
+        iniciarTemporizador();
      
     }
     
     public void parejaEncontrada(int rowSeleccionada, int colSeleccionada) throws FileNotFoundException{
-        if(primeraCarta == null){
-            primeraCarta = board.board[rowSeleccionada][colSeleccionada];     
-        }else{
+        if (primeraCarta == null) {
+            primeraCarta = board.board[rowSeleccionada][colSeleccionada];
+        } else {
             segundaCarta = board.board[rowSeleccionada][colSeleccionada];
-            if(primeraCarta == segundaCarta){
+            if (primeraCarta == segundaCarta) {
                 segundaCarta = null;
                 return;
             }
-            
-            if(primeraCarta.value.equals(segundaCarta.value)){
+
+            if (primeraCarta.value.equals(segundaCarta.value)) {
                 board.board[primeraCarta.row][primeraCarta.col].adivina = true;
                 board.board[segundaCarta.row][segundaCarta.col].adivina = true;
-                contA++;
-                cantidadAciertos.setText(Integer. toString(contA));
-                
+                aciertos++;
+                cantidadAciertos.setText(Integer.toString(aciertos));
+
                 int indicePrimeraCarta = (primeraCarta.row * 4) + primeraCarta.col;
-                ((ImageView)gameMatrix.getChildren().get(indicePrimeraCarta)).setOnMouseClicked(null);
-                
+                ((ImageView) gameMatrix.getChildren().get(indicePrimeraCarta)).setOnMouseClicked(null);
+
                 int indiceSegundaCarta = (segundaCarta.row * 4) + segundaCarta.col;
-                ((ImageView)gameMatrix.getChildren().get(indiceSegundaCarta)).setOnMouseClicked(null);
-                
-            }else{
-                contB++;
+                ((ImageView) gameMatrix.getChildren().get(indiceSegundaCarta)).setOnMouseClicked(null);
+
+            } else {
+                fallos++;
                 FileInputStream input = new FileInputStream("src/main/resources/imagenes/pregunta.png");
                 FileInputStream input2 = new FileInputStream("src/main/resources/imagenes/pregunta.png");
-                
+
                 int indicePrimeraCarta = (primeraCarta.row * 4) + primeraCarta.col;
-                ((ImageView)gameMatrix.getChildren().get(indicePrimeraCarta)).setImage(new Image(input));
-                
+                ((ImageView) gameMatrix.getChildren().get(indicePrimeraCarta)).setImage(new Image(input));
+
                 int indiceSegundaCarta = (segundaCarta.row * 4) + segundaCarta.col;
-                ((ImageView)gameMatrix.getChildren().get(indiceSegundaCarta)).setImage(new Image(input2));
-                
+                ((ImageView) gameMatrix.getChildren().get(indiceSegundaCarta)).setImage(new Image(input2));
+
             }
             primeraCarta = null;
             segundaCarta = null;
-            if(contA == 8){
+            if (aciertos == 8) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText("¡HAZ GANADO WUP WUP!");
                 alert.setTitle("Informacion del juego");
                 alert.setContentText("Ha logrado acertar los 8 pares de cartas en el tiempo estimado, ENHORABUENA");
+                this.guardarDatos();
 
                 alert.showAndWait();
                 try {
@@ -152,8 +156,8 @@ public class JuegoMemoriaController implements Initializable {
                 alert.close();
             }
         }
-        System.out.println("contador de aciertos: "+contA);
-        System.out.println("contador de fallos: "+contB);
+        System.out.println("contador de aciertos: " + aciertos);
+        System.out.println("contador de fallos: " + fallos);
          
     }  
 
@@ -162,46 +166,65 @@ public class JuegoMemoriaController implements Initializable {
         App.setRoot("generarOrden");
     }
     
-    public void contador(){
-        Thread thread = new Thread( new Runnable() {
-            @Override
-            public void run() {
-                try{
-                    while(minuto > 0){
-                        if(segundos > 0){
-                            Thread.sleep(1000);
-                            segundos -= 1;
-                            Platform.runLater(() ->{
-                            minutoCronometro.setText(""+minuto);
-                            segundosCronometro.setText(""+segundos);
-                            });
-                        }else if(segundos == 0){
-                            Thread.sleep(1000);
-                            minuto -= 1;
-                            segundos = 60;
-                            Platform.runLater(() ->{
-                            minutoCronometro.setText(""+minuto);
-                            segundosCronometro.setText(""+segundos);
-                            });
-                            
-                        }
-                    }
-                    while(segundos > 0){
+    @FXML
+    public void iniciarTemporizador() {
+        try {
+            temporizador.start();
+        } catch (IllegalThreadStateException ex) {
+        }
+    }
+
+    private void instanciarHilo() {
+        this.temporizador = new Thread(() -> {
+            try {
+                while (minuto > 0) {
+                    if (segundos > 0) {
                         Thread.sleep(1000);
-                            segundos -= 1;
-                            Platform.runLater(() ->{
-                            minutoCronometro.setText(""+minuto);
-                            segundosCronometro.setText(""+segundos);
-                            });
+                        segundos -= 1;
+                        Platform.runLater(() -> {
+                            minutoCronometro.setText("" + minuto);
+                            segundosCronometro.setText("" + segundos);
+                        });
+                    } else if (segundos == 0) {
+                        Thread.sleep(1000);
+                        minuto -= 1;
+                        segundos = 60;
+                        Platform.runLater(() -> {
+                            minutoCronometro.setText("" + minuto);
+                            segundosCronometro.setText("" + segundos);
+                        });
+
                     }
- 
-                    System.out.println(minuto + ":" + segundos);
-                }catch(Exception ex){
-                    System.out.println("Error con el metodo sleep");
+                }
+                while (segundos > 0) {
+                    Thread.sleep(1000);
+                    segundos -= 1;
+                    Platform.runLater(() -> {
+                        minutoCronometro.setText("" + minuto);
+                        segundosCronometro.setText("" + segundos);
+                    });
+
                 }
                 
-            }
+            } catch (InterruptedException ex) {
+                System.out.println("Error con el metodo sleep");
+            } 
+
+            this.guardarDatos();
         });
-        thread.start();
+        temporizador.setDaemon(true);
     }
+    
+    public static void setJugador(String nombre) {
+        nombreJugador = nombre;
+    }
+
+    public void guardarDatos() {
+        List<Resultado> resultados = Resultado.cargarListaRes();
+        String formatoSegundo = (segundos > 9) ? (Integer.toString(segundos)) : ("0" + segundos);
+        String tiempo = "0" + minuto + ":" + formatoSegundo;
+        resultados.add(new Resultado(nombreJugador, tiempo, aciertos, fallos));
+        Resultado.sobreescribirResultados(resultados);
+    }
+    
 }
