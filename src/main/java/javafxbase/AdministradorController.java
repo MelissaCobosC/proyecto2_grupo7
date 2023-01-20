@@ -7,11 +7,13 @@ import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.input.MouseEvent;
 
 
 public class AdministradorController implements Initializable {
+
+    @FXML
+    private Button btnvolveriniciosesion;
 
     /**
      * Initializes the controller class.
@@ -49,6 +51,16 @@ public class AdministradorController implements Initializable {
     @FXML
     private void volverInicioSesion(ActionEvent event) throws IOException {
     App.setRoot("iniciaSesion");
+    }
+
+
+    @FXML
+    private void llamarJuego(ActionEvent event) {
+    }
+
+    @FXML
+    private void VerResultados(ActionEvent event) throws IOException {
+        App.setRoot("resultadoJuego");
     }
 
     

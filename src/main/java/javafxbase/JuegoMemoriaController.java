@@ -145,7 +145,7 @@ public class JuegoMemoriaController implements Initializable {
 
                 alert.showAndWait();
                 try {
-                    App.setRoot("sesionClientes");
+                    App.setRoot("juegoMemoria");
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }

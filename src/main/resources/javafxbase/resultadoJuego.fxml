@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="383.0" prefWidth="758.0" style="-fx-background-color: #DCCBBD;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxbase.ResultadoJuegoController">
+   <children>
+      <Label layoutX="152.0" layoutY="28.0" text="REGISTRO DE JUGADORES ">
+         <font>
+            <Font name="System Bold Italic" size="36.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tablaResultados" layoutX="43.0" layoutY="126.0" prefHeight="200.0" prefWidth="672.0">
+         <columns>
+            <TableColumn fx:id="colNom" prefWidth="142.0" text="Nombre " />
+            <TableColumn fx:id="colFec" prefWidth="157.0" text="Fecha" />
+            <TableColumn fx:id="colTiempo" prefWidth="153.0" text="Tiempo extra de juego" />
+            <TableColumn fx:id="colAcierta" prefWidth="107.0" text="Aciertos" />
+            <TableColumn fx:id="colFalla" prefWidth="112.0" text="Fallos" />
+         </columns>
+      </TableView>
+      <Button layoutX="336.0" layoutY="339.0" mnemonicParsing="false" onAction="#regresarMenu" text="REGRESAR">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
