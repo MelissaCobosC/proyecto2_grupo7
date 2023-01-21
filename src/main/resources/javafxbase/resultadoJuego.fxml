@@ -18,7 +18,7 @@
          <columns>
             <TableColumn fx:id="colNom" prefWidth="142.0" text="Nombre " />
             <TableColumn fx:id="colFec" prefWidth="157.0" text="Fecha" />
-            <TableColumn fx:id="colTiempo" prefWidth="153.0" text="Tiempo extra de juego" />
+            <TableColumn fx:id="colTiempo" prefWidth="153.0" text="Tiempo de juego" />
             <TableColumn fx:id="colAcierta" prefWidth="107.0" text="Aciertos" />
             <TableColumn fx:id="colFalla" prefWidth="112.0" text="Fallos" />
          </columns>

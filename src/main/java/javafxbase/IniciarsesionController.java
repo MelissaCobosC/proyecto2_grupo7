@@ -21,7 +21,7 @@ import modelo.Usuario;
  */
 public class IniciarsesionController implements Initializable {
     
-    ArrayList<Usuario> usuarioLista = Usuario.cargarLista();
+    ArrayList<Usuario> usuarioLista = Usuario.cargarListaU();
     
     @FXML
     private TextField usuario;

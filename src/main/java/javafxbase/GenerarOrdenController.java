@@ -103,10 +103,10 @@ public class GenerarOrdenController implements Initializable {
         double total = 0;
         for (Servicio ts : servicios) {
             if (servicio.equals(ts.getCodigo())) {
-                total = ts.getPrecio() * Double.parseDouble(cantidad);
+                total = ts.getPrecio() * Integer.parseInt(cantidad);
             }
         }
-        ordenes.add(new Orden(codigo, fecha, numPlaca, tipo, servicio, Double.parseDouble(cantidad), total));
+        ordenes.add(new Orden(codigo, fecha, numPlaca, tipo, servicio, Integer.parseInt(cantidad), total));
         tablaGenerar.getItems().setAll(ordenes);
         Orden.sobreescribirFichero(ordenes);//se agrega una orden nueva
         Servicio.sobreescribirFicheroServicio(servicios);
@@ -123,9 +123,13 @@ public class GenerarOrdenController implements Initializable {
         
     }
 
-@FXML
     private void btnJugar(ActionEvent event) throws IOException {
         App.setRoot("sesionClientes");
+    }
+
+    @FXML
+    private void regresar(ActionEvent event) throws IOException {
+        App.setRoot("iniciaSesion");
     }
 
 }

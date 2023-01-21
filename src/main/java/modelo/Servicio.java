@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import static modelo.Orden.cargarLista;
 
 
@@ -76,19 +77,14 @@ public class Servicio {
         }
     }
     
-
+    public static Servicio getServicio(String codigo){
+        List<Servicio> servicios = Servicio.cargarLista1();
         
-  
-
-   // public static ArrayList<String> listaServicios() {
-     //  ArrayList<String> listServicios = new ArrayList<>();
-     //  ArrayList<Servicio> servicios = cargarLista1();
-      //  for(Servicio s: servicios){
-        //    if(!listServicios.contains(s.getNombre())){
-             //   listServicios.add(s.nombre);
-          //  }
-            
-     //   }
-       // return listServicios;
-//    }
+        for(Servicio servicio : servicios){
+            if(servicio.getCodigo().equals(codigo)){
+                return servicio;
+            }
+        }
+        return null;
+    }
 }

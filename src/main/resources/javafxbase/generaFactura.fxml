@@ -82,7 +82,7 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="año" layoutX="533.0" layoutY="114.0" prefHeight="25.0" prefWidth="82.0" />
+      <TextField fx:id="anio" layoutX="533.0" layoutY="114.0" prefHeight="25.0" prefWidth="82.0" />
       <Label layoutX="375.0" layoutY="112.0" prefHeight="27.0" prefWidth="67.0" text="mes:">
          <font>
             <Font name="System Bold" size="16.0" />
@@ -115,7 +115,7 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="totalPagar" layoutX="272.0" layoutY="343.0" prefHeight="25.0" prefWidth="139.0" />
+      <TextField fx:id="totalPagar" editable="false" layoutX="272.0" layoutY="343.0" prefHeight="25.0" prefWidth="139.0" />
       <Label layoutX="162.0" layoutY="165.0" prefHeight="27.0" prefWidth="82.0" text="Empresa:">
          <font>
             <Font name="System Bold" size="15.0" />
@@ -131,12 +131,12 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="empresa" layoutX="234.0" layoutY="166.0" prefHeight="25.0" prefWidth="207.0" />
-      <TextField fx:id="periodo" layoutX="614.0" layoutY="166.0" prefHeight="25.0" prefWidth="132.0" />
       <Button layoutX="640.0" layoutY="112.0" mnemonicParsing="false" onAction="#consultaGenerar" text="Consultar">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
+      <Label fx:id="empresa" layoutX="228.0" layoutY="166.0" prefHeight="25.0" prefWidth="163.0" />
+      <Label fx:id="periodo" layoutX="615.0" layoutY="166.0" prefHeight="25.0" prefWidth="122.0" />
    </children>
 </AnchorPane>

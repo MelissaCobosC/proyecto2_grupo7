@@ -8,10 +8,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Orden {
-    private String codigoCliente, fechaServicio, placa, tipoVehiculo, codServicio ; 
-    private Double cantidad,total;
+    private String codigoCliente, fechaServicio, placa, tipoVehiculo, codServicio;
+    private String nombreServicio;
+    private int cantidad;
+    private double total;
     
-    public Orden(String codigoCliente, String fechaServicio, String placa, String tipoVehiculo, String codServicio, Double cantidad, Double total){
+    public Orden(String codigoCliente, String fechaServicio, String placa, String tipoVehiculo, String codServicio, int cantidad, double total){
         this.codigoCliente = codigoCliente;
         this.fechaServicio = fechaServicio;
         this.placa = placa;
@@ -19,6 +21,7 @@ public class Orden {
         this.codServicio=codServicio;
         this.cantidad=cantidad;
         this.total=total;
+        this.nombreServicio = Servicio.getServicio(codServicio).getNombre();
     }
 
     public String getCodigoCliente() {
@@ -41,11 +44,15 @@ public class Orden {
         return codServicio;
     }
 
-    public Double getCantidad() {
+    public int getCantidad() {
         return cantidad;
     }
+    
+    public String getNombreServicio(){
+        return nombreServicio;
+    }
 
-    public Double getTotal() {
+    public double getTotal() {
         return total;
     }
   
@@ -58,7 +65,7 @@ public class Orden {
             while ((linea = br.readLine())!=null){
                 String[] datos = linea.split(","); 
                 
-                ordenes.add(new Orden(datos[0],datos[1],datos[2],datos[3],datos[4],Double.parseDouble(datos[5]),Double.parseDouble(datos[6])));
+                ordenes.add(new Orden(datos[0],datos[1],datos[2],datos[3],datos[4],Integer.parseInt(datos[5]),Double.parseDouble(datos[6])));
             
             }
         }catch (IOException e){
@@ -89,17 +96,15 @@ public class Orden {
         }
         return listVehiculos;
     }
-    public static ArrayList<String> listaCodServ() {
-       ArrayList<String> listCodServ = new ArrayList<>();
-       ArrayList<Orden> ordenes = cargarLista();
-        for(Orden o: ordenes){
-            if(!listCodServ.contains(o.getCodServicio())){
-                 //separando codigo de servicio
-                //listCodServ.add(o.codServicio);
-            }
-            
-        }
-        return listCodServ;
+    
+    public int getMes(){
+        String[] datos = this.fechaServicio.split("/");
+        return Integer.parseInt(datos[1]); 
+    }
+    
+    public int getAnio(){
+        String[] datos = this.fechaServicio.split("/");
+        return Integer.parseInt(datos[2]);
     }
 }
 

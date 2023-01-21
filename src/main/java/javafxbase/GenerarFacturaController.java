@@ -1,18 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package javafxbase;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.Month;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import modelo.Cliente;
+import static modelo.Cliente.cargarLista3;
+import modelo.Orden;
 
 /**
  * FXML Controller class
@@ -22,58 +26,87 @@ import javafx.scene.control.TextField;
 public class GenerarFacturaController implements Initializable {
 
     @FXML
-    private TextField año;
+    private TextField anio;
     @FXML
     private TextField mes;
     @FXML
     private TextField codigo;
     @FXML
-    private TableView<?> tablaFactura;
+    private TableView<Orden> tablaFactura;
     @FXML
-    private TableColumn<?, ?> colPlaca;
+    private TableColumn<Orden, String> colPlaca;
     @FXML
-    private TableColumn<?, ?> colFecha;
+    private TableColumn<Orden, String> colFecha;
     @FXML
-    private TableColumn<?, ?> colTipo;
+    private TableColumn<Orden, String> colTipo;
     @FXML
-    private TableColumn<?, ?> colServicio;
+    private TableColumn<Orden, String> colServicio;
     @FXML
-    private TableColumn<?, ?> colCant;
+    private TableColumn<Orden, Integer> colCant;
     @FXML
-    private TableColumn<?, ?> colTotal;
+    private TableColumn<Orden, Double> colTotal;
     @FXML
     private TextField totalPagar;
     @FXML
-    private TextField empresa;
+    private Label empresa;
     @FXML
-    private TextField periodo;
+    private Label periodo;
 
+    ArrayList<Cliente> clientes = cargarLista3();
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        this.colPlaca.setCellValueFactory(new PropertyValueFactory<>("placa"));
+        this.colFecha.setCellValueFactory(new PropertyValueFactory<>("fechaServicio"));
+        this.colTipo.setCellValueFactory(new PropertyValueFactory<>("tipoVehiculo"));
+        this.colServicio.setCellValueFactory(new PropertyValueFactory<>("nombreServicio"));
+        this.colCant.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
+        this.colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
+    }
 
     @FXML
     private void generarFactura(ActionEvent event) throws IOException {
-    App.setRoot("generaFactura");
+        App.setRoot("generaFactura");
     }
 
     @FXML
     private void reportarIngreso(ActionEvent event) throws IOException {
-    App.setRoot("reportarIngresos");
+        App.setRoot("reportarIngresos");
     }
 
     @FXML
     private void reportarAtencion(ActionEvent event) throws IOException {
-    App.setRoot("reportarAtencion");
+        App.setRoot("reportarAtencion");
     }
 
     @FXML
     private void consultaGenerar(ActionEvent event) {
+        List<Orden> ordenes = Orden.cargarLista();
+        int anio = Integer.parseInt(this.anio.getText());
+        int mes = Integer.parseInt(this.mes.getText());
         
+        List<Orden> ordenesEncontradas = new ArrayList<>();
+        
+        for(Orden orden : ordenes){
+            final boolean cumpleCodigo = codigo.getText().equals(orden.getCodigoCliente());
+            final boolean cumpleAnio = anio == orden.getAnio();
+            final boolean cumpleMes = mes == orden.getMes();
+            
+            
+            if (cumpleCodigo && cumpleAnio && cumpleMes){
+                ordenesEncontradas.add(orden);
+                periodo.setText(Month.of(mes).toString()+" "+Integer.toString(anio));
+                for(Cliente c:clientes){
+                    if(orden.getCodigoCliente().equals(c.getCodigo())){
+                    empresa.setText(c.getNombre());
+                    }
+            }
+            }
+        }
+        
+        this.tablaFactura.getItems().setAll(ordenesEncontradas);
     }
-    
+
 }

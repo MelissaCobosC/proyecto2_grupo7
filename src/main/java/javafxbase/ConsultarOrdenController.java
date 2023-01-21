@@ -11,6 +11,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import static javafxbase.JuegoMemoriaController.nombreJugador;
 import modelo.Cliente;
 import static modelo.Cliente.cargarLista3;
 import modelo.Orden;
@@ -42,7 +43,6 @@ public class ConsultarOrdenController implements Initializable {
 
     ArrayList<Orden> ordenes = cargarLista();
     ArrayList<Cliente> clientes = cargarLista3();
-
     /**
      * Initializes the controller class.
      */
@@ -50,7 +50,7 @@ public class ConsultarOrdenController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         this.colCod.setCellValueFactory(new PropertyValueFactory<>("codigoCliente"));
         this.colFecha.setCellValueFactory(new PropertyValueFactory<>("fechaServicio"));
-       // this.colCliente.setCellValueFactory(new PropertyValueFactory<>("placa"));
+        //this.colCliente.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         this.colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
 
     }
@@ -92,9 +92,13 @@ public class ConsultarOrdenController implements Initializable {
         cliente.setText(null);
     }
 
-    @FXML
     private void btnJugar(ActionEvent event) throws IOException {
         App.setRoot("sesionClientes");
+    }
+
+    @FXML
+    private void regresar(ActionEvent event) throws IOException {
+        App.setRoot("iniciaSesion");
     }
 
 }

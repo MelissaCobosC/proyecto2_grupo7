@@ -12,7 +12,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -23,7 +22,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.stage.Stage;
 import modelo.*;
 
 
@@ -141,18 +139,18 @@ public class JuegoMemoriaController implements Initializable {
             primeraCarta = null;
             segundaCarta = null;
             if (aciertos == 8) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setHeaderText("¡HAZ GANADO WUP WUP!");
-                alert.setTitle("Informacion del juego");
-                alert.setContentText("Ha logrado acertar los 8 pares de cartas en el tiempo estimado, ENHORABUENA");
-                this.guardarDatos();
-
-                alert.showAndWait();
+                
                 try {
                     App.setRoot("juegoMemoria");
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setHeaderText("¡HAZ GANADO WUP WUP!");
+                alert.setTitle("Informacion del juego");
+                alert.setContentText("Ha logrado acertar los 8 pares de cartas en el tiempo estimado, ENHORABUENA");
+                this.guardarDatos();
+                alert.showAndWait();
                 alert.close();
             }
         }
@@ -163,7 +161,7 @@ public class JuegoMemoriaController implements Initializable {
 
     @FXML
     private void volver(ActionEvent event) throws IOException {
-        App.setRoot("generarOrden");
+        App.setRoot("sesionClientes");
     }
     
     @FXML
@@ -221,8 +219,10 @@ public class JuegoMemoriaController implements Initializable {
 
     public void guardarDatos() {
         List<Resultado> resultados = Resultado.cargarListaRes();
-        String formatoSegundo = (segundos > 9) ? (Integer.toString(segundos)) : ("0" + segundos);
-        String tiempo = "0" + minuto + ":" + formatoSegundo;
+        int segundosUsados=60-segundos;
+        int minutoUsados=1-minuto;
+        String formatoSegundo = (segundosUsados > 9) ? (Integer.toString(segundosUsados)) : ("0" + segundosUsados);
+        String tiempo = "0" + minutoUsados + ":" + formatoSegundo;
         resultados.add(new Resultado(nombreJugador, tiempo, aciertos, fallos));
         Resultado.sobreescribirResultados(resultados);
     }

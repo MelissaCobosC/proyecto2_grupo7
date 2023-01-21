@@ -64,7 +64,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#btnJugar" prefHeight="39.0" prefWidth="169.0" style="-fx-background-color: #bfd834;" text="JUGAR">
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#regresar" prefHeight="39.0" prefWidth="169.0" style="-fx-background-color: #bfd834;" text="Regresar">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>

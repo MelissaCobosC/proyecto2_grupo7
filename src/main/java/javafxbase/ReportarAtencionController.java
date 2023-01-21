@@ -1,11 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package javafxbase;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,6 +11,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import modelo.Cliente;
+import modelo.Orden;
+import static modelo.Orden.cargarLista;
+import modelo.Usuario;
+import static modelo.Usuario.cargarListaU;
 
 /**
  * FXML Controller class
@@ -23,15 +25,18 @@ import javafx.scene.control.TextField;
 public class ReportarAtencionController implements Initializable {
 
     @FXML
-    private TableView<?> tablaAtencion;
+    private TableView<Orden> tablaAtencion;
     @FXML
-    private TableColumn<?, ?> colTecnico;
+    private TableColumn<Orden, String> colTecnico;
     @FXML
-    private TableColumn<?, ?> colTotal;
+    private TableColumn<Orden, Double> colTotal;
     @FXML
     private TextField año;
     @FXML
     private TextField mes;
+    
+    ArrayList<Usuario> usuarios = cargarListaU();
+    ArrayList<Orden> ordenes = cargarLista();
 
     /**
      * Initializes the controller class.
@@ -54,10 +59,22 @@ public class ReportarAtencionController implements Initializable {
     @FXML
     private void reportarAtencion(ActionEvent event) throws IOException {
     App.setRoot("reportarAtencion");
+    
     }
 
     @FXML
     private void consultarAtencion(ActionEvent event) {
+         ArrayList<String> listTecnico = new ArrayList<>();
+         
+        for(Usuario u:usuarios){ 
+            if("tecnico".equals(u.getNivel())){
+                listTecnico.add(u.getNombre());
+            }
+        }
+        
+        for(Orden o:ordenes){
+            
+        }                
     }
     
 }

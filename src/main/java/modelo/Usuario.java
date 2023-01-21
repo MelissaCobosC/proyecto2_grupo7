@@ -54,7 +54,7 @@ public class Usuario {
         return "Usuario{" + "usuario=" + usuario + ", clave=" + clave + ", nombre=" + nombre + ", nivel=" + nivel  + '}';
     }
     
-   public static ArrayList<Usuario> cargarLista(){
+   public static ArrayList<Usuario> cargarListaU(){
         ArrayList<Usuario> usuarios = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader("src/main/resources/usuarios.txt"));){
             br.readLine();
@@ -68,5 +68,5 @@ public class Usuario {
         }
         return usuarios;
     }
-    
+
 }
