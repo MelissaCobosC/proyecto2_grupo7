@@ -9,9 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import modelo.Cliente;
 import modelo.Orden;
 import static modelo.Orden.cargarLista;
 import modelo.Usuario;
@@ -75,6 +73,11 @@ public class ReportarAtencionController implements Initializable {
         for(Orden o:ordenes){
             
         }                
+    }
+
+    @FXML
+    private void regresar(ActionEvent event) throws IOException {
+        App.setRoot("iniciaSesion");
     }
     
 }

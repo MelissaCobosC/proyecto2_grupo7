@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
-
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -19,10 +18,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-
-
 import modelo.Servicio;
-
 
 public class AdministrarServiciosController implements Initializable {
 
@@ -34,11 +30,8 @@ public class AdministrarServiciosController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         cargarServicios();
-    }    
+    }  
     
-    
-    
-   
     ArrayList<Servicio> listaservicios = Servicio.cargarLista1();
    
     @FXML
@@ -48,35 +41,25 @@ public class AdministrarServiciosController implements Initializable {
     @FXML
     private TableColumn<Servicio,String> colNombre;
     @FXML
-    private TableColumn <Servicio,Integer> colPrecio;
-   
+    private TableColumn <Servicio,Integer> colPrecio;   
     @FXML
     private Label codigolb;
-
     @FXML
-    private TextField codigotf;
-    
+    private TextField codigotf;    
     @FXML
     private Label nombrelb;
-
     @FXML
     private TextField nombretf;
-
     @FXML
     private Label preciolb;
-
     @FXML
-    private TextField preciotf;
-   
-    
-    
+    private TextField preciotf;    
     @FXML
     private Button agregar;
     @FXML
     private Button editar;
     @FXML
-    private Button eliminar;
-    
+    private Button eliminar;   
     @FXML
     private Button volverAdmin;
    
@@ -96,11 +79,11 @@ public class AdministrarServiciosController implements Initializable {
                 Servicio svSeleccionado = tabla.get(0);
                 return svSeleccionado;
             }
-            
         }
         return null; 
     }
     
+    @FXML
      public  void mostrarServicioSeleccionado(){
         tablaServicios.setOnMouseClicked((Event ev) -> {
             Servicio servicio = getTablaServicioSeleccionado();
@@ -153,8 +136,6 @@ public class AdministrarServiciosController implements Initializable {
             alert.close();
         }
     }
-    
-    
     
     @FXML
     private void volvermenuAdmin(ActionEvent event) throws IOException {

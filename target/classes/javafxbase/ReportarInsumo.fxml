@@ -85,7 +85,10 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextArea fx:id="reporte" layoutX="166.0" layoutY="143.0" prefHeight="132.0" prefWidth="576.0" />
+      <TextArea fx:id="reporte" layoutX="166.0" layoutY="143.0" prefHeight="132.0" prefWidth="576.0" promptText="Describa el/los servicios que desea reportar">
+         <font>
+            <Font size="14.0" />
+         </font></TextArea>
       <Button layoutX="395.0" layoutY="308.0" mnemonicParsing="false" onAction="#enviarReporte" prefHeight="40.0" prefWidth="118.0" text="Enviar">
          <font>
             <Font name="System Bold" size="14.0" />

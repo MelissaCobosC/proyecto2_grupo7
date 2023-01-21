@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class Orden {
     private String codigoCliente, fechaServicio, placa, tipoVehiculo, codServicio;
     private String nombreServicio;
+    private String nombreCliente;
     private int cantidad;
     private double total;
     
@@ -22,6 +23,7 @@ public class Orden {
         this.cantidad=cantidad;
         this.total=total;
         this.nombreServicio = Servicio.getServicio(codServicio).getNombre();
+        this.nombreCliente = Cliente.getCodCliente(codigoCliente).getNombre();
     }
 
     public String getCodigoCliente() {
@@ -50,6 +52,10 @@ public class Orden {
     
     public String getNombreServicio(){
         return nombreServicio;
+    }
+    
+    public String getNombreCliente(){
+        return nombreCliente;
     }
 
     public double getTotal() {

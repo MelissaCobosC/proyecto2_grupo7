@@ -8,11 +8,8 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-
 import javafx.fxml.Initializable;
-
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -23,7 +20,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import static modelo.Cliente.cargarLista3;
 import modelo.*;
-
 
 public class AdministrarClientesController implements Initializable {
 
@@ -36,12 +32,7 @@ public class AdministrarClientesController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
        
        cargarClientes();
-        
     }    
-    
-    
-    
-   
     ArrayList<Cliente> listacliente = cargarLista3();
    
     @FXML
@@ -55,53 +46,35 @@ public class AdministrarClientesController implements Initializable {
     @FXML
     private TableColumn<Cliente,String> colTelf;
     @FXML
-    private TableColumn<Cliente,String> colTipo;
-    
+    private TableColumn<Cliente,String> colTipo;   
     @FXML
     private Label codigolb;
-
     @FXML
-    private TextField codigotf;
-    
+    private TextField codigotf;    
     @FXML
     private Label direccionlb;
-
     @FXML
-    private TextField direcciontf;
-    
+    private TextField direcciontf;   
     @FXML
     private Label nombrelb;
-
     @FXML
-    private TextField nombretf;
-    
+    private TextField nombretf;    
     @FXML
     private Label telefonolb;
-
     @FXML
     private TextField telefonotf;
-
     @FXML
     private Label tipoclientelb;
-
     @FXML
     private TextField tipotf;
-
-    
-    
     @FXML
     private Button agregar;
     @FXML
     private Button editar;
     @FXML
     private Button eliminar;
-    
     @FXML
     private Button volverAdmin;
-
-   
-    
-    
     
     private void cargarClientes(){
        this.colCod.setCellValueFactory(new PropertyValueFactory<>("codigo"));
@@ -124,6 +97,7 @@ public class AdministrarClientesController implements Initializable {
         return null; 
     }
     
+    @FXML
      public  void mostrarClienteSeleccionado(){
         tablaClientes.setOnMouseClicked((Event ev) -> {
             Cliente cliente = getTablaClienteSeleccionado();
@@ -136,10 +110,6 @@ public class AdministrarClientesController implements Initializable {
         });
     
     }
-    
-
-    
-    
     
      @FXML
     private void agregarClientes(ActionEvent event) throws IOException {

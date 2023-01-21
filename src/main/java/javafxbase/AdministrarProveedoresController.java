@@ -19,7 +19,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import modelo.Cliente;
 
 import modelo.Proveedor;
 
@@ -36,10 +35,6 @@ public class AdministrarProveedoresController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         cargarProveedores();
     }    
-    
-    
-    
-   
     ArrayList<Proveedor> listaproveedores = Proveedor.cargarListaProveedor();
    
     @FXML
@@ -84,8 +79,6 @@ public class AdministrarProveedoresController implements Initializable {
        this.colTelf.setCellValueFactory(new PropertyValueFactory<>("telefono"));
        tablaProveedor.getItems().setAll(listaproveedores);
     }
-   
-    
     
     @FXML
     private Button agregar;
@@ -109,6 +102,7 @@ public class AdministrarProveedoresController implements Initializable {
         return null; 
     }
     
+    @FXML
     public  void mostrarProveedorSeleccionado(){
         tablaProveedor.setOnMouseClicked((Event ev) -> {
             Proveedor proveedor = getTablaProveedorSeleccionado();
@@ -162,9 +156,6 @@ public class AdministrarProveedoresController implements Initializable {
             alert.close();
         }
     }
-    
-    
-    
     @FXML
     private void volvermenuAdmin(ActionEvent event) throws IOException {
     App.setRoot("administrador");

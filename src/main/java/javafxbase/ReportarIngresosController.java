@@ -54,5 +54,10 @@ public class ReportarIngresosController implements Initializable {
     @FXML
     private void consultarIngreso(ActionEvent event) {
     }
+
+    @FXML
+    private void regresar(ActionEvent event) throws IOException {
+        App.setRoot("iniciaSesion");
+    }
     
 }

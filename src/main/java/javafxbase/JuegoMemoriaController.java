@@ -161,7 +161,7 @@ public class JuegoMemoriaController implements Initializable {
 
     @FXML
     private void volver(ActionEvent event) throws IOException {
-        App.setRoot("sesionClientes");
+        App.setRoot("administrador");
     }
     
     @FXML

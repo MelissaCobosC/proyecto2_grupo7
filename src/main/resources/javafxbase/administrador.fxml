@@ -14,7 +14,7 @@
          <children>
             <ImageView fitHeight="91.0" fitWidth="88.0" layoutX="514.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../JUEGO/JUEGO/src/main/resources/imagenes/usuariocliente.png" />
+                  <Image url="@../imagenes/usuariocliente.png" />
                </image>
             </ImageView>
             <Label layoutX="136.0" layoutY="25.0" prefHeight="58.0" prefWidth="372.0" text="Menú Administración" textFill="#fffbfb">
@@ -24,7 +24,7 @@
             </Label>
          </children>
       </Pane>
-      <Pane layoutY="105.0" prefHeight="276.0" prefWidth="758.0" style="-fx-background-color: #DCCBBD;">
+      <Pane layoutY="105.0" prefHeight="276.0" prefWidth="758.0" style="-fx-background-color: #c9e1ea;">
          <children>
             <Button fx:id="btnproovedores" layoutX="518.0" layoutY="92.0" mnemonicParsing="false" onAction="#administrarProovedores" prefHeight="50.0" prefWidth="174.0" text="Administrar Proovedores" textAlignment="CENTER" wrapText="true">
                <font>

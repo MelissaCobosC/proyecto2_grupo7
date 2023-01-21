@@ -14,9 +14,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import modelo.Cliente;
+import modelo.*;
 import static modelo.Cliente.cargarLista3;
-import modelo.Orden;
+import static modelo.Orden.cargarLista;
 
 /**
  * FXML Controller class
@@ -51,9 +51,8 @@ public class GenerarFacturaController implements Initializable {
     private Label empresa;
     @FXML
     private Label periodo;
-
     ArrayList<Cliente> clientes = cargarLista3();
-
+    ArrayList<Orden> ordenes = cargarLista();
     /**
      * Initializes the controller class.
      */
@@ -106,8 +105,12 @@ public class GenerarFacturaController implements Initializable {
             }
         }
         totalPagar.setText(Double.toString(pagoFinal));
-
         this.tablaFactura.getItems().setAll(ordenesEncontradas);
+    }
+
+    @FXML
+    private void regresar(ActionEvent event) throws IOException {
+        App.setRoot("iniciaSesion");
     }
 
 }

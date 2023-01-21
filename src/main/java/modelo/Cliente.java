@@ -7,13 +7,16 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Cliente extends Persona{
     private String tipoCliente;
     
+    
 public Cliente(String codigo, String nombre, String direccion, String telefono, String tipoCliente){    
     super(codigo,nombre,direccion,telefono);
     this.tipoCliente = tipoCliente;
+    
 }
 
     public String getTipoCliente() {
@@ -95,5 +98,13 @@ public Cliente(String codigo, String nombre, String direccion, String telefono, 
         }
     }
     
-    
+    public static Cliente getCodCliente(String codigo){
+        List<Cliente> clientes = Cliente.cargarLista3();
+        for(Cliente cliente : clientes){
+            if(cliente.getCodigo().equals(codigo)){
+                return cliente;
+            }
+        }
+        return null;
+    }   
 }
