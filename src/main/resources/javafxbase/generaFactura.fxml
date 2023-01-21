@@ -115,7 +115,6 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="totalPagar" editable="false" layoutX="272.0" layoutY="343.0" prefHeight="25.0" prefWidth="139.0" />
       <Label layoutX="162.0" layoutY="165.0" prefHeight="27.0" prefWidth="82.0" text="Empresa:">
          <font>
             <Font name="System Bold" size="15.0" />
@@ -138,5 +137,11 @@
       </Button>
       <Label fx:id="empresa" layoutX="228.0" layoutY="166.0" prefHeight="25.0" prefWidth="163.0" />
       <Label fx:id="periodo" layoutX="615.0" layoutY="166.0" prefHeight="25.0" prefWidth="122.0" />
+      <Label fx:id="totalPagar" layoutX="273.0" layoutY="343.0" prefHeight="25.0" prefWidth="163.0" />
+      <Label layoutX="160.0" layoutY="146.0" text="Los clientes empresariales pagan $50 adicionales por mes." textFill="#d71414">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
