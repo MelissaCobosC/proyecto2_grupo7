@@ -10,8 +10,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import modelo.Cliente;
+import static modelo.Cliente.cargarLista3;
 import modelo.Orden;
 import static modelo.Orden.cargarLista;
+import modelo.Servicio;
+import static modelo.Servicio.cargarLista1;
 import modelo.Usuario;
 import static modelo.Usuario.cargarListaU;
 
@@ -34,14 +39,17 @@ public class ReportarAtencionController implements Initializable {
     private TextField mes;
     
     ArrayList<Usuario> usuarios = cargarListaU();
+    ArrayList<Cliente> clientes = cargarLista3();
     ArrayList<Orden> ordenes = cargarLista();
+    ArrayList<Servicio> servicios = cargarLista1();
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        this.colTecnico.setCellValueFactory(new PropertyValueFactory<>("nombreServicio"));
+        this.colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
     }    
 
     @FXML
