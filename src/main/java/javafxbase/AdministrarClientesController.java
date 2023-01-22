@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -66,7 +67,7 @@ public class AdministrarClientesController implements Initializable {
     @FXML
     private Label tipoclientelb;
     @FXML
-    private TextField tipotf;
+    private ComboBox cmbTipos;
     @FXML
     private Button agregar;
     @FXML
@@ -100,12 +101,14 @@ public class AdministrarClientesController implements Initializable {
     @FXML
      public  void mostrarClienteSeleccionado(){
         tablaClientes.setOnMouseClicked((Event ev) -> {
+            cmbTipos.getItems().clear();
             Cliente cliente = getTablaClienteSeleccionado();
             codigotf.setText(cliente.getCodigo());
             nombretf.setText(cliente.getNombre());
             direcciontf.setText(cliente.getDireccion());
             telefonotf.setText(cliente.getTelefono());
-            tipotf.setText(cliente.getTipoCliente());
+            this.cmbTipos.getItems().add("personal");
+            this.cmbTipos.getItems().add("empresarial");
             codigotf.setDisable(true);
         });
     
@@ -127,7 +130,7 @@ public class AdministrarClientesController implements Initializable {
             String nombre = this.nombretf.getText();
             String direccion = this.direcciontf.getText();
             String telefono = this.telefonotf.getText();
-            String tipo = this.tipotf.getText();
+            String tipo = (String) this.cmbTipos.getValue();
             Cliente cliente = new Cliente(cedula,nombre,direccion,telefono,tipo);
         
             int indice =  listacliente.indexOf(getTablaClienteSeleccionado());
