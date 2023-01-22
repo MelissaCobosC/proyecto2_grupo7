@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -53,6 +54,7 @@ public class GenerarFacturaController implements Initializable {
     private Label periodo;
     ArrayList<Cliente> clientes = cargarLista3();
     ArrayList<Orden> ordenes = cargarLista();
+
     /**
      * Initializes the controller class.
      */
@@ -84,33 +86,49 @@ public class GenerarFacturaController implements Initializable {
     @FXML
     private void consultaGenerar(ActionEvent event) {
         List<Orden> ordenes = Orden.cargarLista();
-        int anio = Integer.parseInt(this.anio.getText());
-        int mes = Integer.parseInt(this.mes.getText());
+        int anio1 = Integer.parseInt(this.anio.getText());
+        int mes1 = Integer.parseInt(this.mes.getText());
 
         List<Orden> ordenesEncontradas = new ArrayList<>();
         Double pagoFinal = 50.0;
+        int cont = 0;
         for (Orden orden : ordenes) {
             final boolean cumpleCodigo = codigo.getText().equals(orden.getCodigoCliente());
-            final boolean cumpleAnio = anio == orden.getAnio();
-            final boolean cumpleMes = mes == orden.getMes();
-                if (cumpleCodigo && cumpleAnio && cumpleMes) {
-                    pagoFinal += orden.getTotal();
-                    ordenesEncontradas.add(orden);
-                    periodo.setText(Month.of(mes).toString() + " " + Integer.toString(anio));
-                    for (Cliente c : clientes) {
-                        if (orden.getCodigoCliente().equals(c.getCodigo())) {
-                            empresa.setText(c.getNombre());
+            final boolean cumpleAnio = anio1 == orden.getAnio();
+            final boolean cumpleMes = mes1 == orden.getMes();
+            if (cumpleCodigo && cumpleAnio && cumpleMes) {
+                pagoFinal += orden.getTotal();
+                ordenesEncontradas.add(orden);
+                periodo.setText(Month.of(mes1).toString() + " " + Integer.toString(anio1));
+                for (Cliente c : clientes) {
+                    if (orden.getCodigoCliente().equals(c.getCodigo())) {
+                        empresa.setText(c.getNombre());
                     }
                 }
+                cont++;
             }
         }
         totalPagar.setText(Double.toString(pagoFinal));
         this.tablaFactura.getItems().setAll(ordenesEncontradas);
+
+        if (cont == 0) {
+            Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+            alerta.setTitle("datos incorrectos");
+            alerta.setHeaderText("ingrese datos validos para generar la factura");
+            alerta.showAndWait();
+            reestablecer(codigo, anio, mes);
+        }
     }
 
     @FXML
     private void regresar(ActionEvent event) throws IOException {
         App.setRoot("iniciaSesion");
+    }
+
+    private static void reestablecer(TextField c1, TextField c2, TextField c3) {
+        c1.setText(null);
+        c2.setText(null);
+        c3.setText(null);
     }
 
 }

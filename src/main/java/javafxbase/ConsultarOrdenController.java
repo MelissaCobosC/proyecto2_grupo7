@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -42,6 +43,7 @@ public class ConsultarOrdenController implements Initializable {
 
     ArrayList<Orden> ordenes = cargarLista();
     ArrayList<Cliente> clientes = cargarLista3();
+
     /**
      * Initializes the controller class.
      */
@@ -74,21 +76,8 @@ public class ConsultarOrdenController implements Initializable {
     }
 
     @FXML
-    private void filtrar(ActionEvent event) {
-        String cod = codigo.getText();
-        String fec = fecha.getText();
-        String cli = cliente.getText();
-
-        ArrayList<Orden> filtroOrden = new ArrayList<>();
-        for (Orden o : ordenes) {
-            if (cod.equals(o.getCodigoCliente())) {
-                filtroOrden.add(o);
-            }
-        }
-        tablaConsulta.getItems().setAll(filtroOrden);
-        codigo.setText(null);
-        fecha.setText(null);
-        cliente.setText(null);
+    private void filtrar(ActionEvent event) throws IOException {
+        filtrar();
     }
 
     private void btnJugar(ActionEvent event) throws IOException {
@@ -100,4 +89,46 @@ public class ConsultarOrdenController implements Initializable {
         App.setRoot("iniciaSesion");
     }
 
+    private static void reestablecer(TextField c1, TextField c2, TextField c3) {
+        c1.setText(null);
+        c2.setText(null);
+        c3.setText(null);
+    }
+
+    public void filtrar() throws IOException {
+        String cod = codigo.getText();
+        String fec = fecha.getText();
+        String cli = cliente.getText();
+
+        ArrayList<Orden> filtroOrden = new ArrayList<>();
+        int cont = 0;
+        for (Orden o : ordenes) {
+            if (codigo.getText() != null) {
+                if (cod.equals(o.getCodigoCliente())) {
+                    filtroOrden.add(o);
+                    cont++;
+                }
+            } else if (cliente.getText() != null) {
+                if (cli.equals(o.getNombreCliente())) {
+                    filtroOrden.add(o);
+                    cont++;
+                }
+            }
+            else if (fecha.getText() != null) {
+                if (fec.equals(o.getFechaServicio())) {
+                    filtroOrden.add(o);
+                    cont++;
+                }
+            }
+        }
+        if (cont == 0) {
+            Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+            alerta.setTitle("datos incorrectos");
+            alerta.setHeaderText("ingrese datos validos para la consulta");
+            alerta.showAndWait();
+            App.setRoot("consultarOrden");
+        }
+        tablaConsulta.getItems().setAll(filtroOrden);
+        reestablecer(codigo, fecha, cliente);
+    }
 }

@@ -85,11 +85,6 @@
             </ImageView>
          </children>
       </Pane>
-      <Button alignment="CENTER_RIGHT" layoutX="626.0" layoutY="329.0" mnemonicParsing="false" onAction="#verDetalle" prefHeight="40.0" prefWidth="118.0" text="Ver detalle">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Button>
       <Label layoutX="161.0" layoutY="110.0" prefHeight="27.0" prefWidth="98.0" text="Filtrar por">
          <font>
             <Font name="System Bold" size="18.0" />
@@ -108,9 +103,9 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <TextField fx:id="codigo" prefHeight="26.0" prefWidth="66.0" GridPane.columnIndex="1" />
+            <TextField fx:id="codigo" prefHeight="26.0" prefWidth="66.0" promptText="####" GridPane.columnIndex="1" />
             <TextField fx:id="fecha" prefHeight="26.0" prefWidth="118.0" promptText="dd/mm/yyyy" GridPane.columnIndex="3" />
-            <TextField fx:id="cliente" prefHeight="26.0" prefWidth="118.0" GridPane.columnIndex="5" />
+            <TextField fx:id="cliente" prefHeight="26.0" prefWidth="118.0" promptText="nombre de cliente" GridPane.columnIndex="5" />
             <Label prefHeight="27.0" prefWidth="72.0" text="Código:">
                <font>
                   <Font name="System Bold" size="18.0" />
@@ -128,7 +123,7 @@
             </Label>
          </children>
       </GridPane>
-      <TableView fx:id="tablaConsulta" layoutX="162.0" layoutY="215.0" prefHeight="107.0" prefWidth="583.0">
+      <TableView fx:id="tablaConsulta" layoutX="161.0" layoutY="183.0" prefHeight="131.0" prefWidth="583.0">
          <columns>
             <TableColumn fx:id="colCod" prefWidth="107.0" style="-fx-background-color: #;" text="Código" />
             <TableColumn fx:id="colFecha" prefWidth="145.0" text="Fecha" />
@@ -136,15 +131,15 @@
             <TableColumn fx:id="colTotal" minWidth="2.0" prefWidth="162.0" text="Total a pagar" />
          </columns>
       </TableView>
-      <ImageView fitHeight="32.0" fitWidth="26.0" layoutX="635.0" layoutY="336.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../imagenes/lupa.png" />
-         </image>
-      </ImageView>
-      <Button layoutX="685.0" layoutY="177.0" mnemonicParsing="false" onAction="#filtrar" text="Filtrar">
+      <Button alignment="CENTER_RIGHT" layoutX="621.0" layoutY="329.0" mnemonicParsing="false" onAction="#filtrar" prefHeight="40.0" prefWidth="123.0" text="Ver detalle">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
+      <ImageView fitHeight="32.0" fitWidth="26.0" layoutX="630.0" layoutY="336.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imagenes/lupa.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

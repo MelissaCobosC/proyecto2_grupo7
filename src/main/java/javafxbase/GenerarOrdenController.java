@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package javafxbase;
 
 import java.io.IOException;
@@ -18,6 +14,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import modelo.*;
+import static modelo.Cliente.cargarLista3;
 import static modelo.Orden.cargarLista;
 import static modelo.Servicio.cargarLista1;
 
@@ -45,19 +42,20 @@ public class GenerarOrdenController implements Initializable {
     @FXML
     private TableColumn<Orden, String> colPlaca;
     @FXML
-    private TableColumn<Orden, String>  colVehiculo;
+    private TableColumn<Orden, String> colVehiculo;
     @FXML
     private TableColumn<Orden, String> codServ;
     @FXML
-    private TableColumn<Orden, Double>  colCant;
+    private TableColumn<Orden, Double> colCant;
     @FXML
     private TableColumn<Orden, Double> codTotal;
     @FXML
     private TableColumn<Orden, String> colCliente;
     @FXML
     private TableView<Orden> tablaGenerar;
-    
+
     ArrayList<Orden> ordenes = cargarLista();
+    ArrayList<Cliente> clientes = cargarLista3();
     ArrayList<Servicio> servicios = cargarLista1();
     ArrayList<String> listVehiculo = Orden.listaTipoVehiculo();
 
@@ -99,28 +97,36 @@ public class GenerarOrdenController implements Initializable {
         String servicio = codServicio.getText();
         String tipo = comboBoxVehiculo.getValue();
         String cantidad = textCant.getText();
-        
-        double total = 0;
-        for (Servicio ts : servicios) {
-            if (servicio.equals(ts.getCodigo())) {
-                total = ts.getPrecio() * Integer.parseInt(cantidad);
+        int cont = 0;
+        for (Cliente cliente : clientes) {
+            if (cliente.getCodigo().contains(codigo)) {
+
+                double total = 0;
+                for (Servicio ts : servicios) {
+                    if (servicio.equals(ts.getCodigo())) {
+                        total = ts.getPrecio() * Integer.parseInt(cantidad);
+                    }
+                }
+                ordenes.add(new Orden(codigo, fecha, numPlaca, tipo, servicio, Integer.parseInt(cantidad), total));
+                tablaGenerar.getItems().setAll(ordenes);
+                Orden.sobreescribirFichero(ordenes);//se agrega una orden nueva
+                Servicio.sobreescribirFicheroServicio(servicios);
+                reestablecer(cod,fec,placa,codServicio,textCant,comboBoxVehiculo);
+                Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+                alerta.setTitle("Orden Registrada");
+                alerta.setHeaderText("Su orden ha sido registrada");
+                alerta.showAndWait();
+                cont++;
             }
         }
-        ordenes.add(new Orden(codigo, fecha, numPlaca, tipo, servicio, Integer.parseInt(cantidad), total));
-        tablaGenerar.getItems().setAll(ordenes);
-        Orden.sobreescribirFichero(ordenes);//se agrega una orden nueva
-        Servicio.sobreescribirFicheroServicio(servicios);
-        cod.setText(null);
-        fec.setText(null);
-        placa.setText(null);
-        codServicio.setText(null);
-        comboBoxVehiculo.setValue(null);
-        textCant.setText(null);
-        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-        alerta.setTitle("Orden Registrada");
-        alerta.setHeaderText("Su orden ha sido registrada");
-        alerta.showAndWait();
-        
+        if (cont == 0) {
+            Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+            alerta.setTitle("Codigo invalido");
+            alerta.setHeaderText("Este cliente no existe en el registro de clientes, por favor ingresar un codigo valido");
+            alerta.showAndWait();
+            reestablecer(cod,fec,placa,codServicio,textCant,comboBoxVehiculo);
+        }
+
     }
 
     private void btnJugar(ActionEvent event) throws IOException {
@@ -132,4 +138,12 @@ public class GenerarOrdenController implements Initializable {
         App.setRoot("iniciaSesion");
     }
 
+    private static void reestablecer(TextField c1, TextField c2, TextField c3, TextField c4, TextField c5, ComboBox c6) {
+        c1.setText(null);
+        c2.setText(null);
+        c3.setText(null);
+        c4.setText(null);
+        c5.setText(null);
+        c6.setValue(null);
+    }
 }
