@@ -29,7 +29,7 @@ public class Orden {
     }
     
     public Orden(String codigoCliente, String fechaServicio, String placa, String tipoVehiculo, String codServicio, int cantidad, double total){
-      this.codigoCliente = codigoCliente;
+        this.codigoCliente = codigoCliente;
         this.fechaServicio = fechaServicio;
         this.placa = placa;
         this.tipoVehiculo = tipoVehiculo;
