@@ -12,11 +12,7 @@ import javafx.scene.control.TextField;
 import modelo.Cliente;
 import static modelo.Cliente.cargarLista3;
 
-/**
- * FXML Controller class
- *
- * @author USUARIO
- */
+
 public class SesionClientesController implements Initializable {
 
     @FXML
@@ -24,7 +20,7 @@ public class SesionClientesController implements Initializable {
     @FXML
     private TextField cedula;
 
-    ArrayList<Cliente> listClientes = cargarLista3();
+    ArrayList<Cliente> listClientes = cargarLista3(); //lista que carga el txt de cliente
 
     /**
      * Initializes the controller class.
@@ -34,6 +30,8 @@ public class SesionClientesController implements Initializable {
         // TODO
     }
 
+    //boton en el que se da click para iniciar el juego, verifica que los datos ingresados por el usuario si pertenecen
+    //al txt
     @FXML
     private void jugar(ActionEvent event) throws IOException {
         String nom = nombre.getText();

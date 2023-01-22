@@ -35,7 +35,7 @@ public class JuegoMemoriaController implements Initializable {
     int fallos = 0;
     int minuto = 1;
     int segundos = 60;
-    Thread temporizador;
+    Thread temporizador; //hilo temporizador
     
     @FXML
     public GridPane gameMatrix;
@@ -57,12 +57,13 @@ public class JuegoMemoriaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb){
         
-        instanciarHilo();
-        this.board = new Board();
+        instanciarHilo(); //incia el hilo del temporizador
+        this.board = new Board(); //objeto de la clase Board
         
+        //va a ir llenando el GridPane con la imagen "pregunta" el cual pertenece a la parte central de BorderPane
         try {
             
-            this.board.llenandoGridPane();
+            this.board.llenandoGridPane(); //metodo que se encuentra en board que llena el gridPane
             for(int row=0; row<4; row++){
                 for(int col=0; col<4; col++){
                     FileInputStream input = new FileInputStream("src/main/resources/imagenes/pregunta.png");
@@ -87,6 +88,7 @@ public class JuegoMemoriaController implements Initializable {
         }
     }    
     
+    //metodo en el que si da click a una carta, la imagen de "pregunta" cambia a una random del archivo imagines
     public void clickCarta(MouseEvent event) throws FileNotFoundException{
         Node node = (Node)event.getSource();
         String posicion = (String)node.getUserData();
@@ -97,8 +99,8 @@ public class JuegoMemoriaController implements Initializable {
         
         Image imagenSelecionada = new Image(input);
         ((ImageView)node).setImage(imagenSelecionada);
-        parejaEncontrada(rowSeleccionada, colSeleccionada);
-        iniciarTemporizador();
+        parejaEncontrada(rowSeleccionada, colSeleccionada); //indica cuando se ha encontrado el par de cartas iguales
+        iniciarTemporizador(); //si se le da click a una imagen, el temporizador comienza a correr
      
     }
     
@@ -159,11 +161,14 @@ public class JuegoMemoriaController implements Initializable {
          
     }  
 
+    //boton regresar que regresa a la interfaz del administrador
     @FXML
     private void volver(ActionEvent event) throws IOException {
         App.setRoot("administrador");
     }
     
+    
+    //inicializa el hilo al dar clic en el boton "jugar"
     @FXML
     public void iniciarTemporizador() {
         try {
@@ -172,6 +177,8 @@ public class JuegoMemoriaController implements Initializable {
         }
     }
 
+    //hilo en el que se realiza el temporizador, en donde cada segundo se va restando al valor de las variables
+    //minuto y segundos, se hace uso de expresiones lambda
     private void instanciarHilo() {
         this.temporizador = new Thread(() -> {
             try {
@@ -213,10 +220,12 @@ public class JuegoMemoriaController implements Initializable {
         temporizador.setDaemon(true);
     }
     
+    //extrae el nombre del jugador
     public static void setJugador(String nombre) {
         nombreJugador = nombre;
     }
 
+    //va a ir guardando los datos del cliente que esta jugando para luego presentarlos con su nombre, tiempo, aciertos, fallos
     public void guardarDatos() {
         List<Resultado> resultados = Resultado.cargarListaRes();
         int segundosUsados=60-segundos;

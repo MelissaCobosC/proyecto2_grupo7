@@ -40,6 +40,7 @@ public class Orden {
         this.nombreCliente = Cliente.getCodCliente(codigoCliente).getNombre();  
     }
 
+    //constructor que va a servir para reportar ingresos en donde solo se necesita el nombreServicio y el total
     public Orden(String nombreServicio, double total) {
         this.nombreServicio = nombreServicio;
         this.total = total;
@@ -52,6 +53,7 @@ public class Orden {
         this.total = total;
     }
     
+    //constructor que va a servir para reportar atencion en donde solo se necesita el nombreTecnico y el total
     public Orden(double total, String nombTecnico) {
         this.nombTecnico = nombTecnico;
         this.total = total;

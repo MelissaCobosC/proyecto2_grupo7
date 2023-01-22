@@ -14,11 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import modelo.Resultado;
 import static modelo.Resultado.cargarListaRes;
 
-/**
- * FXML Controller class
- *
- * @author USUARIO
- */
+
 public class ResultadoJuegoController implements Initializable {
 
     @FXML
@@ -34,11 +30,13 @@ public class ResultadoJuegoController implements Initializable {
     @FXML
     private TableColumn<Resultado, Integer> colFalla;
     
-    ArrayList<Resultado> resultados = cargarListaRes();
+    ArrayList<Resultado> resultados = cargarListaRes(); //lista que carga el txt de resultados
 
     /**
      * Initializes the controller class.
      */
+    
+    //agrega los resultados e informacion del juego a la tabla
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.colNom.setCellValueFactory(new PropertyValueFactory<>("resNom"));

@@ -19,11 +19,7 @@ import modelo.*;
 import static modelo.Cliente.cargarLista3;
 import static modelo.Orden.cargarLista;
 
-/**
- * FXML Controller class
- *
- * @author USUARIO
- */
+
 public class GenerarFacturaController implements Initializable {
 
     @FXML

@@ -17,11 +17,7 @@ import static modelo.Cliente.cargarLista3;
 import modelo.Orden;
 import static modelo.Orden.cargarLista;
 
-/**
- * FXML Controller class
- *
- * @author USUARIO
- */
+
 public class ConsultarOrdenController implements Initializable {
 
     @FXML

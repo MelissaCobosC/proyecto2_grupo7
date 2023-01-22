@@ -7,11 +7,9 @@ import java.util.List;
 
 public class Tecnico extends Usuario {
     
-    private ArrayList<Orden> ordenesTecnico;
    
     public Tecnico(String usuario, String clave, String nombre, String tipoUsuario) {
         super(usuario,clave,nombre,tipoUsuario); 
-        ordenesTecnico = new ArrayList();
     }
 
     public String getUsuario() {
@@ -52,25 +50,6 @@ public class Tecnico extends Usuario {
 
     public void setUserLista(ArrayList<Usuario> userLista) {
         this.userLista = userLista;
-    }
-
-    public ArrayList<Orden> getOrdenesTecnico() {
-        return ordenesTecnico;
-    }
-
-    public void setOrdenesTecnico(ArrayList<Orden> ordenesTecnico) {
-        this.ordenesTecnico = ordenesTecnico;
-    }
-    
-    public static Usuario getTecnico(String nombTecnico){
-        List<Usuario> tecnicos = Usuario.cargarListaU();
-        for(Usuario tecnico : tecnicos){
-            if(tecnico.getNombre().equals(nombTecnico)){
-                return tecnico;
-            }
-        }
-        return null;
-    } 
-    
+    }   
     
 }
