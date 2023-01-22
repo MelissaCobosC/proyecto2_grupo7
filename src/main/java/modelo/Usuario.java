@@ -70,10 +70,10 @@ public class Usuario {
         return usuarios;
     }
    
-       public static Usuario getNomTecnico(String tecnico){
+       public static Usuario getNomTecnico(String nombreTecnico){ //recibe nombre de tecnico 
         List<Usuario> usuarios = Usuario.cargarListaU();
         for(Usuario usuario : usuarios){
-            if(usuario.getNivel().equals(tecnico)){
+            if(usuario.getNombre().equals(nombreTecnico)){
                 return usuario;
             }
         }

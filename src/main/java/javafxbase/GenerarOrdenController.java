@@ -17,6 +17,7 @@ import modelo.*;
 import static modelo.Cliente.cargarLista3;
 import static modelo.Orden.cargarLista;
 import static modelo.Servicio.cargarLista1;
+import static modelo.Usuario.cargarListaU;
 
 /**
  * FXML Controller class
@@ -54,7 +55,9 @@ public class GenerarOrdenController implements Initializable {
     @FXML
     private TableView<Orden> tablaGenerar;
 
+    static String nombreUsuario;
     ArrayList<Orden> ordenes = cargarLista();
+    ArrayList<Usuario> usuarios = cargarListaU();
     ArrayList<Cliente> clientes = cargarLista3();
     ArrayList<Servicio> servicios = cargarLista1();
     ArrayList<String> listVehiculo = Orden.listaTipoVehiculo();
@@ -99,8 +102,16 @@ public class GenerarOrdenController implements Initializable {
         String tipo = comboBoxVehiculo.getValue();
         String cantidad = textCant.getText();
         int cont = 0;
+        String nomTec="";
         for (Cliente cliente : clientes) {
             if (cliente.getCodigo().contains(codigo)) {
+                
+                
+                for(Usuario usuario: usuarios){
+                    if(usuario.getUsuario().contains(nombreUsuario)){
+                        nomTec=usuario.getNombre();
+                    }
+                }
 
                 double total = 0;
 //                int cont2 = 0;
@@ -117,7 +128,7 @@ public class GenerarOrdenController implements Initializable {
 //                    reestablecer(cod, fec, placa, codServicio, textCant, comboBoxVehiculo);
 //                }
 
-                ordenes.add(new Orden(codigo, fecha, numPlaca, tipo, servicio, Integer.parseInt(cantidad), total,"tecnico"));
+                ordenes.add(new Orden(codigo, fecha, numPlaca, tipo, servicio, Integer.parseInt(cantidad), total,nomTec));
                 tablaGenerar.getItems().setAll(ordenes);
                 Orden.sobreescribirFichero(ordenes);//se agrega una orden nueva
                 Servicio.sobreescribirFicheroServicio(servicios);
@@ -146,6 +157,10 @@ public class GenerarOrdenController implements Initializable {
     @FXML
     private void regresar(ActionEvent event) throws IOException {
         App.setRoot("iniciaSesion");
+    }
+    
+    public static void setNombreUsuario(String nombre) {
+        nombreUsuario = nombre;
     }
 
     private static void reestablecer(TextField c1, TextField c2, TextField c3, TextField c4, TextField c5, ComboBox c6) {

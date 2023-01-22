@@ -8,21 +8,22 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Orden {
-    private String codigoCliente, fechaServicio, placa, tipoVehiculo, codServicio, nombreTecnico;
-    private String nombreServicio;
+    private String codigoCliente, fechaServicio, placa, tipoVehiculo, codServicio, usuarioTecnico;
+    private String nombreServicio,nombTecnico;
     private String nombreCliente;
     private int cantidad;
     private double total;
     
-    public Orden(String codigoCliente, String fechaServicio, String placa, String tipoVehiculo, String codServicio, int cantidad, double total,String nombreTecnico){
+    public Orden(String codigoCliente, String fechaServicio, String placa, String tipoVehiculo, String codServicio, int cantidad, double total,String usuarioTecnico){
         this.codigoCliente = codigoCliente;
+        this.usuarioTecnico=usuarioTecnico;
         this.fechaServicio = fechaServicio;
         this.placa = placa;
         this.tipoVehiculo = tipoVehiculo;
         this.codServicio=codServicio;
         this.cantidad=cantidad;
         this.total=total;
-        this.nombreTecnico=nombreTecnico;
+        this.nombTecnico=Usuario.getNomTecnico(usuarioTecnico).getNombre();
         this.nombreServicio = Servicio.getServicio(codServicio).getNombre();
         this.nombreCliente = Cliente.getCodCliente(codigoCliente).getNombre();
     }
@@ -88,7 +89,7 @@ public class Orden {
     }
 
     public String getNombreTecnico() {
-        return nombreTecnico;
+        return nombTecnico;
     }
     
     public static ArrayList<Orden> cargarLista(){

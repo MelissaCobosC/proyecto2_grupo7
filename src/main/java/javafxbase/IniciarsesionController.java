@@ -42,6 +42,7 @@ public class IniciarsesionController implements Initializable {
         String pass = clave.getText();
         int cont=0;
         for(Usuario u: usuarioLista){
+            GenerarOrdenController.setNombreUsuario(user);
             if(user.equals(u.getUsuario()) && pass.equals(u.getClave())){
                  if("admin".equals(u.getNivel())){
                     try {
