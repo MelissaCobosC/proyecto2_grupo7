@@ -93,7 +93,7 @@ public class ReportarIngresosController implements Initializable {
         if (intento == 0) {
             Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setTitle("datos incorrectos");
-            alerta.setHeaderText("ingrese datos validos para generar la factura");
+            alerta.setHeaderText("ingrese datos validos para reportar los ingresos");
             alerta.showAndWait();
             reestablecer(año, mes);
         }

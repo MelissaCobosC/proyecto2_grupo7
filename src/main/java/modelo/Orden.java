@@ -51,6 +51,11 @@ public class Orden {
         this.nombreServicio = nombreServicio;
         this.total = total;
     }
+    
+    public Orden(double total, String nombTecnico) {
+        this.nombTecnico = nombTecnico;
+        this.total = total;
+    }
 
     public String getCodigoCliente() {
         return codigoCliente;
@@ -88,9 +93,24 @@ public class Orden {
         return total;
     }
 
-    public String getNombreTecnico() {
+
+    public String getUsuarioTecnico() {
+        return usuarioTecnico;
+    }
+
+    public void setUsuarioTecnico(String usuarioTecnico) {
+        this.usuarioTecnico = usuarioTecnico;
+    }
+
+    public String getNombTecnico() {
         return nombTecnico;
     }
+
+    public void setNombTecnico(String nombTecnico) {
+        this.nombTecnico = nombTecnico;
+    }
+    
+    
     
     public static ArrayList<Orden> cargarLista(){
         ArrayList<Orden> ordenes = new ArrayList<>();
@@ -115,7 +135,7 @@ public class Orden {
             bw.write("Codigo,fecha,placa,tipoVehiculo,codServicio,cantidad,total,NombreTecnico");
             for(Orden o:ordenes){
                 bw.newLine();
-                bw.write(o.getCodigoCliente()+","+o.getFechaServicio()+","+o.getPlaca()+","+o.getTipoVehiculo()+","+o.getCodServicio()+","+o.getCantidad()+","+o.getTotal()+","+o.getNombreTecnico());
+                bw.write(o.getCodigoCliente()+","+o.getFechaServicio()+","+o.getPlaca()+","+o.getTipoVehiculo()+","+o.getCodServicio()+","+o.getCantidad()+","+o.getTotal()+","+o.getNombTecnico());
             }
         }catch (IOException e){
             System.out.println("error");

@@ -3,10 +3,12 @@ package javafxbase;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -48,7 +50,7 @@ public class ReportarAtencionController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        this.colTecnico.setCellValueFactory(new PropertyValueFactory<>("nombreServicio"));
+        this.colTecnico.setCellValueFactory(new PropertyValueFactory<>("nombTecnico"));
         this.colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
     }    
 
@@ -70,22 +72,53 @@ public class ReportarAtencionController implements Initializable {
 
     @FXML
     private void consultarAtencion(ActionEvent event) {
-         ArrayList<String> listTecnico = new ArrayList<>();
          
-        for(Usuario u:usuarios){ 
-            if("tecnico".equals(u.getNivel())){
-                listTecnico.add(u.getNombre());
-            }
-        }
+        List<Orden> ordenes = Orden.cargarLista();
+        List<Servicio> servicios = Servicio.cargarLista1();
+        int añol = Integer.parseInt(this.año.getText());
+        int mesl = Integer.parseInt(this.mes.getText());
         
-        for(Orden o:ordenes){
+        int intento = 0;
+        ArrayList<Orden> ordenTecnico = new ArrayList<>();
+        for(Usuario u:usuarios){ 
+            int cont = 0;
+            if("tecnico".equals(u.getNivel())){
             
-        }                
+                for(Orden o: ordenes){
+                    if((añol == o.getAnio() && mesl == o.getMes())){
+                    
+                        if(o.getNombTecnico().equals(u.getNombre())){
+                        
+                            cont += o.getTotal();
+                        }
+                        intento++;
+                    
+                    }
+            
+                }
+                ordenTecnico.add(new Orden(cont, u.getNombre()));
+            }
+            
+        }
+        this.tablaAtencion.getItems().setAll(ordenTecnico);
+        
+        if (intento == 0) {
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setTitle("datos incorrectos");
+            alerta.setHeaderText("ingrese datos validos");
+            alerta.showAndWait();
+            reestablecer(año, mes);
+        }      
     }
 
     @FXML
     private void regresar(ActionEvent event) throws IOException {
         App.setRoot("iniciaSesion");
+    }
+    
+    private static void reestablecer(TextField c1, TextField c2) {
+        c1.setText(null);
+        c2.setText(null);
     }
     
 }
