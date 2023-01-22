@@ -26,6 +26,11 @@ public class Orden {
         this.nombreCliente = Cliente.getCodCliente(codigoCliente).getNombre();
     }
 
+    public Orden(String nombreServicio, double total) {
+        this.nombreServicio = nombreServicio;
+        this.total = total;
+    }
+
     public String getCodigoCliente() {
         return codigoCliente;
     }
