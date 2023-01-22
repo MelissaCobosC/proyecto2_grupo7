@@ -18,11 +18,7 @@ import static modelo.Orden.cargarLista;
 import static modelo.Servicio.cargarLista1;
 import static modelo.Usuario.cargarListaU;
 
-/**
- * FXML Controller class
- *
- * @author USUARIO
- */
+
 public class GenerarOrdenController implements Initializable {
 
     @FXML

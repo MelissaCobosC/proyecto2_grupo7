@@ -40,6 +40,7 @@ public class Orden {
         this.nombreCliente = Cliente.getCodCliente(codigoCliente).getNombre();  
     }
 
+    //constructor que va a servir para reportar ingresos en donde solo se necesita el nombreServicio y el total
     public Orden(String nombreServicio, double total) {
         this.nombreServicio = nombreServicio;
         this.total = total;
@@ -49,6 +50,12 @@ public class Orden {
         this.codigoCliente=codigoCliente;
         this.fechaServicio=fechaServicio;
         this.nombreServicio = nombreServicio;
+        this.total = total;
+    }
+    
+    //constructor que va a servir para reportar atencion en donde solo se necesita el nombreTecnico y el total
+    public Orden(double total, String nombTecnico) {
+        this.nombTecnico = nombTecnico;
         this.total = total;
     }
 
@@ -88,10 +95,26 @@ public class Orden {
         return total;
     }
 
-    public String getNombreTecnico() {
+
+    public String getUsuarioTecnico() {
+        return usuarioTecnico;
+    }
+
+    public void setUsuarioTecnico(String usuarioTecnico) {
+        this.usuarioTecnico = usuarioTecnico;
+    }
+
+    public String getNombTecnico() {
         return nombTecnico;
     }
+
+    public void setNombTecnico(String nombTecnico) {
+        this.nombTecnico = nombTecnico;
+    }
     
+    
+    //metodo que devuelve una lista que va a contener lo que se encuentra en el txt de orden
+    //este metodo lee linea por linea del txt y las guarda en un arraylist 
     public static ArrayList<Orden> cargarLista(){
         ArrayList<Orden> ordenes = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader("src/main/resources/ordenes.txt"));){
@@ -110,17 +133,21 @@ public class Orden {
         return ordenes;
     }
     
+    //este metodo agrega una linea al txt con informacion en especifico que se ha ingresado en la interfaz,
+    //ingresa una nueva orden
     public static void sobreescribirFichero(ArrayList<Orden> ordenes){
         try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/main/resources/ordenes.txt"));){
             bw.write("Codigo,fecha,placa,tipoVehiculo,codServicio,cantidad,total,NombreTecnico");
             for(Orden o:ordenes){
                 bw.newLine();
-                bw.write(o.getCodigoCliente()+","+o.getFechaServicio()+","+o.getPlaca()+","+o.getTipoVehiculo()+","+o.getCodServicio()+","+o.getCantidad()+","+o.getTotal()+","+o.getNombreTecnico());
+                bw.write(o.getCodigoCliente()+","+o.getFechaServicio()+","+o.getPlaca()+","+o.getTipoVehiculo()+","+o.getCodServicio()+","+o.getCantidad()+","+o.getTotal()+","+o.getNombTecnico());
             }
         }catch (IOException e){
             System.out.println("error");
         }
     }
+    
+    //es una lista que contiene a los tipos de vehiculos, se usara para un comboBox en generar orden 
     public static ArrayList<String> listaTipoVehiculo() {
        ArrayList<String> listVehiculos = new ArrayList<>();
        ArrayList<Orden> ordenes = cargarLista();

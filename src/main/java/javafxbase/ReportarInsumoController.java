@@ -10,11 +10,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
 
-/**
- * FXML Controller class
- *
- * @author USUARIO
- */
+
 public class ReportarInsumoController implements Initializable {
 
     @FXML

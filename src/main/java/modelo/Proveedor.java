@@ -53,6 +53,8 @@ public class Proveedor extends Persona{
         return super.toString();
     }
     
+    //metodo que devuelve una lista que va a contener lo que se encuentra en el txt del proveedor
+    //este metodo lee linea por linea del txt y las guarda en un arraylist 
     public static ArrayList<Proveedor> cargarListaProveedor(){
         ArrayList<Proveedor> proveedores = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader("src/main/resources/proveedores.txt"));){
@@ -68,7 +70,7 @@ public class Proveedor extends Persona{
         return proveedores;
     }
     
-
+    //este metodo agrega una linea al txt con informacion en especifico que se ha ingresado en el controller proveedores 
     public static void sobreescribirFicheroProveedor(ArrayList<Proveedor> proveedores){
         try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/main/resources/proveedores.txt"));){
             bw.write("cedula,nombre,direccion,telefono");

@@ -12,15 +12,12 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import modelo.Usuario;
-/**
- * FXML Controller class
- *
- * @author USUARIO
- */
+
 public class IniciarsesionController implements Initializable {
     
-    ArrayList<Usuario> usuarioLista = Usuario.cargarListaU();
+    ArrayList<Usuario> usuarioLista = Usuario.cargarListaU(); //lista donde carga los datos que hay en el txt de usuario
     
+    //nombres que pertenecen a nodos hijos de la interfaz
     @FXML
     private TextField usuario;
     @FXML
@@ -38,10 +35,11 @@ public class IniciarsesionController implements Initializable {
     
     @FXML
     public void verificar() throws IOException{
+        //extrae lo que el usuario ingreso en los textfield y los guarda en variables
         String user = usuario.getText();
         String pass = clave.getText();
-        int cont=0;
-        for(Usuario u: usuarioLista){
+        int cont=0; //va a sumar los intentos correctos, verificando que la informacion ingresada es correcta
+        for(Usuario u: usuarioLista){ //recorre la lista usuario en donde si pertence a un nivel lo lleve a la interfaz de ese
             GenerarOrdenController.setNombreUsuario(user);
             if(user.equals(u.getUsuario()) && pass.equals(u.getClave())){
                  if("admin".equals(u.getNivel())){
@@ -77,6 +75,8 @@ public class IniciarsesionController implements Initializable {
                cont++; 
             }
         }
+        
+        //si no ingresa los datos correctos va a presentar una alerta
         if(cont==0){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Alerta");

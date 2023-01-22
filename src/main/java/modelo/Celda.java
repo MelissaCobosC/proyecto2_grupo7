@@ -1,7 +1,7 @@
 
 package modelo;
 
-
+//clase que indica el tamaño de la matriz que se usara para ir poniendo las cartas
 public class Celda {
     
     public String value;

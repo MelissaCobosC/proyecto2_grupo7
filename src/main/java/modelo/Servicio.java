@@ -47,6 +47,8 @@ public class Servicio {
         return  codigo +" - "+ nombre+" - "+precio ;
     }
     
+    //metodo que devuelve una lista que va a contener lo que se encuentra en el txt de servicio
+    //este metodo lee linea por linea del txt y las guarda en un arraylist 
     public static ArrayList<Servicio> cargarLista1(){
         ArrayList<Servicio> servicios = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader("src/main/resources/servicios.txt"));){
@@ -62,7 +64,8 @@ public class Servicio {
         return servicios;
     }
     
-
+    //este metodo agrega una linea al txt con informacion en especifico que se ha ingresado en la interfaz
+    //agrega un nuevo servicio
     public static void sobreescribirFicheroServicio(ArrayList<Servicio> servicios){
         try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/main/resources/servicios.txt"));){
             bw.write("codigo,nombre,precio");
@@ -75,6 +78,8 @@ public class Servicio {
         }
     }
     
+    //en este metodo se puede obtener un objeto de la clase Servicio con informacion en especifica, en este caso
+    //el objeto que contenga el mismo codigo que se ingresa por parametro 
     public static Servicio getServicio(String codigo){
         List<Servicio> servicios = Servicio.cargarLista1();
         

@@ -5,8 +5,9 @@ import java.util.Random;
 
 public class Board {
     
-    public Celda[][] board = new Celda[4][4];
+    public Celda[][] board = new Celda[4][4]; //cantidad de celdas
     
+    //metodo que se encarga de llenar el gridpane con las imagenes de monitos en la posicion en especifico que se ha dado click
     public void llenandoGridPane(){
        board = new Celda[4][4];
        String[] imagenes = {"monito1", "monito2", "monito3", "monito4", "monito5", "monito6", "monito7", "monito8", "monito9", "monito10", "monito11", "monito12", "monito13", "monito14", "monito15"};
@@ -32,6 +33,7 @@ public class Board {
        }
     }
     
+    //llena el gridpane en los espacios que no esten vacios 
     public boolean completoGridPane(){
         
         for(int i=0; i<4; i++){

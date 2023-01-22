@@ -71,6 +71,8 @@ public Cliente(String codigo, String nombre, String direccion, String telefono, 
         return super.toString() + " - " + tipoCliente ;
     }
     
+    //metodo que devuelve una lista que va a contener lo que se encuentra en el txt de cliente
+    //este metodo lee linea por linea del txt y las guarda en un arraylist
     public static ArrayList<Cliente> cargarLista3(){
         ArrayList<Cliente> clientes = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader("src/main/resources/clientes.txt"));){
@@ -86,6 +88,8 @@ public Cliente(String codigo, String nombre, String direccion, String telefono, 
         return clientes;
     }
  
+    //este metodo agrega una linea al txt con informacion en especifico que se ha ingresado en la interfaz
+    //agrega un nuevo cliente al final del txt
     public static void sobreescribirFichero(ArrayList<Cliente> clientes){
         try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/main/resources/clientes.txt"));){
             bw.write("cedula,nombre,direccion,telefono,tipoCliente");
@@ -98,6 +102,8 @@ public Cliente(String codigo, String nombre, String direccion, String telefono, 
         }
     }
     
+    //en este metodo se puede obtener un objeto de la clase Cliente con informacion en especifica, en este caso
+    //el objeto que contenga el mismo codigo que se ingresa por parametro 
     public static Cliente getCodCliente(String codigo){
         List<Cliente> clientes = Cliente.cargarLista3();
         for(Cliente cliente : clientes){
