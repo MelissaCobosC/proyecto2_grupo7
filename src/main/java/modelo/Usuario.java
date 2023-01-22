@@ -54,7 +54,9 @@ public class Usuario {
     public String toString() {
         return "Usuario{" + "usuario=" + usuario + ", clave=" + clave + ", nombre=" + nombre + ", nivel=" + nivel  + '}';
     }
-    
+   
+    //metodo que devuelve una lista que va a contener lo que se encuentra en el txt de usuario
+    //este metodo lee linea por linea del txt y las guarda en un arraylist 
    public static ArrayList<Usuario> cargarListaU(){
         ArrayList<Usuario> usuarios = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader("src/main/resources/usuarios.txt"));){
@@ -70,7 +72,9 @@ public class Usuario {
         return usuarios;
     }
    
-       public static Usuario getNomTecnico(String nombreTecnico){ //recibe nombre de tecnico 
+        //en este metodo se puede obtener un objeto de la clase Usuario con informacion en especifica, en este caso
+    //el objeto que contenga el mismo nombre que se ingresa por parametro 
+       public static Usuario getNomTecnico(String nombreTecnico){ 
         List<Usuario> usuarios = Usuario.cargarListaU();
         for(Usuario usuario : usuarios){
             if(usuario.getNombre().equals(nombreTecnico)){

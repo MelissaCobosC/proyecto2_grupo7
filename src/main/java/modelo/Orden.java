@@ -113,7 +113,8 @@ public class Orden {
     }
     
     
-    
+    //metodo que devuelve una lista que va a contener lo que se encuentra en el txt de orden
+    //este metodo lee linea por linea del txt y las guarda en un arraylist 
     public static ArrayList<Orden> cargarLista(){
         ArrayList<Orden> ordenes = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader("src/main/resources/ordenes.txt"));){
@@ -132,6 +133,8 @@ public class Orden {
         return ordenes;
     }
     
+    //este metodo agrega una linea al txt con informacion en especifico que se ha ingresado en la interfaz,
+    //ingresa una nueva orden
     public static void sobreescribirFichero(ArrayList<Orden> ordenes){
         try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/main/resources/ordenes.txt"));){
             bw.write("Codigo,fecha,placa,tipoVehiculo,codServicio,cantidad,total,NombreTecnico");
@@ -143,6 +146,8 @@ public class Orden {
             System.out.println("error");
         }
     }
+    
+    //es una lista que contiene a los tipos de vehiculos, se usara para un comboBox en generar orden 
     public static ArrayList<String> listaTipoVehiculo() {
        ArrayList<String> listVehiculos = new ArrayList<>();
        ArrayList<Orden> ordenes = cargarLista();
