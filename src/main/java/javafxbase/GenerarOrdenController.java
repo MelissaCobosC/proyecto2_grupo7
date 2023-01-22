@@ -117,7 +117,7 @@ public class GenerarOrdenController implements Initializable {
 //                    reestablecer(cod, fec, placa, codServicio, textCant, comboBoxVehiculo);
 //                }
 
-                ordenes.add(new Orden(codigo, fecha, numPlaca, tipo, servicio, Integer.parseInt(cantidad), total));
+                ordenes.add(new Orden(codigo, fecha, numPlaca, tipo, servicio, Integer.parseInt(cantidad), total,"tecnico"));
                 tablaGenerar.getItems().setAll(ordenes);
                 Orden.sobreescribirFichero(ordenes);//se agrega una orden nueva
                 Servicio.sobreescribirFicheroServicio(servicios);

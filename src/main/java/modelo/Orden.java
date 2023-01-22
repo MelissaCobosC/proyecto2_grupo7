@@ -8,13 +8,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Orden {
-    private String codigoCliente, fechaServicio, placa, tipoVehiculo, codServicio;
+    private String codigoCliente, fechaServicio, placa, tipoVehiculo, codServicio, nombreTecnico;
     private String nombreServicio;
     private String nombreCliente;
     private int cantidad;
     private double total;
     
-    public Orden(String codigoCliente, String fechaServicio, String placa, String tipoVehiculo, String codServicio, int cantidad, double total){
+    public Orden(String codigoCliente, String fechaServicio, String placa, String tipoVehiculo, String codServicio, int cantidad, double total,String nombreTecnico){
         this.codigoCliente = codigoCliente;
         this.fechaServicio = fechaServicio;
         this.placa = placa;
@@ -22,8 +22,21 @@ public class Orden {
         this.codServicio=codServicio;
         this.cantidad=cantidad;
         this.total=total;
+        this.nombreTecnico=nombreTecnico;
         this.nombreServicio = Servicio.getServicio(codServicio).getNombre();
         this.nombreCliente = Cliente.getCodCliente(codigoCliente).getNombre();
+    }
+    
+    public Orden(String codigoCliente, String fechaServicio, String placa, String tipoVehiculo, String codServicio, int cantidad, double total){
+      this.codigoCliente = codigoCliente;
+        this.fechaServicio = fechaServicio;
+        this.placa = placa;
+        this.tipoVehiculo = tipoVehiculo;
+        this.codServicio=codServicio;
+        this.cantidad=cantidad;
+        this.total=total;
+        this.nombreServicio = Servicio.getServicio(codServicio).getNombre();
+        this.nombreCliente = Cliente.getCodCliente(codigoCliente).getNombre();  
     }
 
     public Orden(String nombreServicio, double total) {
@@ -73,7 +86,11 @@ public class Orden {
     public double getTotal() {
         return total;
     }
-  
+
+    public String getNombreTecnico() {
+        return nombreTecnico;
+    }
+    
     public static ArrayList<Orden> cargarLista(){
         ArrayList<Orden> ordenes = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader("src/main/resources/ordenes.txt"));){
@@ -83,7 +100,7 @@ public class Orden {
             while ((linea = br.readLine())!=null){
                 String[] datos = linea.split(","); 
                 
-                ordenes.add(new Orden(datos[0],datos[1],datos[2],datos[3],datos[4],Integer.parseInt(datos[5]),Double.parseDouble(datos[6])));
+                ordenes.add(new Orden(datos[0],datos[1],datos[2],datos[3],datos[4],Integer.parseInt(datos[5]),Double.parseDouble(datos[6]),datos[7]));
             
             }
         }catch (IOException e){
@@ -94,10 +111,10 @@ public class Orden {
     
     public static void sobreescribirFichero(ArrayList<Orden> ordenes){
         try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/main/resources/ordenes.txt"));){
-            bw.write("Codigo,fecha,placa,tipoVehiculo,codServicio,cantidad,total");
+            bw.write("Codigo,fecha,placa,tipoVehiculo,codServicio,cantidad,total,NombreTecnico");
             for(Orden o:ordenes){
                 bw.newLine();
-                bw.write(o.getCodigoCliente()+","+o.getFechaServicio()+","+o.getPlaca()+","+o.getTipoVehiculo()+","+o.getCodServicio()+","+o.getCantidad()+","+o.getTotal());
+                bw.write(o.getCodigoCliente()+","+o.getFechaServicio()+","+o.getPlaca()+","+o.getTipoVehiculo()+","+o.getCodServicio()+","+o.getCantidad()+","+o.getTotal()+","+o.getNombreTecnico());
             }
         }catch (IOException e){
             System.out.println("error");

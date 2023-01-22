@@ -3,6 +3,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Usuario {
     protected String usuario, clave, nombre, nivel;
@@ -67,6 +68,16 @@ public class Usuario {
             
         }
         return usuarios;
+    }
+   
+       public static Usuario getNomTecnico(String tecnico){
+        List<Usuario> usuarios = Usuario.cargarListaU();
+        for(Usuario usuario : usuarios){
+            if(usuario.getNivel().equals(tecnico)){
+                return usuario;
+            }
+        }
+        return null;
     }
 
 }
