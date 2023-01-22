@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -67,29 +68,45 @@ public class ReportarIngresosController implements Initializable {
     private void consultarIngreso(ActionEvent event) {
         List<Orden> ordenes = Orden.cargarLista();
         List<Servicio> servicios = Servicio.cargarLista1();
-        int año = Integer.parseInt(this.año.getText());
-        int mes = Integer.parseInt(this.mes.getText());
+        int añol = Integer.parseInt(this.año.getText());
+        int mesl = Integer.parseInt(this.mes.getText());
         
+        int intento = 0;
         ArrayList<Orden> ordenesIgual = new ArrayList<>();
         for(Servicio s: servicios){
             int cont = 0;
             for(Orden o: ordenes){
-                if((año == o.getAnio() && mes == o.getMes())){
+                if((añol == o.getAnio() && mesl == o.getMes())){
                     if(o.getCodServicio().equals(s.getCodigo())){
                         cont += o.getTotal();
                     }
+                    intento++;
                 }
+            
             }
             
             ordenesIgual.add(new Orden(s.getNombre(), cont));
         }
         
         this.tablaIngresos.getItems().setAll(ordenesIgual);
+        
+        if (intento == 0) {
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setTitle("datos incorrectos");
+            alerta.setHeaderText("ingrese datos validos para generar la factura");
+            alerta.showAndWait();
+            reestablecer(año, mes);
+        }
     }
 
     @FXML
     private void regresar(ActionEvent event) throws IOException {
         App.setRoot("iniciaSesion");
+    }
+    
+    private static void reestablecer(TextField c1, TextField c2) {
+        c1.setText(null);
+        c2.setText(null);
     }
     
 }
