@@ -1,15 +1,18 @@
 package modelo;
 
 public abstract class Persona {
-protected String codigo, nombre, direccion, telefono;
 
+    protected String codigo, nombre, direccion, telefono;
+    
+    //constructor de la clase abstracta Persona
     public Persona(String codigo, String nombre, String direccion, String telefono) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
     }
-public String getCod() {
+    //getters & setters
+    public String getCod() {
         return codigo;
     }
 
@@ -20,7 +23,6 @@ public String getCod() {
     public String getTel() {
         return telefono;
     }
-
 
     public String getDir() {
         return direccion;
@@ -41,13 +43,11 @@ public String getCod() {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-    
+
     @Override
     public String toString() {
-        return codigo + " - " + nombre + " - " + direccion + " - " + telefono ; 
-        
+        return codigo + " - " + nombre + " - " + direccion + " - " + telefono;
+
     }
-    
-    
-    
+
 }

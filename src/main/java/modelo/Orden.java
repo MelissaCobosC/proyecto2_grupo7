@@ -28,6 +28,7 @@ public class Orden {
         this.nombreCliente = Cliente.getCodCliente(codigoCliente).getNombre();
     }
     
+    //constructor que va a servir para generar las ordenes en el txt 
     public Orden(String codigoCliente, String fechaServicio, String placa, String tipoVehiculo, String codServicio, int cantidad, double total){
         this.codigoCliente = codigoCliente;
         this.fechaServicio = fechaServicio;
@@ -46,6 +47,7 @@ public class Orden {
         this.total = total;
     }
     
+    //constructor que va a servir para llenar la tabla de facturas
     public Orden(String codigoCliente,String fechaServicio,String nombreServicio, double total) {
         this.codigoCliente=codigoCliente;
         this.fechaServicio=fechaServicio;
@@ -58,7 +60,8 @@ public class Orden {
         this.nombTecnico = nombTecnico;
         this.total = total;
     }
-
+    
+    //getters 
     public String getCodigoCliente() {
         return codigoCliente;
     }
@@ -100,18 +103,18 @@ public class Orden {
         return usuarioTecnico;
     }
 
-    public void setUsuarioTecnico(String usuarioTecnico) {
-        this.usuarioTecnico = usuarioTecnico;
-    }
-
     public String getNombTecnico() {
         return nombTecnico;
     }
-
+    
+    //setter de nombre y usuario de tecnico  
     public void setNombTecnico(String nombTecnico) {
         this.nombTecnico = nombTecnico;
     }
     
+    public void setUsuarioTecnico(String usuarioTecnico) {
+        this.usuarioTecnico = usuarioTecnico;
+    }
     
     //metodo que devuelve una lista que va a contener lo que se encuentra en el txt de orden
     //este metodo lee linea por linea del txt y las guarda en un arraylist 
@@ -160,11 +163,13 @@ public class Orden {
         return listVehiculos;
     }
     
+    //nos devuelve el mes de la fecha de las ordenes que es la segunda posicion del string fecha separado por /
     public int getMes(){
         String[] datos = this.fechaServicio.split("/");
         return Integer.parseInt(datos[1]); 
     }
     
+    //nos devuelve el año de la fecha de las ordenes que es la tercera posicion del string fecha separado por /
     public int getAnio(){
         String[] datos = this.fechaServicio.split("/");
         return Integer.parseInt(datos[2]);
