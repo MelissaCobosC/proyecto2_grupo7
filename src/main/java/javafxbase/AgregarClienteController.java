@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import modelo.Cliente;
@@ -37,7 +38,10 @@ public class AgregarClienteController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+       
+        this.cmbTipos.getItems().add("personal");
+        this.cmbTipos.getItems().add("empresarial");
+        
     }    
     ArrayList<Cliente> listaClientes = Cliente.cargarLista3();
    
@@ -52,7 +56,7 @@ public class AgregarClienteController implements Initializable {
     @FXML
     private TextField telefonotf;
     @FXML
-    private TextField tipotf;
+    private ComboBox cmbTipos;
     
     
     @FXML
@@ -61,7 +65,7 @@ public class AgregarClienteController implements Initializable {
         String nombre = nombretf.getText();
         String direccion = direcciontf.getText();
         String telefono = telefonotf.getText();
-        String tipo = tipotf.getText();
+        String tipo = (String) cmbTipos.getValue();
         
         Cliente c = new Cliente(codigo,nombre,direccion,telefono,tipo);
         listaClientes.add(c);

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -59,11 +60,11 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="tipotf" layoutX="194.0" layoutY="241.0" prefHeight="26.0" prefWidth="162.0" />
       <Label fx:id="tipoclientelb" layoutX="146.0" layoutY="240.0" prefHeight="27.0" prefWidth="55.0" text="Tipo:">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
+      <ComboBox fx:id="cmbTipos" layoutX="200.0" layoutY="241.0" prefWidth="150.0" />
    </children>
 </AnchorPane>
