@@ -45,7 +45,8 @@ public class ReportarIngresosController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.colServicio.setCellValueFactory(new PropertyValueFactory<>("nombreServicio"));
-        this.colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));    }    
+        this.colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));    
+    }    
 
     @FXML
     private void generarFactura(ActionEvent event) throws IOException {
