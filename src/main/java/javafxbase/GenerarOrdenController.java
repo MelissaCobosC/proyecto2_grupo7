@@ -72,6 +72,7 @@ public class GenerarOrdenController implements Initializable {
         this.colCant.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
         this.codTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
         comboBoxVehiculo.getItems().setAll(listVehiculo);
+        tablaGenerar.getItems().setAll(ordenes);
     }
 
     @FXML
@@ -102,29 +103,38 @@ public class GenerarOrdenController implements Initializable {
             if (cliente.getCodigo().contains(codigo)) {
 
                 double total = 0;
+//                int cont2 = 0;
                 for (Servicio ts : servicios) {
-                    if (servicio.equals(ts.getCodigo())) {
-                        total = ts.getPrecio() * Integer.parseInt(cantidad);
-                    }
+                        if (servicio.equals(ts.getCodigo())) {
+                            total = ts.getPrecio() * Integer.parseInt(cantidad);
+//                            cont2++;
+                        }
                 }
+//                if (cont2 == 0) {
+//                    Alert alert = new Alert(Alert.AlertType.ERROR);
+//                    alert.setTitle("Codigo de servicio invalido");
+//                    alert.setContentText("El codigo de servicio ingresado no existe, por favor reescriba su orden con datos validos");
+//                    reestablecer(cod, fec, placa, codServicio, textCant, comboBoxVehiculo);
+//                }
+
                 ordenes.add(new Orden(codigo, fecha, numPlaca, tipo, servicio, Integer.parseInt(cantidad), total));
                 tablaGenerar.getItems().setAll(ordenes);
                 Orden.sobreescribirFichero(ordenes);//se agrega una orden nueva
                 Servicio.sobreescribirFicheroServicio(servicios);
-                reestablecer(cod,fec,placa,codServicio,textCant,comboBoxVehiculo);
+                reestablecer(cod, fec, placa, codServicio, textCant, comboBoxVehiculo);
                 Alert alerta = new Alert(Alert.AlertType.INFORMATION);
                 alerta.setTitle("Orden Registrada");
-                alerta.setHeaderText("Su orden ha sido registrada");
+                alerta.setHeaderText("Su orden ha sido registrada, revise al final de la tabla");
                 alerta.showAndWait();
                 cont++;
             }
         }
         if (cont == 0) {
-            Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-            alerta.setTitle("Codigo invalido");
-            alerta.setHeaderText("Este cliente no existe en el registro de clientes, por favor ingresar un codigo valido");
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setTitle("Codigo de cliente invalido");
+            alerta.setHeaderText("El codigo de cliente ingresado no existe, por favor reescriba su orden con datos validos");
             alerta.showAndWait();
-            reestablecer(cod,fec,placa,codServicio,textCant,comboBoxVehiculo);
+            reestablecer(cod, fec, placa, codServicio, textCant, comboBoxVehiculo);
         }
 
     }

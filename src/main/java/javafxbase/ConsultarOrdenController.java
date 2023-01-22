@@ -53,7 +53,7 @@ public class ConsultarOrdenController implements Initializable {
         this.colFecha.setCellValueFactory(new PropertyValueFactory<>("fechaServicio"));
         this.colCliente.setCellValueFactory(new PropertyValueFactory<>("nombreCliente"));
         this.colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
-
+        tablaConsulta.getItems().setAll(ordenes);
     }
 
     @FXML
@@ -108,13 +108,13 @@ public class ConsultarOrdenController implements Initializable {
                     filtroOrden.add(o);
                     cont++;
                 }
-            } else if (cliente.getText() != null) {
+            } if (cliente.getText() != null) {
                 if (cli.equals(o.getNombreCliente())) {
                     filtroOrden.add(o);
                     cont++;
                 }
             }
-            else if (fecha.getText() != null) {
+            if (fecha.getText() != null) {
                 if (fec.equals(o.getFechaServicio())) {
                     filtroOrden.add(o);
                     cont++;
@@ -122,7 +122,7 @@ public class ConsultarOrdenController implements Initializable {
             }
         }
         if (cont == 0) {
-            Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setTitle("datos incorrectos");
             alerta.setHeaderText("ingrese datos validos para la consulta");
             alerta.showAndWait();

@@ -30,6 +30,13 @@ public class Orden {
         this.nombreServicio = nombreServicio;
         this.total = total;
     }
+    
+    public Orden(String codigoCliente,String fechaServicio,String nombreServicio, double total) {
+        this.codigoCliente=codigoCliente;
+        this.fechaServicio=fechaServicio;
+        this.nombreServicio = nombreServicio;
+        this.total = total;
+    }
 
     public String getCodigoCliente() {
         return codigoCliente;

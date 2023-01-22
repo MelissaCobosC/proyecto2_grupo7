@@ -112,7 +112,7 @@ public class GenerarFacturaController implements Initializable {
         this.tablaFactura.getItems().setAll(ordenesEncontradas);
 
         if (cont == 0) {
-            Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setTitle("datos incorrectos");
             alerta.setHeaderText("ingrese datos validos para generar la factura");
             alerta.showAndWait();

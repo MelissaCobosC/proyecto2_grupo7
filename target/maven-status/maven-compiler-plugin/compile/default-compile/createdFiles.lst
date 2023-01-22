@@ -5,7 +5,6 @@ javafxbase\ReportarAtencionController.class
 javafxbase\ReportarIngresosController.class
 modelo\Usuario.class
 modelo\Board.class
-modelo\TipoVehiculo.class
 modelo\Proveedor.class
 modelo\Orden.class
 javafxbase\ReportarInsumoController.class
