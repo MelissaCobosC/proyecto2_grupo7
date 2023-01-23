@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="383.0" prefWidth="758.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxbase.SesionClientesController">
+   <children>
+      <ImageView fitHeight="383.0" fitWidth="758.0" pickOnBounds="true">
+         <image>
+            <Image url="@../imagenes/fondocliente.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="54.0" layoutY="70.0" text="Inicio de sesión">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="127.0" layoutY="112.0" text="clientes">
+         <font>
+            <Font name="System Bold" size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="159.0" text="Nombre:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nombre" layoutX="23.0" layoutY="192.0" prefHeight="26.0" prefWidth="323.0" />
+      <Label layoutX="23.0" layoutY="228.0" text="Cédula:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="24.0" layoutY="314.0" mnemonicParsing="false" onAction="#jugar" prefHeight="30.0" prefWidth="323.0" style="-fx-background-color: #77f2A1;" text="Jugar" textAlignment="RIGHT" textOverrun="CLIP">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color opacity="0.9800000190734863" />
+               </color>
+            </DropShadow>
+         </effect>
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <ImageView fitHeight="64.0" fitWidth="80.0" layoutX="152.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imagenes/usuariocliente.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="cedula" layoutX="24.0" layoutY="255.0" prefHeight="26.0" prefWidth="323.0" />
+      <Button layoutX="364.0" layoutY="313.0" mnemonicParsing="false" onAction="#regresar" style="-fx-background-color: #3cb2aa;" text="Regresar" textOverrun="CLIP">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+   </children>
+</AnchorPane>

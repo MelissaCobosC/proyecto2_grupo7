@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="383.0" prefWidth="758.0" style="-fx-background-color: #DCCBBD;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxbase.ReportarInsumoController">
+   <children>
+      <VBox prefHeight="383.0" prefWidth="149.0" style="-fx-background-color: #1F2B37;">
+         <children>
+            <Pane prefHeight="139.0" prefWidth="190.0">
+               <children>
+                  <ImageView fitHeight="131.0" fitWidth="132.0" layoutX="9.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagenes/cliente.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#consultarOrden" prefHeight="39.0" prefWidth="169.0" text="Consultar orden ">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" mouseTransparent="true" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagenes/orden.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#generarOrden" prefHeight="39.0" prefWidth="169.0" text="Generar orden   ">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagenes/generar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#reportarInsumo" prefHeight="39.0" prefWidth="169.0" text="Reportar insumo ">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="31.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagenes/reporte.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#regresar" prefHeight="39.0" prefWidth="169.0" style="-fx-background-color: #bfd834;" text="Regresar">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <Pane layoutX="149.0" prefHeight="100.0" prefWidth="609.0" style="-fx-background-color: #808684;">
+         <children>
+            <Label layoutX="39.0" layoutY="28.0" text="Reportar falta de insumo" textFill="#fffbfb">
+               <font>
+                  <Font name="Ebrima Bold" size="36.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="91.0" fitWidth="88.0" layoutX="481.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/mensaje.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Label layoutX="166.0" layoutY="109.0" prefHeight="27.0" prefWidth="576.0" text="Escriba aqui su reporte:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="reporte" layoutX="166.0" layoutY="143.0" prefHeight="132.0" prefWidth="576.0" promptText="Describa el/los servicios que desea reportar">
+         <font>
+            <Font size="14.0" />
+         </font></TextArea>
+      <Button layoutX="395.0" layoutY="308.0" mnemonicParsing="false" onAction="#enviarReporte" prefHeight="40.0" prefWidth="118.0" text="Enviar">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

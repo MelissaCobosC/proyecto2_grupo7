@@ -1,0 +1,7 @@
+cedula,nombre,direccion,telefono,tipoCliente
+7545,Emilio,Malvinas,098123456,personal
+7468,Maria,Salado,098123456,personal
+7453,EmpresaXY,Mucho Lote,098123456,empresarial
+7365,EmpresaYZ,La puntilla,098123456,empresarial
+7785,Pablo,Mapasingue,098123123,personal
+7643,EmpresaMM,Urdesa,098852123,empresarial

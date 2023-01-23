@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="362.0" prefWidth="764.0" style="-fx-background-color: #c9e1ea;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxbase.AdministrarServiciosController">
+   <children>
+      <Pane prefHeight="100.0" prefWidth="764.0" style="-fx-background-color: #808684;">
+         <children>
+            <Label layoutX="154.0" layoutY="29.0" prefHeight="47.0" prefWidth="365.0" text="Administrar Servicios" textFill="#fffbfb">
+               <font>
+                  <Font name="Ebrima Bold" size="36.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="94.0" fitWidth="99.0" layoutX="536.0" layoutY="5.0">
+               <image>
+                  <Image url="@../imagenes/administrarservicios.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <TableView fx:id="tablaServicios" layoutX="28.0" layoutY="129.0" onMouseClicked="#mostrarServicioSeleccionado" prefHeight="135.0" prefWidth="406.0">
+         <columns>
+            <TableColumn fx:id="colCod" prefWidth="119.0" style="-fx-background-color: #;" text="Codigo" />
+            <TableColumn fx:id="colNombre" prefWidth="144.0" text="Nombre" />
+            <TableColumn fx:id="colPrecio" minWidth="0.0" prefWidth="142.0" text="Precio" />
+         </columns>
+      </TableView>
+      <Button fx:id="agregar" alignment="CENTER" layoutX="254.0" layoutY="294.0" mnemonicParsing="false" onAction="#agregarServicio" prefHeight="40.0" prefWidth="79.0" text="Agregar">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="volverAdmin" alignment="CENTER_RIGHT" layoutX="93.0" layoutY="294.0" mnemonicParsing="false" onAction="#volvermenuAdmin" prefHeight="40.0" prefWidth="99.0" text="Volver">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0">
+               <image>
+                  <Image url="@../imagenes/volver.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="editar" alignment="CENTER" layoutX="417.0" layoutY="294.0" mnemonicParsing="false" onAction="#editarServicio" prefHeight="40.0" prefWidth="79.0" text="Editar">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="eliminar" alignment="CENTER" layoutX="592.0" layoutY="294.0" mnemonicParsing="false" onAction="#eliminarServicio" prefHeight="40.0" prefWidth="79.0" text="Eliminar">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Label fx:id="codigolb" layoutX="457.0" layoutY="133.0" prefHeight="27.0" prefWidth="72.0" text="Código:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="codigotf" layoutX="542.0" layoutY="134.0" prefHeight="26.0" prefWidth="162.0" />
+      <Label fx:id="nombrelb" layoutX="457.0" layoutY="183.0" prefHeight="27.0" prefWidth="79.0" text="Nombre:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nombretf" layoutX="542.0" layoutY="183.0" prefHeight="26.0" prefWidth="162.0" />
+      <Label fx:id="preciolb" layoutX="457.0" layoutY="233.0" prefHeight="27.0" prefWidth="62.0" text="Precio:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="preciotf" layoutX="542.0" layoutY="233.0" prefHeight="26.0" prefWidth="162.0" />
+   </children>
+</AnchorPane>

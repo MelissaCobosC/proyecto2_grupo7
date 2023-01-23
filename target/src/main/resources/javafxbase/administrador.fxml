@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" minHeight="-Infinity" prefHeight="383.0" prefWidth="758.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxbase.AdministradorController">
+   <children>
+      <Pane prefHeight="107.0" prefWidth="758.0" style="-fx-background-color: #808684;">
+         <children>
+            <ImageView fitHeight="91.0" fitWidth="88.0" layoutX="514.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/usuariocliente.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="136.0" layoutY="25.0" prefHeight="58.0" prefWidth="372.0" text="Menú Administración" textFill="#fffbfb">
+               <font>
+                  <Font name="Ebrima Bold" size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutY="105.0" prefHeight="276.0" prefWidth="758.0" style="-fx-background-color: #c9e1ea;">
+         <children>
+            <Button fx:id="btnproovedores" layoutX="518.0" layoutY="92.0" mnemonicParsing="false" onAction="#administrarProovedores" prefHeight="50.0" prefWidth="174.0" text="Administrar Proovedores" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnclientes" layoutX="89.0" layoutY="92.0" mnemonicParsing="false" onAction="#administrarClientes" prefHeight="50.0" prefWidth="151.0" text="Administrar Clientes" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnservidores" layoutX="304.0" layoutY="92.0" mnemonicParsing="false" onAction="#administrarServicios" prefHeight="50.0" prefWidth="151.0" text="Administrar Servicios" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="127.0" layoutY="181.0" mnemonicParsing="false" onAction="#llamarJuego" prefHeight="40.0" prefWidth="76.0" text="JUGAR" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="328.0" layoutY="176.0" mnemonicParsing="false" onAction="#VerResultados" prefWidth="104.0" text="Resultados juego" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnvolveriniciosesion" alignment="CENTER_RIGHT" layoutX="556.0" layoutY="181.0" mnemonicParsing="false" onAction="#volverInicioSesion" prefHeight="40.0" prefWidth="99.0" text="Volver">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0">
+                     <image>
+                        <Image url="@../imagenes/volver.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

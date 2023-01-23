@@ -1,0 +1,11 @@
+Codigo,fecha,placa,tipoVehiculo,codServicio,cantidad,total,NombreTecnico
+7545,24/06/2012,GTA3625,automovil,1234,3,300.0,Alvaro Lopez
+7468,04/06/2012,GKL7412,bus,2345,2,200.0,Alvaro Lopez
+7453,21/10/2010,GUI8520,motocicleta,1234,1,100.0,Mario Barcos
+7365,11/04/2021,GTM9632,automovil,4567,1,300.0,Alvaro Lopez
+7453,19/10/2010,GRS5436,bus,4567,2,600.0,Mario Barcos
+7365,03/04/2021,GCW5678,motocicleta,1234,4,400.0,Mario Barcos
+7785,17/06/2012,GOT7658,motocicleta,1234,2,200.0,Alvaro Lopez
+7643,30/09/2021,GHJ5228,bus,3456,4,400.0,Mario Barcos
+7365,01/09/2021,GJK0987,automovil,3456,1,100.0,Alvaro Lopez
+7453,20/10/2010,GXO9121,automovil,4567,1,300.0,Alvaro Lopez

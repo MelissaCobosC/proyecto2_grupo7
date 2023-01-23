@@ -1,0 +1,3 @@
+nombre,fecha,tiempoTotal,aciertos,fallos
+Emilio,2023-01-22,01:60,7,7
+Emilio,2023-01-22,01:60,8,7

@@ -1,0 +1,7 @@
+codigo,nombre,precio
+1234,alineacion,100.0
+2345,balanceo,100.0
+3456,cambio de aceite,100.0
+4567,cambio de filtro,300.0
+5678,limpieza de bujias,150.0
+6789,cambio de llantas,800.0

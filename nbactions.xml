@@ -1,40 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-    <actions>
+<actions>
+        <action>
+            <actionName>CUSTOM-jlink</actionName>
+            <displayName>jlink</displayName>
+            <goals>
+                <goal>clean</goal>
+                <goal>compile</goal>
+                <goal>javafx:jlink</goal>
+            </goals>
+        </action>
         <action>
             <actionName>run</actionName>
             <packagings>
                 <packaging>jar</packaging>
             </packagings>
             <goals>
-                <goal>clean</goal>
-                <goal>javafx:run</goal>
+                <goal>process-classes</goal>
+                <goal>org.codehaus.mojo:exec-maven-plugin:3.0.0:exec</goal>
             </goals>
+            <properties>
+                <exec.vmArgs></exec.vmArgs>
+                <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
+                <exec.appArgs></exec.appArgs>
+                <exec.mainClass>javafxbase.Principal</exec.mainClass>
+                <exec.executable>java</exec.executable>
+            </properties>
         </action>
         <action>
             <actionName>debug</actionName>
+            <packagings>
+                <packaging>jar</packaging>
+            </packagings>
             <goals>
-                <goal>clean</goal>
-                <goal>javafx:run@ide-debug</goal>
+                <goal>process-classes</goal>
+                <goal>org.codehaus.mojo:exec-maven-plugin:3.0.0:exec</goal>
             </goals>
             <properties>
+                <exec.vmArgs>-agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address}</exec.vmArgs>
+                <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
+                <exec.appArgs></exec.appArgs>
+                <exec.mainClass>javafxbase.Principal</exec.mainClass>
+                <exec.executable>java</exec.executable>
                 <jpda.listen>true</jpda.listen>
             </properties>
         </action>
         <action>
             <actionName>profile</actionName>
+            <packagings>
+                <packaging>jar</packaging>
+            </packagings>
             <goals>
-                <goal>clean</goal>
-                <goal>javafx:run@ide-profile</goal>
+                <goal>process-classes</goal>
+                <goal>org.codehaus.mojo:exec-maven-plugin:3.0.0:exec</goal>
             </goals>
+            <properties>
+                <exec.vmArgs></exec.vmArgs>
+                <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
+                <exec.mainClass>javafxbase.Principal</exec.mainClass>
+                <exec.executable>java</exec.executable>
+                <exec.appArgs></exec.appArgs>
+            </properties>
         </action>
-        <action>
-            <actionName>CUSTOM-jlink</actionName>
-            <displayName>jlink</displayName>
-            <goals>
-                <goal>clean</goal>
-                <!-- compile not needed with javafx-maven-plugin v0.0.5 -->
-                <goal>compile</goal>
-                <goal>javafx:jlink</goal>
-            </goals>
-        </action>
+        
+        
+        
     </actions>

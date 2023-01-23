@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="383.0" prefWidth="758.0" style="-fx-background-color: #DCCBBD;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxbase.GenerarOrdenController">
+   <children>
+      <VBox prefHeight="383.0" prefWidth="149.0" style="-fx-background-color: #1F2B37;">
+         <children>
+            <Pane prefHeight="139.0" prefWidth="190.0">
+               <children>
+                  <ImageView fitHeight="131.0" fitWidth="132.0" layoutX="9.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagenes/cliente.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#consultarOrden" prefHeight="39.0" prefWidth="169.0" text="Consultar orden ">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" mouseTransparent="true" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagenes/orden.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#generarOrden" prefHeight="39.0" prefWidth="169.0" text="Generar orden   ">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagenes/generar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#reportarInsumo" prefHeight="39.0" prefWidth="169.0" text="Reportar insumo ">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="31.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagenes/reporte.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#regresar" prefHeight="39.0" prefWidth="169.0" style="-fx-background-color: #bfd834;" text="Regresar">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <Pane layoutX="149.0" prefHeight="100.0" prefWidth="609.0" style="-fx-background-color: #808684;">
+         <children>
+            <Label layoutX="33.0" layoutY="27.0" text="Generar orden de Servicio" textFill="#fffbfb">
+               <font>
+                  <Font name="Ebrima Bold" size="36.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="91.0" fitWidth="88.0" layoutX="480.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/generaorden.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Label layoutX="162.0" layoutY="109.0" prefHeight="27.0" prefWidth="583.0" text="Ingrese los siguientes datos:">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <GridPane layoutX="162.0" layoutY="136.0" prefHeight="62.0" prefWidth="577.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="122.0" minWidth="10.0" prefWidth="54.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="188.0" minWidth="10.0" prefWidth="170.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="133.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="151.0" minWidth="10.0" prefWidth="151.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="39.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="36.0" minHeight="8.0" prefHeight="27.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label prefHeight="27.0" prefWidth="72.0" text="Código:">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label prefHeight="27.0" prefWidth="72.0" text="Fecha:" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label prefHeight="27.0" prefWidth="159.0" text="  Tipo de vehiculo:" GridPane.columnIndex="2">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label prefHeight="27.0" prefWidth="120.0" text="  # placa:" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="cod" prefHeight="10.0" prefWidth="188.0" GridPane.columnIndex="1" />
+            <TextField fx:id="fec" prefHeight="6.0" prefWidth="188.0" promptText="dd/mm/yyyy" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="placa" prefHeight="12.0" prefWidth="151.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <ComboBox fx:id="comboBoxVehiculo" prefWidth="150.0" GridPane.columnIndex="3" />
+         </children>
+      </GridPane>
+      <Label layoutX="162.0" layoutY="198.0" prefHeight="27.0" prefWidth="183.0" text="Ingrese servicios:">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tablaGenerar" editable="true" layoutX="159.0" layoutY="233.0" prefHeight="100.0" prefWidth="583.0">
+         <columns>
+            <TableColumn fx:id="colCliente" minWidth="0.0" prefWidth="91.0" text="Codigo cliente" />
+            <TableColumn fx:id="colFecha" minWidth="2.0" prefWidth="85.0" text="Fecha" />
+            <TableColumn fx:id="colPlaca" minWidth="0.0" prefWidth="69.0" text="Placa" />
+            <TableColumn fx:id="colVehiculo" minWidth="0.0" prefWidth="117.0" text="Vehiculo" />
+            <TableColumn fx:id="codServ" minWidth="0.0" prefWidth="91.0" text="Codigo servicio" />
+            <TableColumn fx:id="colCant" minWidth="0.0" prefWidth="55.0" text="Cantidad" />
+            <TableColumn fx:id="codTotal" minWidth="0.0" prefWidth="74.0" text="Total" />
+         </columns>
+      </TableView>
+      <Button layoutX="667.0" layoutY="339.0" mnemonicParsing="false" onAction="#agregarOrden" text="Agregar">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <TextField fx:id="codServicio" layoutX="294.0" layoutY="199.0" prefHeight="25.0" prefWidth="183.0" promptText="Ingrese codigo de servicio" />
+      <Label layoutX="484.0" layoutY="198.0" prefHeight="27.0" prefWidth="88.0" text="Cantidad:">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textCant" layoutX="562.0" layoutY="199.0" prefHeight="25.0" prefWidth="58.0" promptText="#" />
+   </children>
+</AnchorPane>
