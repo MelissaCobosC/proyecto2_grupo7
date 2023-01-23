@@ -9,7 +9,7 @@ public class Usuario {
     protected String usuario, clave, nombre, nivel;
     protected ArrayList<Usuario> userLista;   
     
-    //constructor de clase padre Usuario con sus parametros 
+
     public Usuario(String usuario, String clave, String nombre, String nivel) {
         this.usuario = usuario;
         this.clave = clave;
@@ -17,8 +17,7 @@ public class Usuario {
         this.nivel = nivel;
         this.userLista = new ArrayList<Usuario>();
     }
-    
-    //getters & setters
+
     public String getUsuario() {
         return usuario;
     }

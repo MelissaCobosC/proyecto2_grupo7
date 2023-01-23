@@ -7,12 +7,11 @@ import java.util.List;
 
 public class Tecnico extends Usuario {
     
-   //constructor de la clase Tecnico que es clase hija de Uusario
+   
     public Tecnico(String usuario, String clave, String nombre, String tipoUsuario) {
-        //recibe el super de la clase padre Usuario
         super(usuario,clave,nombre,tipoUsuario); 
     }
-    //getters & setters
+
     public String getUsuario() {
         return usuario;
     }

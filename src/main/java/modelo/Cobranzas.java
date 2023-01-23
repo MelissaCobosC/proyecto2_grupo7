@@ -5,13 +5,11 @@ import java.util.ArrayList;
 
 
 public class Cobranzas extends Usuario{
-        //constructor de la clase Cobranzas que es clase hija de Usuario 
+    
     public Cobranzas(String usuario, String clave, String nombre, String tipoUsuario) {
-        //recibe el super de la clase padre Usuario
         super(usuario,clave,nombre,tipoUsuario); 
     }
 
-    //getters & setters
     public String getUsuario() {
         return usuario;
     }

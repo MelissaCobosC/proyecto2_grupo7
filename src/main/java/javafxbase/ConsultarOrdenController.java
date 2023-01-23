@@ -1,4 +1,5 @@
 package javafxbase;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -36,8 +37,8 @@ public class ConsultarOrdenController implements Initializable {
     @FXML
     private TableColumn<Orden, Double> colTotal;
 
-    ArrayList<Orden> ordenes = cargarLista();//llamamos al metodo cargar Lista de ordenes 
-    ArrayList<Cliente> clientes = cargarLista3();//llamamos al metodo cargar Lista de clientes 
+    ArrayList<Orden> ordenes = cargarLista();
+    ArrayList<Cliente> clientes = cargarLista3();
 
     /**
      * Initializes the controller class.
@@ -48,7 +49,7 @@ public class ConsultarOrdenController implements Initializable {
         this.colFecha.setCellValueFactory(new PropertyValueFactory<>("fechaServicio"));
         this.colCliente.setCellValueFactory(new PropertyValueFactory<>("nombreCliente"));
         this.colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
-        tablaConsulta.getItems().setAll(ordenes);//mostramos la tabla con los datos existentes 
+        tablaConsulta.getItems().setAll(ordenes);
     }
 
     @FXML
@@ -66,10 +67,13 @@ public class ConsultarOrdenController implements Initializable {
         App.setRoot("reportarInsumo");
     }
 
+    @FXML
+    private void verDetalle(ActionEvent event) {
+    }
 
     @FXML
     private void filtrar(ActionEvent event) throws IOException {
-        filtro();//llamamos al metodo filtro para cuando usemos el boton "ver detalle" muestre la informacion 
+        filtrar();
     }
 
     private void btnJugar(ActionEvent event) throws IOException {
@@ -81,46 +85,46 @@ public class ConsultarOrdenController implements Initializable {
         App.setRoot("iniciaSesion");
     }
 
-    private static void reestablecer(TextField c1, TextField c2, TextField c3) {//metodo para limpiar los componentes
+    private static void reestablecer(TextField c1, TextField c2, TextField c3) {
         c1.setText(null);
         c2.setText(null);
         c3.setText(null);
     }
 
-    public void filtro() throws IOException {
+    public void filtrar() throws IOException {
         String cod = codigo.getText();
         String fec = fecha.getText();
         String cli = cliente.getText();
 
         ArrayList<Orden> filtroOrden = new ArrayList<>();
-        int cont = 0;//el contador nos ayudará a validar cuando exista ingreso datos incorrectos
+        int cont = 0;
         for (Orden o : ordenes) {
             if (codigo.getText() != null) {
-                if (cod.equals(o.getCodigoCliente())) { //comparar que codigo del textField con el codigo de ordenes
+                if (cod.equals(o.getCodigoCliente())) {
                     filtroOrden.add(o);
                     cont++;
                 }
             } if (cliente.getText() != null) {
-                if (cli.equals(o.getNombreCliente())) { //comparar cliente del textField con el cliente de ordenes
+                if (cli.equals(o.getNombreCliente())) {
                     filtroOrden.add(o);
                     cont++;
                 }
             }
             if (fecha.getText() != null) {
-                if (fec.equals(o.getFechaServicio())) { //comparar la fecha ingresada a la fecha de la orden requerida
+                if (fec.equals(o.getFechaServicio())) {
                     filtroOrden.add(o);
                     cont++;
                 }
             }
         }
-        if (cont == 0) { //si los datos son incorrectos presenta mensaje de error
+        if (cont == 0) {
             Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setTitle("datos incorrectos");
             alerta.setHeaderText("ingrese datos validos para la consulta");
             alerta.showAndWait();
             App.setRoot("consultarOrden");
         }
-        tablaConsulta.getItems().setAll(filtroOrden);//llenamos la tabla con los datos requeridos
-        reestablecer(codigo, fecha, cliente);//llamamos al metodo que limpia los componentes 
+        tablaConsulta.getItems().setAll(filtroOrden);
+        reestablecer(codigo, fecha, cliente);
     }
 }

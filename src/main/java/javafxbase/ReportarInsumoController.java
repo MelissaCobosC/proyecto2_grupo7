@@ -1,4 +1,5 @@
 package javafxbase;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
@@ -43,7 +44,7 @@ public class ReportarInsumoController implements Initializable {
     private void enviarReporte(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setHeaderText(null);
-        alert.setTitle("Confirmación");//mensaje de confirmación para enviar mensaje 
+        alert.setTitle("Confirmación");
         alert.setContentText("¿Estas seguro de confirmar la acción?");
         Optional<ButtonType> action = alert.showAndWait();
         if (action.get() == ButtonType.OK) {
@@ -51,8 +52,12 @@ public class ReportarInsumoController implements Initializable {
         alerta.setTitle("Reporte");
         alerta.setHeaderText("Su reporte ha sido enviado correctamente");
         alerta.showAndWait(); 
-        reporte.setText(null);//limpeamos el textArea 
+        reporte.setText(null);
         } 
+    }
+
+    private void btnJugar(ActionEvent event) throws IOException {
+        App.setRoot("sesionClientes");
     }
 
     @FXML

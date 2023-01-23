@@ -1,31 +1,31 @@
-C:\Users\HP\Documents\NetBeansProjects\proyecto2_grupo7\src\main\java\javafxbase\AdministradorController.java
-C:\Users\HP\Documents\NetBeansProjects\proyecto2_grupo7\src\main\java\javafxbase\GenerarFacturaController.java
-C:\Users\HP\Documents\NetBeansProjects\proyecto2_grupo7\src\main\java\javafxbase\IniciarsesionController.java
-C:\Users\HP\Documents\NetBeansProjects\proyecto2_grupo7\src\main\java\modelo\Cliente.java
-C:\Users\HP\Documents\NetBeansProjects\proyecto2_grupo7\src\main\java\javafxbase\ReportarIngresosController.java
-C:\Users\HP\Documents\NetBeansProjects\proyecto2_grupo7\src\main\java\modelo\Tecnico.java
-C:\Users\HP\Documents\NetBeansProjects\proyecto2_grupo7\src\main\java\modelo\Usuario.java
-C:\Users\HP\Documents\NetBeansProjects\proyecto2_grupo7\src\main\java\javafxbase\AgregarProveedorController.java
-C:\Users\HP\Documents\NetBeansProjects\proyecto2_grupo7\src\main\java\javafxbase\AdministrarClientesController.java
-C:\Users\HP\Documents\NetBeansProjects\proyecto2_grupo7\src\main\java\javafxbase\AgregarClienteController.java
-C:\Users\HP\Documents\NetBeansProjects\proyecto2_grupo7\src\main\java\javafxbase\App.java
-C:\Users\HP\Documents\NetBeansProjects\proyecto2_grupo7\src\main\java\modelo\Orden.java
-C:\Users\HP\Documents\NetBeansProjects\proyecto2_grupo7\src\main\java\javafxbase\JuegoMemoriaController.java
-C:\Users\HP\Documents\NetBeansProjects\proyecto2_grupo7\src\main\java\javafxbase\ReportarInsumoController.java
-C:\Users\HP\Documents\NetBeansProjects\proyecto2_grupo7\src\main\java\javafxbase\ResultadoJuegoController.java
-C:\Users\HP\Documents\NetBeansProjects\proyecto2_grupo7\src\main\java\javafxbase\SesionClientesController.java
-C:\Users\HP\Documents\NetBeansProjects\proyecto2_grupo7\src\main\java\modelo\Servicio.java
-C:\Users\HP\Documents\NetBeansProjects\proyecto2_grupo7\src\main\java\javafxbase\AdministrarProveedoresController.java
-C:\Users\HP\Documents\NetBeansProjects\proyecto2_grupo7\src\main\java\modelo\Proveedor.java
-C:\Users\HP\Documents\NetBeansProjects\proyecto2_grupo7\src\main\java\modelo\Resultado.java
-C:\Users\HP\Documents\NetBeansProjects\proyecto2_grupo7\src\main\java\javafxbase\AgregarServicioController.java
-C:\Users\HP\Documents\NetBeansProjects\proyecto2_grupo7\src\main\java\javafxbase\ConsultarOrdenController.java
-C:\Users\HP\Documents\NetBeansProjects\proyecto2_grupo7\src\main\java\javafxbase\GenerarOrdenController.java
-C:\Users\HP\Documents\NetBeansProjects\proyecto2_grupo7\src\main\java\modelo\Celda.java
-C:\Users\HP\Documents\NetBeansProjects\proyecto2_grupo7\src\main\java\javafxbase\ReportarAtencionController.java
-C:\Users\HP\Documents\NetBeansProjects\proyecto2_grupo7\src\main\java\javafxbase\AdministrarServiciosController.java
-C:\Users\HP\Documents\NetBeansProjects\proyecto2_grupo7\src\main\java\modelo\Cobranzas.java
-C:\Users\HP\Documents\NetBeansProjects\proyecto2_grupo7\src\main\java\modelo\Board.java
-C:\Users\HP\Documents\NetBeansProjects\proyecto2_grupo7\src\main\java\modelo\Persona.java
-C:\Users\HP\Documents\NetBeansProjects\proyecto2_grupo7\src\main\java\modelo\Admin.java
-C:\Users\HP\Documents\NetBeansProjects\proyecto2_grupo7\src\main\java\module-info.java
+C:\Users\USUARIO\Downloads\MARIA VERSION\proyecto2_grupo7\src\main\java\modelo\Persona.java
+C:\Users\USUARIO\Downloads\MARIA VERSION\proyecto2_grupo7\src\main\java\javafxbase\ReportarInsumoController.java
+C:\Users\USUARIO\Downloads\MARIA VERSION\proyecto2_grupo7\src\main\java\javafxbase\AdministrarClientesController.java
+C:\Users\USUARIO\Downloads\MARIA VERSION\proyecto2_grupo7\src\main\java\javafxbase\ReportarAtencionController.java
+C:\Users\USUARIO\Downloads\MARIA VERSION\proyecto2_grupo7\src\main\java\javafxbase\AdministradorController.java
+C:\Users\USUARIO\Downloads\MARIA VERSION\proyecto2_grupo7\src\main\java\javafxbase\GenerarOrdenController.java
+C:\Users\USUARIO\Downloads\MARIA VERSION\proyecto2_grupo7\src\main\java\modelo\Celda.java
+C:\Users\USUARIO\Downloads\MARIA VERSION\proyecto2_grupo7\src\main\java\javafxbase\App.java
+C:\Users\USUARIO\Downloads\MARIA VERSION\proyecto2_grupo7\src\main\java\javafxbase\AgregarProveedorController.java
+C:\Users\USUARIO\Downloads\MARIA VERSION\proyecto2_grupo7\src\main\java\modelo\Resultado.java
+C:\Users\USUARIO\Downloads\MARIA VERSION\proyecto2_grupo7\src\main\java\javafxbase\AgregarClienteController.java
+C:\Users\USUARIO\Downloads\MARIA VERSION\proyecto2_grupo7\src\main\java\modelo\Cliente.java
+C:\Users\USUARIO\Downloads\MARIA VERSION\proyecto2_grupo7\src\main\java\modelo\Servicio.java
+C:\Users\USUARIO\Downloads\MARIA VERSION\proyecto2_grupo7\src\main\java\modelo\Cobranzas.java
+C:\Users\USUARIO\Downloads\MARIA VERSION\proyecto2_grupo7\src\main\java\modelo\Tecnico.java
+C:\Users\USUARIO\Downloads\MARIA VERSION\proyecto2_grupo7\src\main\java\javafxbase\ConsultarOrdenController.java
+C:\Users\USUARIO\Downloads\MARIA VERSION\proyecto2_grupo7\src\main\java\modelo\Admin.java
+C:\Users\USUARIO\Downloads\MARIA VERSION\proyecto2_grupo7\src\main\java\javafxbase\ResultadoJuegoController.java
+C:\Users\USUARIO\Downloads\MARIA VERSION\proyecto2_grupo7\src\main\java\javafxbase\ReportarIngresosController.java
+C:\Users\USUARIO\Downloads\MARIA VERSION\proyecto2_grupo7\src\main\java\module-info.java
+C:\Users\USUARIO\Downloads\MARIA VERSION\proyecto2_grupo7\src\main\java\modelo\Board.java
+C:\Users\USUARIO\Downloads\MARIA VERSION\proyecto2_grupo7\src\main\java\javafxbase\IniciarsesionController.java
+C:\Users\USUARIO\Downloads\MARIA VERSION\proyecto2_grupo7\src\main\java\javafxbase\SesionClientesController.java
+C:\Users\USUARIO\Downloads\MARIA VERSION\proyecto2_grupo7\src\main\java\javafxbase\GenerarFacturaController.java
+C:\Users\USUARIO\Downloads\MARIA VERSION\proyecto2_grupo7\src\main\java\modelo\Proveedor.java
+C:\Users\USUARIO\Downloads\MARIA VERSION\proyecto2_grupo7\src\main\java\modelo\Usuario.java
+C:\Users\USUARIO\Downloads\MARIA VERSION\proyecto2_grupo7\src\main\java\javafxbase\AgregarServicioController.java
+C:\Users\USUARIO\Downloads\MARIA VERSION\proyecto2_grupo7\src\main\java\javafxbase\AdministrarProveedoresController.java
+C:\Users\USUARIO\Downloads\MARIA VERSION\proyecto2_grupo7\src\main\java\javafxbase\AdministrarServiciosController.java
+C:\Users\USUARIO\Downloads\MARIA VERSION\proyecto2_grupo7\src\main\java\javafxbase\JuegoMemoriaController.java
+C:\Users\USUARIO\Downloads\MARIA VERSION\proyecto2_grupo7\src\main\java\modelo\Orden.java

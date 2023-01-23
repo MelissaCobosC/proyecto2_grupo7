@@ -1,4 +1,5 @@
 package javafxbase;
+
 import java.io.IOException;
 import java.net.URL;
 import java.time.Month;
@@ -47,8 +48,8 @@ public class GenerarFacturaController implements Initializable {
     private Label empresa;
     @FXML
     private Label periodo;
-    ArrayList<Cliente> clientes = cargarLista3();//llamamos al metodo cargar lista de clase Cliente 
-    ArrayList<Orden> ordenes = cargarLista();//llamamos al metodo cargar lista de ordenes 
+    ArrayList<Cliente> clientes = cargarLista3();
+    ArrayList<Orden> ordenes = cargarLista();
 
     /**
      * Initializes the controller class.
@@ -85,28 +86,28 @@ public class GenerarFacturaController implements Initializable {
         int mes1 = Integer.parseInt(this.mes.getText());
 
         List<Orden> ordenesEncontradas = new ArrayList<>();
-        Double pagoFinal = 50.0;//los clientes empresariales pagan $50 adicionales por mes 
+        Double pagoFinal = 50.0;
         int cont = 0;
         for (Orden orden : ordenes) {
-            final boolean cumpleCodigo = codigo.getText().equals(orden.getCodigoCliente());//comparar que el codigo sea igual al de la orden 
-            final boolean cumpleAnio = anio1 == orden.getAnio();//comparacion de anio 
-            final boolean cumpleMes = mes1 == orden.getMes();//comparacion de mes 
+            final boolean cumpleCodigo = codigo.getText().equals(orden.getCodigoCliente());
+            final boolean cumpleAnio = anio1 == orden.getAnio();
+            final boolean cumpleMes = mes1 == orden.getMes();
             if (cumpleCodigo && cumpleAnio && cumpleMes) {
-                pagoFinal += orden.getTotal();//el valor de pago suma los totales de las ordenes donde se cumpla la condicion del if
-                ordenesEncontradas.add(orden);//se añade esa orden en un nuevo array list 
-                periodo.setText(Month.of(mes1).toString() + " " + Integer.toString(anio1));//convertir el numero de mes a nombre de mes 
+                pagoFinal += orden.getTotal();
+                ordenesEncontradas.add(orden);
+                periodo.setText(Month.of(mes1).toString() + " " + Integer.toString(anio1));
                 for (Cliente c : clientes) {
                     if (orden.getCodigoCliente().equals(c.getCodigo())) {
-                        empresa.setText(c.getNombre());//se llena el textField con el nombre del cliente encontrado
+                        empresa.setText(c.getNombre());
                     }
                 }
                 cont++;
             }
         }
-        totalPagar.setText(Double.toString(pagoFinal));//se llena el textField de total a pagar con la suma de totales + $50
-        this.tablaFactura.getItems().setAll(ordenesEncontradas);//llenamos la tabla con la nueva orden 
+        totalPagar.setText(Double.toString(pagoFinal));
+        this.tablaFactura.getItems().setAll(ordenesEncontradas);
 
-        if (cont == 0) { 
+        if (cont == 0) {
             Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setTitle("datos incorrectos");
             alerta.setHeaderText("ingrese datos validos para generar la factura");
@@ -120,7 +121,7 @@ public class GenerarFacturaController implements Initializable {
         App.setRoot("iniciaSesion");
     }
 
-    private static void reestablecer(TextField c1, TextField c2, TextField c3) { //metodo para limpiar los componentes 
+    private static void reestablecer(TextField c1, TextField c2, TextField c3) {
         c1.setText(null);
         c2.setText(null);
         c3.setText(null);

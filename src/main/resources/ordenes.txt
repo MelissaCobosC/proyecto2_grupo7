@@ -9,4 +9,3 @@ Codigo,fecha,placa,tipoVehiculo,codServicio,cantidad,total,NombreTecnico
 7643,30/09/2021,GHJ5228,bus,3456,4,400.0,Mario Barcos
 7365,01/09/2021,GJK0987,automovil,3456,1,100.0,Alvaro Lopez
 7453,20/10/2010,GXO9121,automovil,4567,1,300.0,Alvaro Lopez
-7545,1234567,RES34324,bus,4567,2,600.0,Alvaro Lopez

@@ -1,4 +1,5 @@
 package javafxbase;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -51,11 +52,11 @@ public class GenerarOrdenController implements Initializable {
     private TableView<Orden> tablaGenerar;
 
     static String nombreUsuario;
-    ArrayList<Orden> ordenes = cargarLista();//llamamos al metodo cargar Lista de la clase Orden 
-    ArrayList<Usuario> usuarios = cargarListaU();//llamamos al metodo cargar Lista de Usuario 
-    ArrayList<Cliente> clientes = cargarLista3();//llamamos al metodo cargar Lista de clientes 
-    ArrayList<Servicio> servicios = cargarLista1();//llamamos al metodo cargar Lista de Servicio 
-    ArrayList<String> listVehiculo = Orden.listaTipoVehiculo();//llamamos al metodo con los 3 tipos e vehiculos
+    ArrayList<Orden> ordenes = cargarLista();
+    ArrayList<Usuario> usuarios = cargarListaU();
+    ArrayList<Cliente> clientes = cargarLista3();
+    ArrayList<Servicio> servicios = cargarLista1();
+    ArrayList<String> listVehiculo = Orden.listaTipoVehiculo();
 
     /**
      * Initializes the controller class.
@@ -69,8 +70,8 @@ public class GenerarOrdenController implements Initializable {
         this.codServ.setCellValueFactory(new PropertyValueFactory<>("codServicio"));
         this.colCant.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
         this.codTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
-        comboBoxVehiculo.getItems().setAll(listVehiculo);//mostramos la lista de vehiculos en el comboBox
-        tablaGenerar.getItems().setAll(ordenes);//mostramos la tabla con datos existentes 
+        comboBoxVehiculo.getItems().setAll(listVehiculo);
+        tablaGenerar.getItems().setAll(ordenes);
     }
 
     @FXML
@@ -97,38 +98,56 @@ public class GenerarOrdenController implements Initializable {
         String tipo = comboBoxVehiculo.getValue();
         String cantidad = textCant.getText();
         int cont = 0;
-        String nomTec="";//guarda el nombre del tecnico que registra la orden
-        double total = 0;//guarda el total de precio * cantidad   
-        for (Cliente cliente : clientes) { //entramos a la lista clientes
-            for(Servicio ts : servicios){ //entramos a la lista servicios
-            if (cliente.getCodigo().contains(codigo) && servicio.equals(ts.getCodigo())) { //validamos el codigo de cliente y servicio
-                total = ts.getPrecio() * Integer.parseInt(cantidad); //el total es el valor del servcio por la cantidad de veces requerido 
+        String nomTec="";
+        for (Cliente cliente : clientes) {
+            if (cliente.getCodigo().contains(codigo)) {
                 
-                for(Usuario usuario: usuarios){ //entramos a la lista de usuarios
-                    if(usuario.getUsuario().contains(nombreUsuario)){ //verificamos que el usuario exista en los usuarios de la lista 
-                        nomTec=usuario.getNombre(); //guardamos los nombre de tecnicos
+                
+                for(Usuario usuario: usuarios){
+                    if(usuario.getUsuario().contains(nombreUsuario)){
+                        nomTec=usuario.getNombre();
                     }
                 }
-                ordenes.add(new Orden(codigo, fecha, numPlaca, tipo, servicio, Integer.parseInt(cantidad), total,nomTec));//agregamos nueva orden con sus parametros
-                tablaGenerar.getItems().setAll(ordenes);//se llena la tabla junto con el nuevo registro
-                Orden.sobreescribirFichero(ordenes);//se sobreescribe el archivo txt con los datos nuevos 
-                reestablecer(cod, fec, placa, codServicio, textCant, comboBoxVehiculo);//limpiamos los componentes de ingreso
-                Alert alerta = new Alert(Alert.AlertType.INFORMATION);//un mensaje que muestre que se ha creado la orden
+
+                double total = 0;
+//                int cont2 = 0;
+                for (Servicio ts : servicios) {
+                        if (servicio.equals(ts.getCodigo())) {
+                            total = ts.getPrecio() * Integer.parseInt(cantidad);
+//                            cont2++;
+                        }
+                }
+//                if (cont2 == 0) {
+//                    Alert alert = new Alert(Alert.AlertType.ERROR);
+//                    alert.setTitle("Codigo de servicio invalido");
+//                    alert.setContentText("El codigo de servicio ingresado no existe, por favor reescriba su orden con datos validos");
+//                    reestablecer(cod, fec, placa, codServicio, textCant, comboBoxVehiculo);
+//                }
+
+                ordenes.add(new Orden(codigo, fecha, numPlaca, tipo, servicio, Integer.parseInt(cantidad), total,nomTec));
+                tablaGenerar.getItems().setAll(ordenes);
+                Orden.sobreescribirFichero(ordenes);//se agrega una orden nueva
+                Servicio.sobreescribirFicheroServicio(servicios);
+                reestablecer(cod, fec, placa, codServicio, textCant, comboBoxVehiculo);
+                Alert alerta = new Alert(Alert.AlertType.INFORMATION);
                 alerta.setTitle("Orden Registrada");
                 alerta.setHeaderText("Su orden ha sido registrada, revise al final de la tabla");
                 alerta.showAndWait();
                 cont++;
             }
-            }
         }
         if (cont == 0) {
-            Alert alerta = new Alert(Alert.AlertType.ERROR);//en caso de que algun codigo no existe, se presenta error 
-            alerta.setTitle("Codigo de cliente o servicio invalido");
-            alerta.setHeaderText("El codigo de cliente o servicio ingresados no existe, por favor reescriba su orden con datos validos");
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setTitle("Codigo de cliente invalido");
+            alerta.setHeaderText("El codigo de cliente ingresado no existe, por favor reescriba su orden con datos validos");
             alerta.showAndWait();
-            reestablecer(cod, fec, placa, codServicio, textCant, comboBoxVehiculo);//llamamos al metodo reestablecer 
+            reestablecer(cod, fec, placa, codServicio, textCant, comboBoxVehiculo);
         }
 
+    }
+
+    private void btnJugar(ActionEvent event) throws IOException {
+        App.setRoot("sesionClientes");
     }
 
     @FXML
@@ -139,7 +158,7 @@ public class GenerarOrdenController implements Initializable {
     public static void setNombreUsuario(String nombre) {
         nombreUsuario = nombre;
     }
-    //metodo para limpiar los componentes de la interfaz grafica 
+
     private static void reestablecer(TextField c1, TextField c2, TextField c3, TextField c4, TextField c5, ComboBox c6) {
         c1.setText(null);
         c2.setText(null);
